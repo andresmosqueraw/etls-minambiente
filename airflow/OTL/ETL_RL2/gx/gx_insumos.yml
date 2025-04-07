@@ -1,0 +1,733 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - id_ley2
+    - nom_ley2
+    - sustrajo
+    - sector
+    - solicitant
+    - acto_admin
+    - fecha_acto
+    - municipio
+    - departamen
+    - observacio
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - globalid
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: sustracciones_definitivas_ley2
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_ley2
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nom_ley2
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sustrajo
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sector
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: solicitant
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_acto
+    type_: datetime
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: municipio
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: departamen
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: observacio
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: globalid
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: sustracciones_definitivas_ley2
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - id_ley2
+    - nom_ley2
+    - tipo_zoni
+    - soporte
+    - departamen
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - globalid
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: zonificacion_ley2
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: zonificacion_ley2
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_ley2
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nom_ley2
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_zoni
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: soporte
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: departamen
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: zonificacion_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: zonificacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: zonificacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: globalid
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: zonificacion_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: zonificacion_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: zonificacion_ley2
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - nom_ley2
+    - area_ha
+    - res_zoni
+    - fecha_ingr
+    - fecha_reco
+    - globalid
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_ley2
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_ley2
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: area_reserva_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nom_ley2
+    type_: str
+  meta:
+    table: area_reserva_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: area_reserva_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: res_zoni
+    type_: str
+  meta:
+    table: area_reserva_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: area_reserva_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: area_reserva_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: globalid
+    type_: str
+  meta:
+    table: area_reserva_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: area_reserva_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: area_reserva_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_ley2
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - id_reserva
+    - id_sdef
+    - municipio
+    - departamen
+    - expediente
+    - acto_admin
+    - fecha_acto
+    - entidad_ex
+    - proyecto
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - nombre
+    - globalid
+    - created_us
+    - created_da
+    - last_edite
+    - last_edi_1
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: compensacion_ley2
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: compensacion_ley2
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_reserva
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_sdef
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: municipio
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: departamen
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: expediente
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_acto
+    type_: datetime
+  meta:
+    table: compensacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: entidad_ex
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: proyecto
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: compensacion_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: compensacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: compensacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: globalid
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: created_us
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: created_da
+    type_: datetime
+  meta:
+    table: compensacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: last_edite
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: last_edi_1
+    type_: datetime
+  meta:
+    table: compensacion_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: compensacion_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: compensacion_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: compensacion_ley2
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - id_ley2
+    - nom_ley2
+    - sustrajo
+    - solicitant
+    - acto_admin
+    - fecha_acto
+    - municipio
+    - departamen
+    - fecha_fin
+    - observacio
+    - sector
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - id_dbbse
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: sustracciones_temporales_ley2
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_ley2
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nom_ley2
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sustrajo
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: solicitant
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_acto
+    type_: datetime
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: municipio
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: departamen
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_fin
+    type_: datetime
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: observacio
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sector
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_dbbse
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: sustracciones_temporales_ley2
+    postgres_type: USER-DEFINED
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema insumos"

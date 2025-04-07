@@ -1,0 +1,427 @@
+INTERLIS 2.3;
+
+/** Las Reservas Forestales establecidas mediante la Ley 2ª de 1959, no hacen parte del Sistema Nacional de Áreas Protegidas -SINAP-, pero se consideran estrategias de conservación in situ que complementan dicho sistema y contribuyen al logro de los objetivos de conservación del país. Se establecieron principalmente para el desarrollo de la economía forestal y protección de los suelos, las aguas y la vida silvestre. 
+ * 
+ * De acuerdo con el Decreto Ley 2811 de 1974, se denomina área de reserva forestal la zona de propiedad pública o privada reservada para destinarla exclusivamente al establecimiento o mantenimiento y utilización racional de áreas forestales productoras, protectoras o productoras - protectoras.
+ * 
+ * La Reserva Forestal es una determinante ambiental y por lo tanto norma de superior jerarquía que no puede ser desconocida, contrariada o modificada en los Planes de Ordenamiento Territorial de los municipios y distritos, de acuerdo con la Constitución y la ley.
+ */
+!!@ technicalContact="Dirección de Bosques, Biodiversidad y Servicios Ecosistémicos"
+MODEL LADM_COL_v_1_0_0_Ext_RL2 (es)
+AT "mailto:Obosques@minambiente.gov.co"
+VERSION "1.0.0"  =
+  IMPORTS LADM_COL_v_4_0_1_Nucleo;
+
+  DOMAIN
+
+    /** Establece las causales de sustracción, teniendo en cuenta el artículo 210 del decreto 2811 de 1974, que establece que si en área de reserva forestal, por razones de utilidad pública o interés social, es necesario realizar actividades económicas que impliquen remoción de bosques o cambio en el uso de los suelos o cualquiera otra actividad distinta del aprovechamiento racional de los bosques, la zona afectada deberá, debidamente delimitada, ser previamente sustraída de la reserva.
+     * 
+     * También se podrán sustraer de la reserva forestal los predios cuyos propietarios demuestren que sus suelos pueden ser utilizados en explotación diferente de la forestal, siempre que no se perjudique la función protectora de la reserva
+     */
+    RL2_CausalSustraccionTipo = (
+      /** Resolución 1526 de 2012 (Resolución 110 de 2022): Se permite la realización de actividades económicas que impliquen la remoción de bosques o un cambio en el uso del suelo o cualquiera otra actividad distinta del aprovechamiento racional de los bosques, siempre que estas actividades sean de utilidad pública o interés social.
+       */
+      !!@ ili2db.dispName="Utilidad pública"
+      Utilidad_Publica,
+      /** Inciso segundo artículo 210 del decreto ley 2811 de 1974: Los propietarios de predios privados que demuestren que sus suelos pueden ser utilizados para actividades distintas a la forestal pueden solicitar la sustracción de la reserva, siempre que esta decisión no comprometa la función protectora de la misma.
+       */
+      !!@ ili2db.dispName="Uso alternativo del suelo"
+      Uso_Alternativo_Suelo,
+      /** • Resolución 871 de 2006 establece el procedimiento y los requisitos para el trámite de las solicitudes de sustracción de los suelos urbano y de expansión urbana municipales de las áreas de reserva forestal de la Ley 2ª de 1959  
+       * 
+       * • Resolución 1917 de 2011, modifica los artículos 1° y 2° de la Resolución 871 del 17 de mayo de 2006.
+       * 
+       * • Mediante el artículo 3 de la (Resolución 763 de 2004), se procedió a sustraer de las reservas forestales nacionales de Ley 2ª de 1959, las cabeceras municipales incluyendo las infraestructuras y equipamientos de servicios básico y saneamiento ambiental asociado a dichos desarrollos.
+       */
+      !!@ ili2db.dispName="Áreas urbanas"
+      Areas_Urbanas,
+      /** Por medio de la Resolución 590 de 2018, se establecen los requisitos y el procedimiento para la sustracción temporal y definitiva especial de áreas de Reserva Forestal establecidas mediante la Ley 2ª de 1959, en el marco de las Áreas de Reserva Especial donde existan explotaciones tradicionales de minería informal.
+       */
+      !!@ ili2db.dispName="Áreas de reserva especial minera"
+      Areas_Reserva_Especial_Minera,
+      /** Para programas de reforma agraria y desarrollo rural de que trata la Ley 160 de 1994, orientadas a la economía campesina y la restitución jurídica y material de las tierras a las víctimas, en el marco de la Ley 1448 de 2011.
+       */
+      !!@ ili2db.dispName="Adjudicación de baldios"
+      Adjudicacion_Baldios(
+        /** Resolución 629 de 2012
+         */
+        !!@ ili2db.dispName="Adjudicación y Restitución de tierras a victimas"
+        Adjudicacion_Restitucion,
+        /** Resolución 168 de 2013
+         */
+        !!@ ili2db.dispName="Entidades territoriales"
+        Entidades_Territoriales
+      )
+    );
+
+    /** Define los Derechos asociados a la Reserva Ley 2ª de 1959
+     */
+    RL2_DerechoTipo = (
+      /** De acuerdo con el parágrafo 3 del artículo 204 de la ley 1450 de 2011,las áreas de reserva forestal establecidas por el artículo 1 de la Ley 2ª de 1959 podrán ser objeto de realinderación por parte del Ministerio de Ambiente y Desarrollo Sostenible.
+       */
+      Realinderar,
+      /** De acuerdo con el parágrafo 3 del artículo 204 de la ley 1450 de 2011,las áreas de reserva forestal establecidas por el artículo 1 de la Ley 2ª de 1959 podrán ser objeto de recategorización por parte del Ministerio de Ambiente y Desarrollo Sostenible.
+       */
+      Recategorizar,
+      /** De acuerdo con el parágrafo 3 del artículo 204 de la ley 1450 de 2011,las áreas de reserva forestal establecidas por el artículo 1 de la Ley 2ª de 1959 podrán ser objeto de integración por parte del Ministerio de Ambiente y Desarrollo Sostenible.
+       */
+      Integrar,
+      /** De acuerdo con el parágrafo 3 del artículo 204 de la ley 1450 de 2011,las áreas de reserva forestal establecidas por el artículo 1 de la Ley 2ª de 1959 podrán ser objeto de sustracción por parte del Ministerio de Ambiente y Desarrollo Sostenible.
+       */
+      Sustraer
+    );
+
+    /** Define el acto administrativo relacionado con la Reserva Ley 2ª de 1959
+     */
+    RL2_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      !!@ ili2db.dispName="Documento público"
+      Documento_Publico(
+        /** Acto legislativo o normativo de carácter local que es expedido por diferentes autoridades dentro de la estructura administrativa del país, tales como los concejales, alcaldes, personerías, contralorías y Juntas Administradoras Locales (JAL).
+         */
+        !!@ ili2db.dispName="(Documento público) Acuerdo"
+        Acuerdo,
+        /** Decisión judicial que resuelve cuestiones procesales durante el curso de un proceso. Es dictado por un juez o tribunal y tiene efectos obligatorios para las partes involucradas
+         */
+        !!@ ili2db.dispName="(Documento público) Auto"
+        Auto,
+        /** Decisión administrativa emitida por una autoridad administrativa en ejercicio de sus funciones, que tiene efectos jurídicos dentro de su ámbito de competencia. Las resoluciones se utilizan para regular, interpretar, aplicar o ejecutar disposiciones legales o reglamentarias y son de carácter obligatorio para las personas o entidades a las que se dirigen.
+         */
+        !!@ ili2db.dispName="(Documento público) Resolución"
+        Resolucion,
+        /** Norma jurídica dictada por el Congreso de la República o por el gobierno en ejercicio de sus competencias, que establece reglas de conducta obligatorias para todos los habitantes del país.
+         */
+        !!@ ili2db.dispName="(Documento público) Ley"
+        Ley
+      )
+    );
+
+    /** Define las Responsabilidades asociadas a la Reserva Ley 2ª de 1959
+     */
+    RL2_ResponsabilidadTipo = (
+      /** De acuerdo con el artículo 31 de la ley 99 de 1993, las Corporaciones Autónomas Regionales ejercerán entre sus funciones: 
+       * Reservar, alinderar, administrar, en los términos y condiciones que fijen la ley y los reglamentos, los distritos de manejo integrado, los distritos de conservación de suelos, las reservas forestales y parques naturales de carácter regional, y reglamentar su uso y funcionamiento. Administrar las Reservas Forestales Nacionales en el área de su jurisdicción.
+       */
+      Administrar,
+      /** De acuerdo con el inciso 2° del artículo 204 de la Ley 1450 de 2011, establece que, el Ministerio de Ambiente y Desarrollo Sostenible, al momento de autorizar la sustracción de las áreas de reserva forestal, sea esta temporal o definitiva, impondrá al interesado en la sustracción, las medidas de compensación, restauración y recuperación a que haya lugar, sin perjuicio de las que sean impuestas en virtud del desarrollo de la actividad que se pretenda desarrollar en el área sustraída.
+       */
+      Compensar,
+      /** De acuerdo con el parágrafo 3 del artículo 204 de la ley 1450 de 2011, las áreas de reserva forestal establecidas por el artículo 1 de la Ley 2ª de 1959 deben ser zonificadas.
+       */
+      Zonificar
+    );
+
+    /** Detalle del sector que solicita la sustracción a la Reserva Ley 2ª de 1959
+     */
+    RL2_SectorTipo = (
+      /** Infraestructura de transporte (vías, puertos y aeropuertos)
+       */
+      !!@ ili2db.dispName="Infraestructura de transporte"
+      Infraestructura_Transporte,
+      /** Minería
+       */
+      !!@ ili2db.dispName=Minería
+      Mineria,
+      /** Energía
+       */
+      !!@ ili2db.dispName=Energía
+      Energia,
+      /** Hidrocarburos
+       */
+      !!@ ili2db.dispName=Hidrocarburos
+      Hidrocarburos,
+      /** Areas urbanas, expansión urbana y rurales ocupadas
+       */
+      !!@ ili2db.dispName="Áreas urbanas, expansión urbana y rurales ocupadas"
+      Area_Urbana_Expansion_Rural,
+      /** Vivienda VIS Y VIP
+       */
+      !!@ ili2db.dispName="Vivienda VIS y VIP"
+      Vivienda_VIS_VIP,
+      /** Restitución de tierras
+       */
+      !!@ ili2db.dispName="Restitución de tierras"
+      Restitucion_Tierras,
+      /** Reforma agraría (colonización, baldios, ZRC)
+       */
+      !!@ ili2db.dispName="Reforma agraria (colonización, baldíos, ZRC)"
+      Reforma_Agraria,
+      /** Inciso segundo, del artículo 210 del Decreto 2811 de 1974 que establece que, también se podrán sustraer de la reserva forestal los predios cuyos propietarios demuestren que sus suelos pueden ser utilizados en explotación diferente de la forestal, siempre que no se perjudique la función protectora de la reserva.
+       */
+      !!@ ili2db.dispName="Inciso segundo"
+      Inciso_Segundo,
+      /** Otro
+       */
+      !!@ ili2db.dispName=Otro
+      Otro
+    );
+
+    /** Define los dos tipos de sustracciones: 
+     * - Definitiva 
+     * - Temporal
+     */
+    RL2_SustraccionReservaTipo = (
+      /** De acuerdo con el Artículo 4° de la Resolución 110 de 2022 - Implica el levantamiento definitivo de la figura legal a un área debidamente delimitada de la reserva forestal solicitada en sustracción para adelantar un proyecto, obra o actividad de utilidad pública e interés social, asimismo, para adelantar actividades de explotación diferente de la forestal, que tiene permanencia en el tiempo.
+       */
+      Definitiva,
+      /** De acuerdo con el Artículo 4° de la Resolución 110 de 2022 - Implica el levantamiento transitorio de la figura legal a un área debidamente delimitada de la reserva forestal solicitada en sustracción para adelantar un proyecto, obra o actividad de utilidad pública e interés social que no tiene permanencia en el tiempo y que deberá ser reintegrada a la reserva forestal.
+       */
+      Temporal
+    );
+
+    /** Sigla de la entidad que efectuó la sustracción a la Reserva Ley 2ª de 1959
+     */
+    RL2_SustrajoTipo = (
+      /** Instituto Colombiano de Desarrollo Rural
+       */
+      INCODER,
+      /** Instituto Colombiano de la Reforma Agraria
+       */
+      INCORA,
+      /** Instituto Nacional de los Recursos Naturales Renovables y del Ambiente
+       */
+      INDERENA,
+      /** Ministerio de Ambiente, Vivienda y Desarrollo Territorial
+       */
+      MAVDT,
+      /** Ministerio de Ambiente y Desarrollo Sostenible
+       */
+      MADS,
+      Otro
+    );
+
+    /** Define la zonificación de las Reservas Ley 2ª de 1959, en la cual existen tres tipos de zonas y áreas con previa decisión de ordenamiento.
+     */
+    RL2_ZonaTipo = (
+      /** Zonas que garantizan el mantenimiento de los procesos ecológicos básicos necesarios para asegurar la oferta de servicios ecosistémicos, relacionados principalmente con la regulación hídrica y climática; la asimilación de contaminantes del aire y del agua; la formación y protección del suelo; la protección de paisajes singulares y de patrimonio cultural; y el soporte a la diversidad biológica.
+       */
+      !!@ ili2db.dispName="Tipo A"
+      Tipo_A,
+      /** Zonas que se caracterizan por tener coberturas favorables para un manejo sostenible del recurso forestal mediante un enfoque de ordenación forestal integral y la gestión integral de la biodiversidad y los servicios ecosistémicos.
+       */
+      !!@ ili2db.dispName="Tipo B"
+      Tipo_B,
+      /** Zonas que por sus características biofísicas ofrecen condiciones para el desarrollo de actividades productivas agroforestales, silvopastoriles y otras compatibles con los objetivos de la Reserva Forestal, que deben incorporar el componente forestal, y que no impliquen la reducción de las áreas de bosque natural presentes en sus diferentes estados sucesionales.
+       */
+      !!@ ili2db.dispName="Tipo C"
+      Tipo_C,
+      /** Las áreas pertenecientes al Sistema Nacional de Áreas Protegidas –SINAP- de que trata el Decreto 2372 de 2010 (compilado en el Decreto 1076 de 2015) y los territorios colectivos presentes al interior de las áreas de reserva forestal de Ley 2ª de 1959, no fueron objeto de zonificación y ordenamiento, considerando que, las áreas protegidas cuentan con una zonificación y ordenamiento con fines de manejo, a fin de garantizar el cumplimiento de sus objetivos de conservación (Plan de Manejo), y los territorios colectivos por su parte, cuentan con Planes de Etnodesarrollo y Planes de Vida; cuyas directrices deben garantizar la función ecológica de la propiedad colectiva.
+       */
+      !!@ ili2db.dispName="Área con previa decisión de ordenamiento"
+      Area_Previa_Decision_Ordenamiento
+    );
+
+  /** La Ley 2ª de 1959 establece, entre otras disposiciones, con carácter de "Zonas Forestales Protectoras" y "Bosques de Interés General" (según la clasificación de que trata el Decreto legislativo número 2278 de 1953, artículo 4) siete grandes zonas de reserva forestal, de acuerdo con los límites que se definen para cada bosque nacional:
+   * • Zona de Reserva Forestal del Pacífico - Resolución 1926 de 2013
+   * • Zona de Reserva Forestal del Río Magdalena - Resolución 1924 de 2013
+   * • Zona de Reserva Forestal de la Sierra Nevada de Santa Marta - Resolución 1276 de 2014
+   * • Zona de Reserva Forestal de la Serranía de los Motilones - Resolución 1923 de 2013
+   * • Zona de Reserva Forestal del Cocuy - Resolución 1275 de 2014
+   * • Zona de Reserva Forestal de la Amazonía - Resolución 1925 de 2013 y Resolución 1277 de 2014
+   * • Zona de Reserva Forestal Central - Resolución 1922 de 2013
+   */
+  TOPIC RL2
+  EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo;
+
+    /** Agrupación de interesados en la Reserva Ley 2ª de 1959
+     */
+    CLASS RL2_AgrupacionInteresados
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionInteresados =
+    END RL2_AgrupacionInteresados;
+
+    /** Establece el tipo de Derecho que puede tener un interesado de la  Reserva Ley 2ª de 1959
+     */
+    CLASS RL2_Derecho
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_DerechoTipo;
+    END RL2_Derecho;
+
+    /** Identifica el acto administrativo con el cual se sustenta la declaratoria, zonificación, sustracción temporal o sustracción definitiva
+     */
+    CLASS RL2_FuenteAdministrativa
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_FuenteAdministrativaTipo;
+    END RL2_FuenteAdministrativa;
+
+    /** Fuente espacial asociada a la Reserva Ley 2ª de 1959
+     */
+    CLASS RL2_FuenteEspacial
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteEspacial =
+    END RL2_FuenteEspacial;
+
+    /** Interesado asociado con los DRR de la Reserva Ley 2ª de 1959
+     */
+    CLASS RL2_Interesado
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Interesado =
+      /** Detalle del tipo de interesado
+       */
+      Observacion : TEXT*255;
+    END RL2_Interesado;
+
+    CLASS RL2_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END RL2_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS RL2_NU_CadenaCarasLimite
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_CadenaCarasLimite =
+    END RL2_NU_CadenaCarasLimite;
+
+    CLASS RL2_NU_Punto
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Punto =
+    END RL2_NU_Punto;
+
+    /** Establece el tipo de Responsabilidad que puede tener un interesado de la  Reserva Ley 2ª de 1959
+     */
+    CLASS RL2_Responsabilidad
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_ResponsabilidadTipo;
+    END RL2_Responsabilidad;
+
+    /** Las siete (7) áreas de reserva forestal constituidas mediante la expedición de la Ley 2ª de 1959, están orientadas para el desarrollo de la economía forestal y protección de los suelos, las aguas y la vida silvestre. No son áreas protegidas, sin embargo, en su interior se encuentran áreas del Sistema Nacional de Áreas Protegidas – SINAP y territorios colectivos. 
+     * 
+     * La Resolución 1527 de 2012, señala las actividades de bajo impacto ambiental y que además, generan beneficio social, de manera que se puedan desarrollar en las áreas de reserva forestal, sin necesidad de efectuar la sustracción del área.
+     */
+    !!@ ili2db.dispName="(RL2) UAB Área de reserva"
+    CLASS RL2_UAB_AreaReserva
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Nombre de la reserva de acuerdo con la Ley 2ª de 1959
+       */
+      !!@ ili2db.dispName="Nombre de la Reserva Ley 2ª de 1959"
+      Nombre_Reserva : MANDATORY TEXT*150;
+      UNIQUE Nombre_Reserva;
+    END RL2_UAB_AreaReserva;
+
+    /** La compensación ambiental es un conjunto de medidas y acciones generadoras de beneficios ambientales proporcionales a los daños o perjuicios ambientales causados por el desarrollo de los proyectos siempre que no se puedan adoptar medidas de prevención, corrección, mitigación, recuperación y restauración eficaces.
+     * 
+     * Con estás se busca generar mecanismos e instrumentos, que conlleven a actividades y medidas efectivas para evitar impactos sobre áreas sensibles, minimizar aquellos mitigables, y finalmente compensar los impactos residuales.
+     */
+    CLASS RL2_UAB_Compensacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Número del expediente interno relacionado con la compensación
+       */
+      Expediente : MANDATORY TEXT*100;
+      /** Nombre del proyecto objeto de la sustracción
+       */
+      Observaciones : MTEXT;
+    END RL2_UAB_Compensacion;
+
+    /** La capa de sustracciones definitivas de Reserva Forestal Ley 2ª de 1959 escala 1:100.000, muestra los límites espaciales construidos a partir de los linderos descritos por los actos administrativos mediante los cuales se realizaron sustracciones a la capa de Reserva Forestal Ley 2ª de 1959. Se realizan actualizaciones mensuales conforme las solicitudes, y su administración 
+     * 
+     * Según el artículo 210 del Decreto 2811 de 1974, se establecen dos causales específicas para la sustracción de las reservas forestales definidas por la Ley 2ª de 1959. 
+     * 1. Utilidad pública o interés social
+     *  - Resolución 110 de 2022
+     *  - Resolución 1526 de 2012 artículos 7 y 8
+     * 2. Uso alternativo de suelos - A solicitud de los propietarios de predios privados
+     * 
+     * Adicionalmente, se puede solicitar sustracción para los siguientes propósitos:  
+     * 3. Adjudicación de terrenos baldíos: 
+     *  - Restitución de tierras a victimas - Resolución 629 de 2012 
+     *  - Entidades territoriales - Resolución 168 de 2013
+     * 4. Áreas Urbanas
+     *  - Resolución 763 de 2004
+     *  - Resolución 871 de 2006
+     * - Resolución 1917 de 2011
+     * 5. Áreas de Reserva Especial Minera - Resolución 590 de 2018
+     */
+    CLASS RL2_UAB_Sustraccion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      Expediente : MANDATORY TEXT*100;
+      /** Dominio que define el tipo de sustracción realikzado a la Reserva Ley 2ª de 1959
+       */
+      Tipo_Sustraccion : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_SustraccionReservaTipo;
+      /** Dominio de datos que establece la causal de sustracción realizada a la Reserva Ley 2ª de 1959
+       */
+      Tipo_Causal : LADM_COL_v_1_0_0_Ext_RL2.RL2_CausalSustraccionTipo;
+      /** Corresponde a la sigla de la entidad que aprobó el área de sustracción
+       */
+      Sustrajo : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_SustrajoTipo;
+      Detalle_Sustrajo : TEXT*255;
+      /** Corresponde a la fecha en la que finaliza la sustracción (aplica para las sustracciones temporales)
+       */
+      Fin_Sustraccion : INTERLIS.XMLDate;
+      /** Identifica el sector que realizó la solicitud de sustracción
+       */
+      Tipo_Sector : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_SectorTipo;
+      /** Cuando el tipo de sector sea Otro, se podrá especificar el detalle de este sector
+       */
+      Detalle_Sector : TEXT*255;
+      Solicitante : TEXT*255;
+      /** Observaciones generales de la sustracción
+       */
+      Observaciones : MTEXT;
+    END RL2_UAB_Sustraccion;
+
+    /** Contiene las zonificaciones de las Reservas Ley 2ª de 1959. La zonificación permite definir tres tipos de zonas:
+     * a. Zonas Tipo A
+     * b. Zonas Tipo B
+     * c. Zonas Tipo C
+     */
+    CLASS RL2_UAB_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Define el tipo de zonificación de la Reserva Ley 2ª de 1959.
+       */
+      Tipo_Zona : MANDATORY LADM_COL_v_1_0_0_Ext_RL2.RL2_ZonaTipo;
+    END RL2_UAB_Zonificacion;
+
+    /** Unidad Espacial del área de Reserva Ley 2ª de 1959
+     */
+    CLASS RL2_UE_AreaReserva
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área geométrica en la proyección origen único nacional en hectáreas
+       */
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RL2_UE_AreaReserva;
+
+    /** Unidad Espacial de la Compensación de las Reservas Ley 2ª de 1959 que contiene los polígonos de aquellas áreas dadas en compensación por procesos de sustracción en las Reservas Ley 2ª de 1959
+     */
+    CLASS RL2_UE_Compensacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas
+       */
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RL2_UE_Compensacion;
+
+    /** Unidad Espacial de la Sustracción de la Reserva Ley 2ª de 1959, a escala 1:100.000, que muestra los límites espaciales construidos a partir de los linderos descritos por los actos administrativos mediante los cuales se realizaron sustracciones a la capa de Reservas Ley 2ª de 1959
+     */
+    CLASS RL2_UE_Sustraccion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas
+       */
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RL2_UE_Sustraccion;
+
+    /** Unidad Espacial de la Zonificación del Área de Reserva Ley 2ª de 1959 que contiene las zonificaciones de las Reservas Ley 2ª de 1959
+     */
+    CLASS RL2_UE_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas correspondiente a la zonificación
+       */
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RL2_UE_Zonificacion;
+
+    ASSOCIATION RL2_AreaReserva_Compensacion =
+      UAB_Compensacion -- {0..*} RL2_UAB_Compensacion;
+      UAB_AreaReserva -- {1} RL2_UAB_AreaReserva;
+    END RL2_AreaReserva_Compensacion;
+
+    ASSOCIATION RL2_AreaReserva_Sustraccion =
+      UAB_Sustraccion -- {0..*} RL2_UAB_Sustraccion;
+      UAB_AreaReserva -- {1} RL2_UAB_AreaReserva;
+    END RL2_AreaReserva_Sustraccion;
+
+    ASSOCIATION RL2_AreaReserva_Zonificacion =
+      UAB_Zonificacion -- {1..*} RL2_UAB_Zonificacion;
+      UAB_AreaReserva -- {1} RL2_UAB_AreaReserva;
+    END RL2_AreaReserva_Zonificacion;
+
+    ASSOCIATION RL2_Sustraccion_Compensacion =
+      UAB_Compensacion -- {0..1} RL2_UAB_Compensacion;
+      UAB_Sustraccion -- {1} RL2_UAB_Sustraccion;
+    END RL2_Sustraccion_Compensacion;
+
+  END RL2;
+
+END LADM_COL_v_1_0_0_Ext_RL2.

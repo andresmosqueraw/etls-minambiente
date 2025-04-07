@@ -1,0 +1,1485 @@
+table_count: 73
+tables:
+  t_ili2db_inheritance:
+    columns:
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    column_count: 2
+  t_ili2db_settings:
+    columns:
+    - name: tag
+      type: character varying
+    - name: setting
+      type: character varying
+    column_count: 2
+  t_ili2db_trafo:
+    columns:
+    - name: iliname
+      type: character varying
+    - name: tag
+      type: character varying
+    - name: setting
+      type: character varying
+    column_count: 3
+  t_ili2db_model:
+    columns:
+    - name: filename
+      type: character varying
+    - name: iliversion
+      type: character varying
+    - name: modelname
+      type: text
+    - name: content
+      type: text
+    - name: importdate
+      type: timestamp without time zone
+    column_count: 5
+  t_ili2db_classname:
+    columns:
+    - name: iliname
+      type: character varying
+    - name: sqlname
+      type: character varying
+    column_count: 2
+  t_ili2db_attrname:
+    columns:
+    - name: iliname
+      type: character varying
+    - name: sqlname
+      type: character varying
+    - name: colowner
+      type: character varying
+    - name: target
+      type: character varying
+    column_count: 4
+  t_ili2db_column_prop:
+    columns:
+    - name: tablename
+      type: character varying
+    - name: subtype
+      type: character varying
+    - name: columnname
+      type: character varying
+    - name: tag
+      type: character varying
+    - name: setting
+      type: character varying
+    column_count: 5
+  t_ili2db_table_prop:
+    columns:
+    - name: tablename
+      type: character varying
+    - name: tag
+      type: character varying
+    - name: setting
+      type: character varying
+    column_count: 3
+  t_ili2db_meta_attrs:
+    columns:
+    - name: ilielement
+      type: character varying
+    - name: attr_name
+      type: character varying
+    - name: attr_value
+      type: character varying
+    column_count: 3
+  t_ili2db_basket:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: dataset
+      type: bigint
+    - name: topic
+      type: character varying
+    - name: t_ili_tid
+      type: character varying
+    - name: attachmentkey
+      type: character varying
+    - name: domains
+      type: character varying
+    column_count: 6
+  gm_surface3dlistvalue:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: character varying
+    - name: t_seq
+      type: bigint
+    - name: avalue
+      type: USER-DEFINED
+    - name: gm_multisurface3d_geometry
+      type: bigint
+    column_count: 6
+  gm_multisurface3d:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: character varying
+    - name: t_seq
+      type: bigint
+    column_count: 4
+  extarchivo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: character varying
+    - name: t_seq
+      type: bigint
+    - name: fecha_aceptacion
+      type: date
+    - name: datos
+      type: character varying
+    - name: extraccion
+      type: date
+    - name: fecha_grabacion
+      type: date
+    - name: fecha_entrega
+      type: date
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    - name: rl2_fuenteadminstrtiva_ext_archivo_id
+      type: bigint
+    - name: rl2_fuenteespacial_ext_archivo_id
+      type: bigint
+    column_count: 13
+  rl2_fuenteadministrativa:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo
+      type: bigint
+    - name: fecha_fin
+      type: date
+    - name: estado_disponibilidad
+      type: bigint
+    - name: tipo_formato
+      type: bigint
+    - name: fecha_documento_fuente
+      type: date
+    - name: nombre
+      type: character varying
+    - name: descripcion
+      type: character varying
+    - name: url
+      type: character varying
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 13
+  rl2_fuenteespacial:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo
+      type: bigint
+    - name: metadato
+      type: text
+    - name: estado_disponibilidad
+      type: bigint
+    - name: tipo_formato
+      type: bigint
+    - name: fecha_documento_fuente
+      type: date
+    - name: nombre
+      type: character varying
+    - name: descripcion
+      type: character varying
+    - name: url
+      type: character varying
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 13
+  extdireccion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: character varying
+    - name: t_seq
+      type: bigint
+    - name: tipo_direccion
+      type: bigint
+    - name: es_direccion_principal
+      type: boolean
+    - name: localizacion
+      type: USER-DEFINED
+    - name: codigo_postal
+      type: character varying
+    - name: clase_via_principal
+      type: bigint
+    - name: valor_via_principal
+      type: character varying
+    - name: letra_via_principal
+      type: character varying
+    - name: sector_ciudad
+      type: bigint
+    - name: valor_via_generadora
+      type: character varying
+    - name: letra_via_generadora
+      type: character varying
+    - name: numero_predio
+      type: character varying
+    - name: sector_predio
+      type: bigint
+    - name: complemento
+      type: character varying
+    - name: nombre_predio
+      type: character varying
+    - name: extinteresado_ext_direccion_id
+      type: bigint
+    - name: rl2_ue_areareserva_ext_direccion_id
+      type: bigint
+    - name: rl2_ue_compensacion_ext_direccion_id
+      type: bigint
+    - name: rl2_ue_sustraccion_ext_direccion_id
+      type: bigint
+    - name: rl2_ue_zonificacion_ext_direccion_id
+      type: bigint
+    column_count: 23
+  extdireccion_tipo_direccion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  extdireccion_clase_via_principal:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  extdireccion_sector_ciudad:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  extdireccion_sector_predio:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  extinteresado:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: character varying
+    - name: t_seq
+      type: bigint
+    - name: huella_dactilar
+      type: character varying
+    - name: nombre
+      type: character varying
+    - name: fotografia
+      type: character varying
+    - name: firma
+      type: character varying
+    - name: documento_escaneado
+      type: character varying
+    - name: rl2_agrupacionintrsdos_ext_pid
+      type: bigint
+    - name: rl2_interesado_ext_pid
+      type: bigint
+    column_count: 11
+  col_masccl:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: ccl_mas
+      type: bigint
+    - name: ue_mas_rl2_ue_areareserva
+      type: bigint
+    - name: ue_mas_rl2_ue_zonificacion
+      type: bigint
+    - name: ue_mas_rl2_ue_sustraccion
+      type: bigint
+    - name: ue_mas_rl2_ue_compensacion
+      type: bigint
+    column_count: 7
+  col_areatipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_areavalor:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: character varying
+    - name: t_seq
+      type: bigint
+    - name: tipo
+      type: bigint
+    - name: area
+      type: numeric
+    - name: datos_proyeccion
+      type: text
+    - name: rl2_ue_areareserva_area
+      type: bigint
+    - name: rl2_ue_compensacion_area
+      type: bigint
+    - name: rl2_ue_sustraccion_area
+      type: bigint
+    - name: rl2_ue_zonificacion_area
+      type: bigint
+    column_count: 11
+  rl2_agrupacioninteresados:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo
+      type: bigint
+    - name: nombre
+      type: character varying
+    - name: tipo_interesado
+      type: bigint
+    - name: tipo_documento
+      type: bigint
+    - name: numero_documento
+      type: character varying
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 12
+  rl2_interesado:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo
+      type: bigint
+    - name: observacion
+      type: character varying
+    - name: nombre
+      type: character varying
+    - name: tipo_interesado
+      type: bigint
+    - name: tipo_documento
+      type: bigint
+    - name: numero_documento
+      type: character varying
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 13
+  col_baunitcomointeresado:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: interesado_rl2_interesado
+      type: bigint
+    - name: interesado_rl2_agrupacioninteresados
+      type: bigint
+    - name: unidad_rl2_uab_sustraccion
+      type: bigint
+    - name: unidad_rl2_uab_compensacion
+      type: bigint
+    - name: unidad_rl2_uab_zonificacion
+      type: bigint
+    - name: unidad_rl2_uab_areareserva
+      type: bigint
+    column_count: 8
+  rl2_uab_sustraccion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: expediente
+      type: character varying
+    - name: tipo_sustraccion
+      type: bigint
+    - name: tipo_causal
+      type: bigint
+    - name: sustrajo
+      type: bigint
+    - name: detalle_sustrajo
+      type: character varying
+    - name: fin_sustraccion
+      type: date
+    - name: tipo_sector
+      type: bigint
+    - name: detalle_sector
+      type: character varying
+    - name: observaciones
+      type: text
+    - name: uab_areareserva
+      type: bigint
+    - name: uab_compensacion
+      type: bigint
+    - name: nombre
+      type: character varying
+    - name: tipo
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 20
+  rl2_uab_compensacion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: expediente
+      type: character varying
+    - name: observaciones
+      type: text
+    - name: uab_areareserva
+      type: bigint
+    - name: nombre
+      type: character varying
+    - name: tipo
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 12
+  rl2_uab_zonificacion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo_zona
+      type: bigint
+    - name: uab_areareserva
+      type: bigint
+    - name: nombre
+      type: character varying
+    - name: tipo
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 11
+  rl2_uab_areareserva:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: nombre_reserva
+      type: character varying
+    - name: nombre
+      type: character varying
+    - name: tipo
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 10
+  col_miembros:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: interesado_rl2_interesado
+      type: bigint
+    - name: interesado_rl2_agrupacioninteresados
+      type: bigint
+    - name: agrupacion
+      type: bigint
+    - name: participacion
+      type: numeric
+    column_count: 6
+  col_rrrfuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: fuente_administrativa
+      type: bigint
+    - name: rrr_rl2_derecho
+      type: bigint
+    - name: rrr_rl2_responsabilidad
+      type: bigint
+    column_count: 5
+  rl2_derecho:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo
+      type: bigint
+    - name: descripcion
+      type: character varying
+    - name: interesado_rl2_interesado
+      type: bigint
+    - name: interesado_rl2_agrupacioninteresados
+      type: bigint
+    - name: unidad_rl2_uab_sustraccion
+      type: bigint
+    - name: unidad_rl2_uab_compensacion
+      type: bigint
+    - name: unidad_rl2_uab_zonificacion
+      type: bigint
+    - name: unidad_rl2_uab_areareserva
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 15
+  rl2_responsabilidad:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: tipo
+      type: bigint
+    - name: descripcion
+      type: character varying
+    - name: interesado_rl2_interesado
+      type: bigint
+    - name: interesado_rl2_agrupacioninteresados
+      type: bigint
+    - name: unidad_rl2_uab_sustraccion
+      type: bigint
+    - name: unidad_rl2_uab_compensacion
+      type: bigint
+    - name: unidad_rl2_uab_zonificacion
+      type: bigint
+    - name: unidad_rl2_uab_areareserva
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 15
+  col_uebaunit:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: ue_rl2_ue_areareserva
+      type: bigint
+    - name: ue_rl2_ue_zonificacion
+      type: bigint
+    - name: ue_rl2_ue_sustraccion
+      type: bigint
+    - name: ue_rl2_ue_compensacion
+      type: bigint
+    - name: baunit_rl2_uab_sustraccion
+      type: bigint
+    - name: baunit_rl2_uab_compensacion
+      type: bigint
+    - name: baunit_rl2_uab_zonificacion
+      type: bigint
+    - name: baunit_rl2_uab_areareserva
+      type: bigint
+    column_count: 10
+  col_unidadfuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: fuente_administrativa
+      type: bigint
+    - name: unidad_rl2_uab_sustraccion
+      type: bigint
+    - name: unidad_rl2_uab_compensacion
+      type: bigint
+    - name: unidad_rl2_uab_zonificacion
+      type: bigint
+    - name: unidad_rl2_uab_areareserva
+      type: bigint
+    column_count: 7
+  col_responsablefuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: fuente_administrativa
+      type: bigint
+    - name: interesado_rl2_interesado
+      type: bigint
+    - name: interesado_rl2_agrupacioninteresados
+      type: bigint
+    column_count: 5
+  col_ueuegrupo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: parte_rl2_ue_areareserva
+      type: bigint
+    - name: parte_rl2_ue_zonificacion
+      type: bigint
+    - name: parte_rl2_ue_sustraccion
+      type: bigint
+    - name: parte_rl2_ue_compensacion
+      type: bigint
+    - name: todo
+      type: bigint
+    column_count: 7
+  col_puntofuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: fuente_espacial
+      type: bigint
+    - name: punto
+      type: bigint
+    column_count: 4
+  rl2_nu_punto:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: posicion_interpolacion
+      type: bigint
+    - name: puntotipo
+      type: bigint
+    - name: metodoproduccion
+      type: bigint
+    - name: geometria
+      type: USER-DEFINED
+    - name: ue_rl2_ue_areareserva
+      type: bigint
+    - name: ue_rl2_ue_zonificacion
+      type: bigint
+    - name: ue_rl2_ue_sustraccion
+      type: bigint
+    - name: ue_rl2_ue_compensacion
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 15
+  col_cclfuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: ccl
+      type: bigint
+    - name: fuente_espacial
+      type: bigint
+    column_count: 4
+  rl2_nu_cadenacaraslimite:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: geometria
+      type: USER-DEFINED
+    - name: localizacion_textual
+      type: character varying
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 9
+  col_uefuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: ue_rl2_ue_areareserva
+      type: bigint
+    - name: ue_rl2_ue_zonificacion
+      type: bigint
+    - name: ue_rl2_ue_sustraccion
+      type: bigint
+    - name: ue_rl2_ue_compensacion
+      type: bigint
+    - name: fuente_espacial
+      type: bigint
+    column_count: 7
+  col_baunitfuente:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: fuente_espacial
+      type: bigint
+    - name: unidad_rl2_uab_sustraccion
+      type: bigint
+    - name: unidad_rl2_uab_compensacion
+      type: bigint
+    - name: unidad_rl2_uab_zonificacion
+      type: bigint
+    - name: unidad_rl2_uab_areareserva
+      type: bigint
+    column_count: 7
+  col_menosccl:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: ccl_menos
+      type: bigint
+    - name: ue_menos_rl2_ue_areareserva
+      type: bigint
+    - name: ue_menos_rl2_ue_zonificacion
+      type: bigint
+    - name: ue_menos_rl2_ue_sustraccion
+      type: bigint
+    - name: ue_menos_rl2_ue_compensacion
+      type: bigint
+    column_count: 7
+  col_puntoccl:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: punto
+      type: bigint
+    - name: ccl
+      type: bigint
+    column_count: 4
+  col_grupointeresadotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_interesadotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_documentotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_derechotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_fuenteadministrativatipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_estadodisponibilidadtipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_formatotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_fuenteespacialtipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_sustrajotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_sectortipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_zonatipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_ue_areareserva:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: area_ha
+      type: numeric
+    - name: etiqueta
+      type: character varying
+    - name: relacion_superficie
+      type: bigint
+    - name: geometria
+      type: USER-DEFINED
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 11
+  col_relacionsuperficietipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_interesadotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_nu_agrupacionunidadesespaciales:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: nivel_jerarquico
+      type: integer
+    - name: etiqueta
+      type: character varying
+    - name: nombre
+      type: character varying
+    - name: punto_referencia
+      type: USER-DEFINED
+    - name: agrupacion
+      type: bigint
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 12
+  col_interpolaciontipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_puntotipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_metodoproducciontipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_responsabilidadtipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  col_unidadadministrativabasicatipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_sustraccionreservatipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_causalsustracciontipo:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: thisclass
+      type: character varying
+    - name: baseclass
+      type: character varying
+    - name: itfcode
+      type: integer
+    - name: ilicode
+      type: character varying
+    - name: seq
+      type: integer
+    - name: inactive
+      type: boolean
+    - name: dispname
+      type: character varying
+    - name: description
+      type: text
+    column_count: 9
+  rl2_ue_compensacion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: area_ha
+      type: numeric
+    - name: etiqueta
+      type: character varying
+    - name: relacion_superficie
+      type: bigint
+    - name: geometria
+      type: USER-DEFINED
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 11
+  rl2_ue_sustraccion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: area_ha
+      type: numeric
+    - name: etiqueta
+      type: character varying
+    - name: relacion_superficie
+      type: bigint
+    - name: geometria
+      type: USER-DEFINED
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 11
+  rl2_ue_zonificacion:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: t_basket
+      type: bigint
+    - name: t_ili_tid
+      type: uuid
+    - name: area_ha
+      type: numeric
+    - name: etiqueta
+      type: character varying
+    - name: relacion_superficie
+      type: bigint
+    - name: geometria
+      type: USER-DEFINED
+    - name: comienzo_vida_util_version
+      type: timestamp without time zone
+    - name: fin_vida_util_version
+      type: timestamp without time zone
+    - name: espacio_de_nombres
+      type: character varying
+    - name: local_id
+      type: character varying
+    column_count: 11
+  t_ili2db_dataset:
+    columns:
+    - name: t_id
+      type: bigint
+    - name: datasetname
+      type: character varying
+    column_count: 2

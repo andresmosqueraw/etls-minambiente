@@ -1,0 +1,7 @@
+great-expectations==0.18.22
+psycopg2-binary
+pyyaml
+apache-airflow
+coverage
+pytest
+pytest-cov
