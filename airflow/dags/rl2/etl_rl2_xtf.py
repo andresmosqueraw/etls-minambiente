@@ -59,8 +59,8 @@ from utils.data_utils import (
 )
 
 from utils.interlis_utils import (
-    importar_esquema_ladm_rl2,
-    exportar_datos_ladm_rl2
+    importar_esquema_ladm,
+    exportar_datos_ladm
 )
 
 # ------------------------- DEFINICIÓN DEL DAG -------------------------
@@ -173,7 +173,7 @@ with DAG(
     
     importar_esquema_ladm_task = PythonOperator(
         task_id="Importar_Esquema_LADM",
-        python_callable=lambda: importar_esquema_ladm_rl2(cfg),
+        python_callable=lambda: importar_esquema_ladm(cfg),
         retries=0
     )
     
@@ -209,7 +209,7 @@ with DAG(
     
     exportar_datos_ladm_task = PythonOperator(
         task_id="Exportar_Datos_LADM",
-        python_callable=lambda: exportar_datos_ladm_rl2(cfg),
+        python_callable=lambda: exportar_datos_ladm(cfg),
         retries=0
     )
     

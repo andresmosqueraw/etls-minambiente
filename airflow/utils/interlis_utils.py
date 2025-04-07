@@ -5,25 +5,23 @@ import logging
 
 from utils.utils import leer_configuracion
 
-def exportar_datos_ladm_rl2(cfg):
+def exportar_datos_ladm(cfg):
     """
     Exporta datos del esquema 'ladm' a XTF utilizando la configuración dinámica.
     """
-    logging.info("Iniciando exportar_datos_ladm_rl2...")
+    model_dir = cfg["MODEL_DIR"]
+    xtf_folder = cfg["XTF_DIR"]
+    ili2db_path = cfg["ILI2DB_JAR_PATH"]
+    config = leer_configuracion(cfg)
+    db_config = config["db"]
+    logs = config["logs"]
+    interlis = config["interlis"]
+    logging.info(f"Iniciando exportar_datos_ladm para {logs["nombre_etl"]}...")
     logging.info("Exportando datos del esquema 'ladm' a XTF (ili2db) ...")
-    try:
-        # Usamos cfg para obtener los paths dinámicos
-        model_dir = cfg["MODEL_DIR"]
-        xtf_folder = cfg["XTF_DIR"]
-        ili2db_path = cfg["ILI2DB_JAR_PATH"]
-
-        # Leemos la configuración de la BD (por ejemplo, desde el archivo JSON)
-        config = leer_configuracion(cfg)
-        db_config = config["db"]
-
+    try:        
         if not os.path.exists(xtf_folder):
             os.makedirs(xtf_folder)
-        xtf_path = os.path.join(xtf_folder, "rl2.xtf")
+        xtf_path = os.path.join(xtf_folder, interlis["nombre_archivo_xtf"])
         command = [
             "java",
             "-jar",
@@ -39,7 +37,7 @@ def exportar_datos_ladm_rl2(cfg):
             "--disableValidation",
             "--strokeArcs",
             "--modeldir", model_dir,
-            "--models", "LADM_COL_v_1_0_0_Ext_RL2",
+            "--models", interlis["nombre_modelo"],
             "--iliMetaAttrs", "NULL",
             "--defaultSrsAuth", "EPSG",
             "--defaultSrsCode", "9377",
@@ -49,31 +47,32 @@ def exportar_datos_ladm_rl2(cfg):
         logging.info(" ".join(command))
         result = subprocess.run(command, capture_output=True, text=True, check=True)
         logging.info(f"Exportación a XTF completada: {result.stderr.strip()}")
-        logging.info("\033[92m✔ exportar_datos_ladm_rl2 finalizó sin errores.\033[0m")
+        logging.info(f"\033[92m✔ exportar_datos_ladm para {logs["nombre_etl"]}finalizó sin errores.\033[0m")
     except subprocess.CalledProcessError as e:
         logging.error(f"Error exportando XTF: {e.stderr}")
-        logging.error("\033[91m❌ exportar_datos_ladm_rl2 falló.\033[0m")
+        logging.error(f"\033[91m❌ exportar_datos_ladm para {logs["nombre_etl"]}falló.\033[0m")
         raise Exception(f"Error exportando XTF: {e.stderr}")
     except Exception as ex:
-        logging.error(f"Error en exportar_datos_ladm_rl2: {ex}")
-        logging.error("\033[91m❌ exportar_datos_ladm_rl2 falló.\033[0m")
+        logging.error(f"Error en exportar_datos_ladm: {ex}")
+        logging.error(f"\033[91m❌ exportar_datos_ladm para {logs["nombre_etl"]}falló.\033[0m")
         raise Exception(f"Error exportando XTF: {ex}")
 
-def importar_esquema_ladm_rl2(cfg):
+def importar_esquema_ladm(cfg):
     """
-    Importa el esquema LADM-RL2 usando la configuración dinámica.
+    Importa el esquema LADM usando la configuración dinámica.
     """
-    logging.info("Iniciando importar_esquema_ladm_rl2...")
-    logging.info("Importando esquema LADM-RL2...")
+    MODEL_DIR = cfg["MODEL_DIR"]
+    ILI2DB_JAR_PATH = cfg["ILI2DB_JAR_PATH"]
+    EPSG_SCRIPT = cfg["EPSG_SCRIPT"]
+    config = leer_configuracion(cfg)
+    db_config = config["db"]
+    logs = config["logs"]
+    interlis = config["interlis"]
+    logging.info(f"Iniciando importar_esquema_ladm para {logs["nombre_etl"]}...")
+    logging.info(f"Importando esquema {logs["nombre_etl"]}...")
     try:
-        MODEL_DIR = cfg["MODEL_DIR"]
-        ILI2DB_JAR_PATH = cfg["ILI2DB_JAR_PATH"]
-        EPSG_SCRIPT = cfg["EPSG_SCRIPT"]
-
-        config = leer_configuracion(cfg)
-        db_config = config["db"]
         if not os.path.exists(ILI2DB_JAR_PATH):
-            logging.error("\033[91m❌ importar_esquema_ladm_rl2 falló. JAR no encontrado.\033[0m")
+            logging.error("\033[91m❌ importar_esquema_ladm falló. JAR no encontrado.\033[0m")
             raise FileNotFoundError(f"Archivo JAR no encontrado: {ILI2DB_JAR_PATH}")
         command = [
             "java", "-Duser.language=es", "-Duser.country=ES", "-jar", ILI2DB_JAR_PATH,
@@ -96,18 +95,18 @@ def importar_esquema_ladm_rl2(cfg):
             "--preScript", EPSG_SCRIPT,
             "--postScript", "NULL",
             "--modeldir", MODEL_DIR,
-            "--models", "LADM_COL_v_1_0_0_Ext_RL2",
+            "--models", interlis["nombre_modelo"],
             "--iliMetaAttrs", "NULL"
         ]
-        logging.info("Ejecutando ili2pg para importar LADM-RL2...")
+        logging.info(f"Ejecutando ili2pg para importar {logs["nombre_etl"]}...")
         logging.info(" ".join(command))
         subprocess.run(command, check=True)
-        logging.info("Esquema LADM-RL2 importado correctamente.")
-        logging.info("\033[92m✔ importar_esquema_ladm_rl2 finalizó sin errores.\033[0m")
+        logging.info(f"Esquema {logs["nombre_etl"]} importado correctamente.")
+        logging.info(f"\033[92m✔ importar_esquema_ladm para {logs["nombre_etl"]} finalizó sin errores.\033[0m")
     except subprocess.CalledProcessError as e:
-        logging.error("\033[91m❌ importar_esquema_ladm_rl2 falló.\033[0m")
-        raise Exception(f"Error importando LADM-RL2: {e}")
+        logging.error(f"\033[91m❌ importar_esquema_ladm para {logs["nombre_etl"]} falló.\033[0m")
+        raise Exception(f"Error importando {logs["nombre_etl"]}: {e}")
     except Exception as ex:
         logging.error(f"Error: {ex}")
-        logging.error("\033[91m❌ importar_esquema_ladm_rl2 falló.\033[0m")
-        raise Exception(f"Error importando LADM-RL2: {ex}")
+        logging.error(f"\033[91m❌ importar_esquema_ladm para {logs["nombre_etl"]} falló.\033[0m")
+        raise Exception(f"Error importando {logs["nombre_etl"]}: {ex}")
