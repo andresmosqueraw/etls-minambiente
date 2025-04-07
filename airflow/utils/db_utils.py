@@ -5,9 +5,9 @@ import logging
 from utils.utils import leer_configuracion
 
 
-def ejecutar_sql(sql, params=None):
+def ejecutar_sql(cfg, sql, params=None):
     """Ejecuta un script SQL completo en la base de datos."""
-    config = leer_configuracion()
+    config = leer_configuracion(cfg)
     db_config = config["db"]
     logging.info(f"Ejecutando SQL:\n{sql[:300]}...")  # Muestra solo primeros 300 caracteres
     conn = psycopg2.connect(
@@ -35,11 +35,11 @@ def ejecutar_sql(sql, params=None):
         conn.close()
 
 
-def validar_conexion_postgres():
+def validar_conexion_postgres(cfg):
     """Valida la conexión a PostgreSQL."""
     logging.info("Iniciando validar_conexion_postgres...")
     try:
-        config = leer_configuracion()
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         conn = psycopg2.connect(
             host=db_config["host"],
@@ -63,12 +63,12 @@ def validar_conexion_postgres():
         logging.error("\033[91m❌ validar_conexion_postgres falló.\033[0m")
         raise Exception(f"Error validando la conexión: {ex}")
     
-def revisar_existencia_db():
+def revisar_existencia_db(cfg):
     """Verifica si la base de datos ya existe y define el flujo de ejecución en Airflow."""
     logging.info("Iniciando revisar_existencia_db...")
     logging.info("Revisando si la base de datos existe...")
     try:
-        config = leer_configuracion()
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         conn = psycopg2.connect(
             host=db_config["host"],
@@ -95,12 +95,12 @@ def revisar_existencia_db():
         logging.error("\033[91m❌ revisar_existencia_db falló.\033[0m")
         raise Exception(f"Error revisando existencia de la base de datos: {e}")
 
-def crear_base_datos():
+def crear_base_datos(cfg):
     """Crea la base de datos si no existe."""
     logging.info("Iniciando crear_base_datos...")
     logging.info("Creando base de datos...")
     try:
-        config = leer_configuracion()
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         conn = psycopg2.connect(
             host=db_config["host"],
@@ -120,12 +120,12 @@ def crear_base_datos():
         logging.error("\033[91m❌ crear_base_datos falló.\033[0m")
         raise Exception(f"Error creando base de datos: {e}")
 
-def adicionar_extensiones():
+def adicionar_extensiones(cfg):
     """Adiciona las extensiones PostGIS y UUID a la base de datos."""
     logging.info("Iniciando adicionar_extensiones...")
     logging.info("Adicionando extensiones PostGIS y UUID...")
     try:
-        config = leer_configuracion()
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         conn = psycopg2.connect(
             host=db_config["host"],
@@ -147,30 +147,30 @@ def adicionar_extensiones():
         logging.error("\033[91m❌ adicionar_extensiones falló.\033[0m")
         raise Exception(f"Error adicionando extensiones: {e}")
        
-def restablecer_esquema_insumos():
+def restablecer_esquema_insumos(cfg):
     logging.info("Restableciendo esquema 'insumos'...")
     try:
-        ejecutar_sql("DROP SCHEMA IF EXISTS insumos CASCADE; CREATE SCHEMA insumos;")
+        ejecutar_sql(cfg, "DROP SCHEMA IF EXISTS insumos CASCADE; CREATE SCHEMA insumos;")
         logging.info("Esquema 'insumos' restablecido correctamente.")
     except Exception as e:
         logging.error(f"Error restableciendo esquema 'insumos': {e}")
         raise Exception(f"Error restableciendo esquema 'insumos': {e}")
 
 
-def restablecer_esquema_estructura_intermedia():
+def restablecer_esquema_estructura_intermedia(cfg):
     logging.info("Restableciendo esquema 'estructura_intermedia'...")
     try:
-        ejecutar_sql("DROP SCHEMA IF EXISTS estructura_intermedia CASCADE; CREATE SCHEMA estructura_intermedia;")
+        ejecutar_sql(cfg, "DROP SCHEMA IF EXISTS estructura_intermedia CASCADE; CREATE SCHEMA estructura_intermedia;")
         logging.info("Esquema 'estructura_intermedia' restablecido correctamente.")
     except Exception as e:
         logging.error(f"Error restableciendo esquema 'estructura_intermedia': {e}")
         raise Exception(f"Error restableciendo esquema 'estructura_intermedia': {e}")
 
 
-def restablecer_esquema_ladm():
+def restablecer_esquema_ladm(cfg):
     logging.info("Restableciendo esquema 'ladm'...")
     try:
-        ejecutar_sql("DROP SCHEMA IF EXISTS ladm CASCADE; CREATE SCHEMA ladm;")
+        ejecutar_sql(cfg, "DROP SCHEMA IF EXISTS ladm CASCADE; CREATE SCHEMA ladm;")
         logging.info("Esquema 'ladm' restablecido correctamente.")
     except Exception as e:
         logging.error(f"Error restableciendo esquema 'ladm': {e}")

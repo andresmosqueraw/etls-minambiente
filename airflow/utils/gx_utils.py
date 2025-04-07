@@ -4,13 +4,13 @@ import pandas as pd
 import yaml  # Requiere PyYAML para leer archivos YAML
 import logging
 
-from config.general_config import GX_DIR
 from utils.utils import leer_configuracion
 
 
-def _cargar_expectativas_desde_yaml(yaml_filename):
+def _cargar_expectativas_desde_yaml(yaml_filename, cfg):
     logging.info("Iniciando _cargar_expectativas_desde_yaml...")
     try:
+        GX_DIR = cfg["GX_DIR"]
         yaml_path = os.path.join(GX_DIR, yaml_filename)
         if not os.path.exists(yaml_path):
             msg = f"Archivo de expectativas {yaml_path} no existe."
@@ -43,10 +43,10 @@ def _obtener_tablas_esperadas(data):
     logging.info("\033[92m✔ _obtener_tablas_esperadas finalizó sin errores.\033[0m")
     return expected_tables
 
-def _obtener_engine_sqlalchemy():
+def _obtener_engine_sqlalchemy(cfg):
     logging.info("Iniciando _obtener_engine_sqlalchemy...")
     try:
-        config = leer_configuracion()
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         db_user = db_config["user"]
         db_password = db_config["password"]

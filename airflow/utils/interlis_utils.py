@@ -1,24 +1,26 @@
+# /opt/cpi/test/ETL_RL2/airflow/utils/interlis_utils.py
 import os
 import subprocess
 import logging
 
 from utils.utils import leer_configuracion
-from config.general_config import (
-    MODEL_DIR,
-    XTF_DIR,
-    ILI2DB_JAR_PATH,
-    EPSG_SCRIPT
-)
 
-def exportar_datos_ladm_rl2():
+def exportar_datos_ladm_rl2(cfg):
+    """
+    Exporta datos del esquema 'ladm' a XTF utilizando la configuración dinámica.
+    """
     logging.info("Iniciando exportar_datos_ladm_rl2...")
     logging.info("Exportando datos del esquema 'ladm' a XTF (ili2db) ...")
     try:
-        config = leer_configuracion()
+        # Usamos cfg para obtener los paths dinámicos
+        model_dir = cfg["MODEL_DIR"]
+        xtf_folder = cfg["XTF_DIR"]
+        ili2db_path = cfg["ILI2DB_JAR_PATH"]
+
+        # Leemos la configuración de la BD (por ejemplo, desde el archivo JSON)
+        config = leer_configuracion(cfg)
         db_config = config["db"]
-        ili2db_path = ILI2DB_JAR_PATH
-        model_dir = MODEL_DIR
-        xtf_folder = "/opt/airflow/OTL/ETL_RL2/xtf"
+
         if not os.path.exists(xtf_folder):
             os.makedirs(xtf_folder)
         xtf_path = os.path.join(xtf_folder, "rl2.xtf")
@@ -55,13 +57,20 @@ def exportar_datos_ladm_rl2():
     except Exception as ex:
         logging.error(f"Error en exportar_datos_ladm_rl2: {ex}")
         logging.error("\033[91m❌ exportar_datos_ladm_rl2 falló.\033[0m")
-        raise Exception(f"Error exportando XTF: {e.stderr}")
-    
-def importar_esquema_ladm_rl2():
+        raise Exception(f"Error exportando XTF: {ex}")
+
+def importar_esquema_ladm_rl2(cfg):
+    """
+    Importa el esquema LADM-RL2 usando la configuración dinámica.
+    """
     logging.info("Iniciando importar_esquema_ladm_rl2...")
     logging.info("Importando esquema LADM-RL2...")
     try:
-        config = leer_configuracion()
+        MODEL_DIR = cfg["MODEL_DIR"]
+        ILI2DB_JAR_PATH = cfg["ILI2DB_JAR_PATH"]
+        EPSG_SCRIPT = cfg["EPSG_SCRIPT"]
+
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         if not os.path.exists(ILI2DB_JAR_PATH):
             logging.error("\033[91m❌ importar_esquema_ladm_rl2 falló. JAR no encontrado.\033[0m")
@@ -101,4 +110,4 @@ def importar_esquema_ladm_rl2():
     except Exception as ex:
         logging.error(f"Error: {ex}")
         logging.error("\033[91m❌ importar_esquema_ladm_rl2 falló.\033[0m")
-        raise Exception(f"Error importando LADM-RL2: {e}")
+        raise Exception(f"Error importando LADM-RL2: {ex}")

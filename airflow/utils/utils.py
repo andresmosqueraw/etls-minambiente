@@ -5,12 +5,7 @@ import json
 import logging
 from typing import Dict
 
-from config.general_config import (
-    CONFIG_PATH,
-    TEMP_FOLDER
-)
-
-def leer_configuracion() -> Dict:
+def leer_configuracion(cfg) -> Dict:
     """
     Lee la configuración desde un archivo JSON.
 
@@ -21,6 +16,7 @@ def leer_configuracion() -> Dict:
         Exception: Si ocurre algún error al leer o parsear el archivo de configuración.
     """
     try:
+        CONFIG_PATH = cfg["CONFIG_PATH"]
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
             config = json.load(f)
         logging.info("Configuración cargada correctamente.")
@@ -32,7 +28,7 @@ def leer_configuracion() -> Dict:
         logging.exception("Error leyendo la configuración.")
         raise Exception(f"Error leyendo la configuración: {e}") from e
 
-def limpiar_carpeta_temporal() -> None:
+def limpiar_carpeta_temporal(cfg) -> None:
     """
     Limpia la carpeta temporal definida en TEMP_FOLDER:
       - Elimina archivos y subcarpetas existentes.
@@ -41,6 +37,7 @@ def limpiar_carpeta_temporal() -> None:
     Raises:
         Exception: Si ocurre algún problema al eliminar archivos o directorios.
     """
+    TEMP_FOLDER = cfg["TEMP_FOLDER"]
     logging.info("Iniciando limpieza de la carpeta temporal...")
     if os.path.exists(TEMP_FOLDER):
         for item in os.listdir(TEMP_FOLDER):

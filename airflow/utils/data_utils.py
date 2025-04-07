@@ -4,14 +4,12 @@ import requests
 import subprocess
 import logging
 
-from config.general_config import TEMP_FOLDER, ETL_DIR
-
 from utils.utils import (
     leer_configuracion,
     limpiar_carpeta_temporal
 )
 
-def obtener_insumos_desde_web(**context):
+def obtener_insumos_desde_web(cfg, **context):
     """
     Descarga los insumos definidos en la configuración.
     Si falla la descarga, intenta obtener el ZIP local mediante _validar_archivo_local.
@@ -19,9 +17,9 @@ def obtener_insumos_desde_web(**context):
     Retorna un diccionario con { key: zip_path }.
     """
     logging.info("Iniciando obtener_insumos_desde_web...")
-    limpiar_carpeta_temporal()
+    limpiar_carpeta_temporal(cfg)
     
-    config = leer_configuracion()
+    config = leer_configuracion(cfg)
     insumos_web = config.get("insumos_web", {})
     if not insumos_web:
         logging.error("No se encontraron 'insumos_web' en la configuración.")
@@ -29,6 +27,7 @@ def obtener_insumos_desde_web(**context):
     
     insumos_local = config.get("insumos_local", {})
     base_local = "/opt/airflow/OTL/ETL_RL2"
+    TEMP_FOLDER = cfg["TEMP_FOLDER"]
     os.makedirs(TEMP_FOLDER, exist_ok=True)
     resultado = {}
     errores = []
@@ -121,13 +120,15 @@ def _validar_archivo_local(key, insumos_local, base_local):
     logging.error("\033[91m❌ _validar_archivo_local falló (sin entrada local).\033[0m")
     raise FileNotFoundError(msg)
 
-def procesar_insumos_descargados(**context):
+def procesar_insumos_descargados(cfg, **context):
     """
     Descomprime los archivos ZIP obtenidos en la tarea 'Obtener_Insumos_Web'.
     Se espera recibir un diccionario con { key: zip_path }.
     """
     logging.info("Iniciando procesar_insumos_descargados...")
     ti = context["ti"]
+    
+    TEMP_FOLDER = cfg["TEMP_FOLDER"]
     
     insumos_web = ti.xcom_pull(task_ids="Obtener_Insumos_Web", key="insumos_web") or {}
     insumos_local = ti.xcom_pull(task_ids="copia_insumo_local_task", key="insumos_local") or {}
@@ -170,11 +171,12 @@ def _extraer_zip(zip_path, extract_folder):
         raise Exception(f"Error extrayendo '{zip_path}': {e}")
 
 
-def ejecutar_importar_shp_a_postgres(**kwargs):
+def ejecutar_importar_shp_a_postgres(cfg, **kwargs):
     """
     Recupera la información de insumos procesados desde XCom, busca en cada carpeta
     un archivo SHP y lo importa a la base de datos en la tabla correspondiente.
     """
+    TEMP_FOLDER = cfg["TEMP_FOLDER"]
     logging.info("Iniciando ejecutar_importar_shp_a_postgres...")
     ti = kwargs['ti']
     try:
@@ -183,7 +185,7 @@ def ejecutar_importar_shp_a_postgres(**kwargs):
         if not insumos_info or not isinstance(insumos_info, list):
             logging.error("No se encontró información válida de insumos en XCom.")
             raise Exception("No se encontró información válida de insumos en XCom.")
-        config = leer_configuracion()
+        config = leer_configuracion(cfg)
         db_config = config["db"]
         for insumo in insumos_info:
             if not isinstance(insumo, dict) or "key" not in insumo:

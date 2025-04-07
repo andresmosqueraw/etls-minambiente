@@ -9,7 +9,7 @@ from utils.gx_utils import (
     _revisar_columnas_tabla,
 )
 
-def reporte_expectativas_insumos(yaml_filename, schema):
+def reporte_expectativas_insumos(yaml_filename, schema, cfg):
     """
     Genera un reporte comparando las tablas y columnas esperadas (definidas en el YAML)
     con las encontradas en el esquema indicado.
@@ -17,9 +17,9 @@ def reporte_expectativas_insumos(yaml_filename, schema):
     logging.info("Iniciando reporte de expectativas...")
     logging.info(f"Generando reporte de estructura para {yaml_filename} en el esquema '{schema}'...")
     try:
-        data = _cargar_expectativas_desde_yaml(yaml_filename)
+        data = _cargar_expectativas_desde_yaml(yaml_filename, cfg)
         expected_tables = _obtener_tablas_esperadas(data)
-        engine = _obtener_engine_sqlalchemy()
+        engine = _obtener_engine_sqlalchemy(cfg)
         actual_tables = _obtener_tablas_esquema(engine, schema)
         report_lines = _revisar_tablas_encontradas(schema, expected_tables, actual_tables)
         report_lines += _revisar_columnas_tabla(engine, schema, expected_tables, actual_tables)

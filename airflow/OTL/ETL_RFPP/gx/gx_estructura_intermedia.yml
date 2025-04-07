@@ -1,0 +1,551 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_nombre_reserva
+    - uab_nombre
+    - ue_geometria
+    - interesado_tipo
+    - interesado_nombre
+    - interesado_tipo_interesado
+    - interesado_tipo_documento
+    - interesado_numero_documento
+    - fuente_administrativa_tipo
+    - fuente_administrativa_estado_disponibilidad
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_nombre
+    - ddr_tipo_resposabilidad
+    - ddr_tipo_derecho
+    exact_match: true
+  meta:
+    table: rfpp_uab_areareserva
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre_reserva
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_geometria
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_interesado
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_documento
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_numero_documento
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_estado_disponibilidad
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_resposabilidad
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_derecho
+    type_: str
+  meta:
+    table: rfpp_uab_areareserva
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_expediente
+    - uab_observaciones
+    - uab_areareserva
+    - uab_sustraccion
+    - uab_nombre
+    - ue_geometria
+    - interesado_tipo
+    - interesado_nombre
+    - interesado_tipo_interesado
+    - interesado_tipo_documento
+    - interesado_numero_documento
+    - fuente_administrativa_tipo
+    - fuente_administrativa_estado_disponibilidad
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_nombre
+    - ddr_tipo_resposabilidad
+    - ddr_tipo_derecho
+    exact_match: true
+  meta:
+    table: rfpp_uab_compensacion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_expediente
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_observaciones
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_areareserva
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_sustraccion
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_geometria
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_interesado
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_documento
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_numero_documento
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_estado_disponibilidad
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_resposabilidad
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_derecho
+    type_: str
+  meta:
+    table: rfpp_uab_compensacion
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_expediente
+    - uab_tipo_sustraccion
+    - uab_fin_sustraccion
+    - uab_tipo_sector
+    - uab_detalle_sector
+    - uab_solicitante
+    - uab_observaciones
+    - uab_areareserva
+    - uab_nombre_areareserva
+    - uab_compensacion
+    - uab_nombre
+    - ue_geometria
+    - interesado_tipo
+    - interesado_nombre
+    - interesado_tipo_interesado
+    - interesado_tipo_documento
+    - interesado_numero_documento
+    - fuente_administrativa_tipo
+    - fuente_administrativa_estado_disponibilidad
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_nombre
+    - ddr_tipo_resposabilidad
+    - ddr_tipo_derecho
+    exact_match: true
+  meta:
+    table: rfpp_uab_sustraccion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_expediente
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_tipo_sustraccion
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_fin_sustraccion
+    type_: datetime
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_tipo_sector
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_detalle_sector
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_solicitante
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_observaciones
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_areareserva
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre_areareserva
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_compensacion
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_geometria
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_interesado
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_documento
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_numero_documento
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_estado_disponibilidad
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_nombre
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_resposabilidad
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_derecho
+    type_: str
+  meta:
+    table: rfpp_uab_sustraccion
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_numero
+    - fuente_administrativa_anio
+    exact_match: true
+  meta:
+    table: rfpp_fuenteadministrativa
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: rfpp_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: rfpp_fuenteadministrativa
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: rfpp_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_numero
+    type_: int
+  meta:
+    table: rfpp_fuenteadministrativa
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_anio
+    type_: int
+  meta:
+    table: rfpp_fuenteadministrativa
+    postgres_type: integer
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema estructura_intermedia"

@@ -1,0 +1,409 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - shape__are
+    - shape__len
+    - objectid
+    - id
+    - rfpp
+    - area_ha
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape__are
+    type_: float
+  meta:
+    table: area_reserva
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape__len
+    type_: float
+  meta:
+    table: area_reserva
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: objectid
+    type_: float
+  meta:
+    table: area_reserva
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: area_reserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: rfpp
+    type_: str
+  meta:
+    table: area_reserva
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: area_reserva
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - id_reserva
+    - id_sdef
+    - municipio
+    - departamen
+    - expediente
+    - acto_admin
+    - fecha_acto
+    - entidad_ex
+    - proyecto
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - nombre
+    - globalid
+    - created_us
+    - created_da
+    - last_edite
+    - last_edi_1
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: compensaciones
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: compensaciones
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_reserva
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_sdef
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: municipio
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: departamen
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: expediente
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_acto
+    type_: datetime
+  meta:
+    table: compensaciones
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: entidad_ex
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: proyecto
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: compensaciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: compensaciones
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: compensaciones
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: globalid
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: created_us
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: created_da
+    type_: datetime
+  meta:
+    table: compensaciones
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: last_edite
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: last_edi_1
+    type_: datetime
+  meta:
+    table: compensaciones
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: compensaciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: compensaciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: compensaciones
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - sector
+    - shape__are
+    - shape__len
+    - objectid
+    - id
+    - acto_admin
+    - expediente
+    - solicitant
+    - tipo
+    - detalle
+    - area_ha
+    - creado_por
+    - creado
+    - modificado
+    - modifica_1
+    - geom
+    exact_match: true
+  meta:
+    table: sustracciones
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: sustracciones
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sector
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape__are
+    type_: float
+  meta:
+    table: sustracciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape__len
+    type_: float
+  meta:
+    table: sustracciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: objectid
+    type_: float
+  meta:
+    table: sustracciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: expediente
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: solicitant
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: detalle
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: sustracciones
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: creado_por
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: creado
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: modificado
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: modifica_1
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: sustracciones
+    postgres_type: USER-DEFINED
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema insumos"

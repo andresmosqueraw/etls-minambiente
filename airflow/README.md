@@ -73,16 +73,16 @@ coverage run -m unittest tests.test_data_utils
 ## Ejecutar tests individualmente
 ```bash
 cd /opt/cpi/test/ETL_RL2/airflow
-python3 -m unittest -b tests.rl2.test_utils
+python3 -m unittest -b tests.test_utils
 ```
 ## Ejecutar todos los tests de rl2
 ```bash
-python3 -m unittest discover -s tests/rl2 -t .
+python3 -m unittest discover -s tests -t .
 ```
 
 ## Generar resumen de cobertura de tests
 ```bash
-coverage run -m unittest discover -s tests/rl2 -t .
+coverage run -m unittest discover -s tests -t .
 coverage report -m
 ```
 ## Generar resumen de cobertura de tests en xml y html

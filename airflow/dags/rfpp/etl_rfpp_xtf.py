@@ -1,7 +1,8 @@
 from datetime import datetime
 import logging
-import sys
-from functools import partial
+
+# Cambiamos el nivel a INFO para que se vea en Airflow
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 
 # Airflow
 from airflow import DAG
@@ -10,28 +11,12 @@ from airflow.operators.python import BranchPythonOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.utils.trigger_rule import TriggerRule
 
-# Importamos la función que nos da las rutas dinámicas
-from config.general_config import get_dynamic_config
-
-# Cambiamos el nivel a INFO para que se vea en Airflow
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
-
-sys.path.append('/opt/airflow/dags')
-
-dag_id = "etl_rl2_xtf"
-cfg = get_dynamic_config(dag_id)
-
-MODEL_DIR = cfg["MODEL_DIR"]
-ETL_DIR = cfg["ETL_DIR"]
-CONFIG_PATH = cfg["CONFIG_PATH"]
-TEMP_FOLDER = cfg["TEMP_FOLDER"]
-XTF_DIR = cfg["XTF_DIR"]
-GX_DIR = cfg["GX_DIR"]
-ILI2DB_JAR_PATH = cfg["ILI2DB_JAR_PATH"]
-EPSG_SCRIPT = cfg["EPSG_SCRIPT"]
+import sys
+sys.path.append('/opt/airflow/dags/dags_rfpp/')
 
 from logic.expectation import (
-    reporte_expectativas_insumos
+    reporte_expectativas_insumos,
+    #report_schema_expectations
 )
 
 from logic.data_workflow import (
@@ -55,12 +40,12 @@ from utils.data_utils import (
     obtener_insumos_desde_web,
     ejecutar_copia_insumo_local,
     procesar_insumos_descargados,
-    ejecutar_importar_shp_a_postgres 
-)
+    ejecutar_importar_shp_a_postgres
+)      
 
 from utils.interlis_utils import (
-    importar_esquema_ladm_rl2,
-    exportar_datos_ladm_rl2
+    importar_esquema_ladm_rfpp,
+    exportar_datos_ladm_rfpp
 )
 
 # ------------------------- DEFINICIÓN DEL DAG -------------------------
@@ -70,35 +55,36 @@ default_args = {
 }
 
 with DAG(
-    "etl_rl2_xtf",
+    "etl_rfpp_xtf",
     default_args=default_args,
     schedule_interval=None,
     catchup=False
 ) as dag:
 
-    inicio_etl = EmptyOperator(task_id="Inicio_ETL_LADM_RL2")
+    inicio_etl = EmptyOperator(task_id="Inicio_ETL_LADM_RFPP")
     
+    # La limpieza de TEMP se realiza en la función obtener_insumos_desde_web.
     validar_conexion_postgres_task = PythonOperator(
         task_id="Validar_Conexion_Postgres",
-        python_callable=lambda: validar_conexion_postgres(cfg),
+        python_callable=validar_conexion_postgres,
         retries=0
     )
     
     revisar_existencia_db_task = BranchPythonOperator(
         task_id="Revisar_Existencia_DB",
-        python_callable=lambda: revisar_existencia_db(cfg),
+        python_callable=revisar_existencia_db,
         retries=0
     )
     
     crear_base_datos_task = PythonOperator(
         task_id="Crear_Base_Datos",
-        python_callable=lambda: crear_base_datos(cfg),
+        python_callable=crear_base_datos,
         retries=0
     )
     
     adicionar_extensiones_task = PythonOperator(
         task_id="Adicionar_Extensiones",
-        python_callable=lambda: adicionar_extensiones(cfg),
+        python_callable=adicionar_extensiones,
         retries=0,
         trigger_rule=TriggerRule.NONE_FAILED_MIN_ONE_SUCCESS
     )
@@ -110,13 +96,13 @@ with DAG(
 
     restablecer_esquema_insumos_task = PythonOperator(
         task_id="Restablecer_Esquema_Insumos",
-        python_callable=lambda: restablecer_esquema_insumos(cfg),
+        python_callable=restablecer_esquema_insumos,
         retries=0
     )
 
     obtener_insumos_desde_web_task = PythonOperator( 
         task_id="Obtener_Insumos_Web",
-        python_callable=partial(obtener_insumos_desde_web, cfg=cfg),
+        python_callable=obtener_insumos_desde_web,
         provide_context=True
     )
 
@@ -129,91 +115,91 @@ with DAG(
     
     descomprimir_insumos_task = PythonOperator(
         task_id="Descomprimir_Insumos",
-        python_callable=partial(procesar_insumos_descargados, cfg=cfg),
+        python_callable=procesar_insumos_descargados,
         provide_context=True,
         trigger_rule=TriggerRule.ALL_DONE  # Asegura que se ejecute después de ambas tareas
     )
     
     importar_shp_postgres_task = PythonOperator(
         task_id="Importar_SHP_Postgres",
-        python_callable=partial(ejecutar_importar_shp_a_postgres, cfg=cfg),
-        provide_context=True,
-        retries=0
+        python_callable=ejecutar_importar_shp_a_postgres,
+        retries=0,
+        provide_context=True
     )
     
     reporte_expectativas_insumos_task = PythonOperator(
         task_id="Reporte_Expectativas_Insumos",
-        python_callable=lambda: reporte_expectativas_insumos("gx_insumos.yml", "insumos", cfg),
+        python_callable=lambda: reporte_expectativas_insumos("gx_insumos.yml", "insumos"),
         retries=0
     )
     
     restablecer_estructura_intermedia_task = PythonOperator(
         task_id="Restablecer_Estructura_Intermedia",
-        python_callable=lambda: restablecer_esquema_estructura_intermedia(cfg),
+        python_callable=restablecer_esquema_estructura_intermedia,
         retries=0
     )
     
     importar_estructura_intermedia_task = PythonOperator(
         task_id="Importar_Estructura_Intermedia",
-        python_callable=lambda: ejecutar_importar_estructura_intermedia(cfg),
+        python_callable=ejecutar_importar_estructura_intermedia,
         retries=0
     )
     
     reporte_expectativas_estructura_task = PythonOperator(
         task_id="Reporte_Expectativas_Estructura",
-        python_callable=lambda: reporte_expectativas_insumos("gx_estructura_intermedia.yml", "estructura_intermedia", cfg),
+        python_callable=lambda: reporte_expectativas_insumos("gx_estructura_intermedia.yml", "estructura_intermedia"),
         retries=0
     )
     
     restablecer_esquema_ladm_task = PythonOperator(
         task_id="Restablecer_Esquema_LADM",
-        python_callable=lambda: restablecer_esquema_ladm(cfg),
+        python_callable=restablecer_esquema_ladm,
         retries=0
     )
     
     importar_esquema_ladm_task = PythonOperator(
         task_id="Importar_Esquema_LADM",
-        python_callable=lambda: importar_esquema_ladm_rl2(cfg),
+        python_callable=importar_esquema_ladm_rfpp,
         retries=0
     )
     
     reporte_expectativas_ladm_task = PythonOperator(
         task_id="Reporte_Expectativas_LADM",
-        python_callable=lambda: reporte_expectativas_insumos("gx_ladm.yml", "ladm", cfg),
+        python_callable=lambda: reporte_expectativas_insumos("gx_ladm.yml", "ladm"),
         retries=0
     )
     
     migracion_datos_estructura_intermedia_task = PythonOperator(
         task_id="Migracion_Datos_Estructura_Intermedia",
-        python_callable=lambda: ejecutar_migracion_datos_estructura_intermedia(cfg),
+        python_callable=ejecutar_migracion_datos_estructura_intermedia,
         retries=0
     )
     
     validacion_datos_task = PythonOperator(
         task_id="Validacion_Datos",
-        python_callable=lambda: ejecutar_validacion_datos(cfg),
+        python_callable=ejecutar_validacion_datos,
         retries=0
     )
     
     migracion_datos_ladm_task = PythonOperator(
         task_id="Migracion_Datos_LADM",
-        python_callable=lambda: ejecutar_migracion_datos_ladm(cfg),
+        python_callable=ejecutar_migracion_datos_ladm,
         retries=0
     )
     
     reporte_expectativas_ladm_despues_task = PythonOperator(
         task_id="Reporte_Expectativas_LADM_Despues",
-        python_callable=lambda: reporte_expectativas_insumos("gx_ladm.yml", "ladm", cfg),
+        python_callable=lambda: reporte_expectativas_insumos("gx_ladm.yml", "ladm"),
         retries=0
     )
     
     exportar_datos_ladm_task = PythonOperator(
         task_id="Exportar_Datos_LADM",
-        python_callable=lambda: exportar_datos_ladm_rl2(cfg),
+        python_callable=exportar_datos_ladm_rfpp,
         retries=0
     )
     
-    fin_etl = EmptyOperator(task_id="Finaliza_ETL_LADM_RL2")
+    fin_etl = EmptyOperator(task_id="Finaliza_ETL_LADM_RFPP")
 
     # Cadena de ejecución del DAG
     inicio_etl >> validar_conexion_postgres_task
