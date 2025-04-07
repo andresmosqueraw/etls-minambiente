@@ -4,7 +4,7 @@ import shutil
 from unittest.mock import patch
 
 from config.general_config import TEMP_FOLDER, CONFIG_PATH
-from utils.rl2.utils import (
+from utils.utils import (
     leer_configuracion,
     limpiar_carpeta_temporal,
     clean_sql_script

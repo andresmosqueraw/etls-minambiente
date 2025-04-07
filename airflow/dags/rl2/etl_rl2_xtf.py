@@ -26,7 +26,7 @@ from logic.data_workflow import (
     ejecutar_migracion_datos_ladm
 )
 
-from utils.rl2.db_utils import (
+from utils.db_utils import (
     validar_conexion_postgres,
     revisar_existencia_db,
     crear_base_datos,
@@ -36,14 +36,14 @@ from utils.rl2.db_utils import (
     restablecer_esquema_ladm
 )
 
-from utils.rl2.data_utils import (
+from utils.data_utils import (
     obtener_insumos_desde_web,
     ejecutar_copia_insumo_local,
     procesar_insumos_descargados,
     ejecutar_importar_shp_a_postgres 
 )
 
-from utils.rl2.interlis_utils import (
+from utils.interlis_utils import (
     importar_esquema_ladm_rl2,
     exportar_datos_ladm_rl2
 )

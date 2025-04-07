@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock, call
 import psycopg2
 import logging
 
-from utils.rl2.db_utils import (
+from utils.db_utils import (
     ejecutar_sql,
     validar_conexion_postgres,
     revisar_existencia_db,
@@ -29,7 +29,7 @@ fake_config = {
 # Tests para ejecutar_sql
 # ---------------------------
 class TestEjecutarSQL(unittest.TestCase):
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_ejecutar_sql_success(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -50,7 +50,7 @@ class TestEjecutarSQL(unittest.TestCase):
         mock_conn.commit.assert_called_once()
         mock_conn.close.assert_called_once()
 
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_ejecutar_sql_failure(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -75,7 +75,7 @@ class TestEjecutarSQL(unittest.TestCase):
 # Tests para validar_conexion_postgres
 # ---------------------------
 class TestValidarConexionPostgres(unittest.TestCase):
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_validar_conexion_postgres_success(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -86,7 +86,7 @@ class TestValidarConexionPostgres(unittest.TestCase):
         self.assertTrue(result)
         mock_conn.close.assert_called_once()
 
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect', side_effect=psycopg2.Error("Fallo en la conexión"))
     def test_validar_conexion_postgres_failure(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -99,7 +99,7 @@ class TestValidarConexionPostgres(unittest.TestCase):
 # Tests para revisar_existencia_db
 # ---------------------------
 class TestRevisarExistenciaDB(unittest.TestCase):
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_revisar_existencia_db_exists(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -115,7 +115,7 @@ class TestRevisarExistenciaDB(unittest.TestCase):
         self.assertEqual(result, ["Adicionar_Extensiones"])
         mock_conn.close.assert_called_once()
 
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_revisar_existencia_db_not_exists(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -131,7 +131,7 @@ class TestRevisarExistenciaDB(unittest.TestCase):
         self.assertEqual(result, ["Crear_Base_Datos"])
         mock_conn.close.assert_called_once()
 
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect', side_effect=Exception("Error en DB"))
     def test_revisar_existencia_db_exception(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -144,7 +144,7 @@ class TestRevisarExistenciaDB(unittest.TestCase):
 # Tests para crear_base_datos
 # ---------------------------
 class TestCrearBaseDatos(unittest.TestCase):
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_crear_base_datos_success(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -160,7 +160,7 @@ class TestCrearBaseDatos(unittest.TestCase):
         mock_cursor.execute.assert_called_with(expected_sql)
         mock_conn.close.assert_called_once()
 
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_crear_base_datos_failure(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -180,7 +180,7 @@ class TestCrearBaseDatos(unittest.TestCase):
 # Tests para adicionar_extensiones
 # ---------------------------
 class TestAdicionarExtensiones(unittest.TestCase):
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_adicionar_extensiones_success(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -200,7 +200,7 @@ class TestAdicionarExtensiones(unittest.TestCase):
         mock_cursor.execute.assert_has_calls(expected_calls, any_order=False)
         mock_conn.close.assert_called_once()
 
-    @patch('utils.rl2.db_utils.leer_configuracion')
+    @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_adicionar_extensiones_failure(self, mock_connect, mock_leer_config):
         mock_leer_config.return_value = fake_config
@@ -220,19 +220,19 @@ class TestAdicionarExtensiones(unittest.TestCase):
 # Tests para restablecer esquemas
 # ---------------------------
 class TestRestablecerEsquema(unittest.TestCase):
-    @patch('utils.rl2.db_utils.ejecutar_sql')
+    @patch('utils.db_utils.ejecutar_sql')
     def test_restablecer_esquema_insumos(self, mock_ejecutar_sql):
         restablecer_esquema_insumos()
         expected_sql = "DROP SCHEMA IF EXISTS insumos CASCADE; CREATE SCHEMA insumos;"
         mock_ejecutar_sql.assert_called_once_with(expected_sql)
 
-    @patch('utils.rl2.db_utils.ejecutar_sql')
+    @patch('utils.db_utils.ejecutar_sql')
     def test_restablecer_esquema_estructura_intermedia(self, mock_ejecutar_sql):
         restablecer_esquema_estructura_intermedia()
         expected_sql = "DROP SCHEMA IF EXISTS estructura_intermedia CASCADE; CREATE SCHEMA estructura_intermedia;"
         mock_ejecutar_sql.assert_called_once_with(expected_sql)
 
-    @patch('utils.rl2.db_utils.ejecutar_sql')
+    @patch('utils.db_utils.ejecutar_sql')
     def test_restablecer_esquema_ladm(self, mock_ejecutar_sql):
         restablecer_esquema_ladm()
         expected_sql = "DROP SCHEMA IF EXISTS ladm CASCADE; CREATE SCHEMA ladm;"

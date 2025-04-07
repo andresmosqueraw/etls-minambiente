@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 import psycopg2  # Solo si se requiere para alguna comparación, sino se omite
 
-from utils.rl2.interlis_utils import (
+from utils.interlis_utils import (
     exportar_datos_ladm_rl2,
     importar_esquema_ladm_rl2
 )
@@ -29,13 +29,13 @@ fake_EPSG_SCRIPT = "/fake/epsg.sh"
 # ---------------------------
 class TestExportarDatosLadmRL2(unittest.TestCase):
 
-    @patch("utils.rl2.interlis_utils.leer_configuracion", return_value=fake_config)
+    @patch("utils.interlis_utils.leer_configuracion", return_value=fake_config)
     @patch("os.path.exists")
     @patch("os.makedirs")
-    @patch("utils.rl2.interlis_utils.subprocess.run")
-    @patch("utils.rl2.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
-    @patch("utils.rl2.interlis_utils.XTF_DIR", fake_XTF_DIR)
-    @patch("utils.rl2.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
+    @patch("utils.interlis_utils.subprocess.run")
+    @patch("utils.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
+    @patch("utils.interlis_utils.XTF_DIR", fake_XTF_DIR)
+    @patch("utils.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
     def test_exportar_datos_success(self, mock_run, mock_makedirs, mock_exists, mock_leer_config):
         # Configurar os.path.exists:
         # - Para el directorio XTF: simular que no existe (retorna False)
@@ -73,13 +73,13 @@ class TestExportarDatosLadmRL2(unittest.TestCase):
         self.assertTrue(kwargs.get("text"))
         self.assertTrue(kwargs.get("check"))
 
-    @patch("utils.rl2.interlis_utils.leer_configuracion", return_value=fake_config)
+    @patch("utils.interlis_utils.leer_configuracion", return_value=fake_config)
     @patch("os.path.exists", return_value=True)
     @patch("os.makedirs")
-    @patch("utils.rl2.interlis_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "java", "Error de ejecución"))
-    @patch("utils.rl2.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
-    @patch("utils.rl2.interlis_utils.XTF_DIR", fake_XTF_DIR)
-    @patch("utils.rl2.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
+    @patch("utils.interlis_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "java", "Error de ejecución"))
+    @patch("utils.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
+    @patch("utils.interlis_utils.XTF_DIR", fake_XTF_DIR)
+    @patch("utils.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
     def test_exportar_datos_failure(self, mock_run, mock_makedirs, mock_exists, mock_leer_config):
         with self.assertRaises(Exception) as context:
             exportar_datos_ladm_rl2()
@@ -91,12 +91,12 @@ class TestExportarDatosLadmRL2(unittest.TestCase):
 # ---------------------------
 class TestImportarEsquemaLadmRL2(unittest.TestCase):
 
-    @patch("utils.rl2.interlis_utils.leer_configuracion", return_value=fake_config)
+    @patch("utils.interlis_utils.leer_configuracion", return_value=fake_config)
     @patch("os.path.exists")
-    @patch("utils.rl2.interlis_utils.subprocess.run")
-    @patch("utils.rl2.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
-    @patch("utils.rl2.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
-    @patch("utils.rl2.interlis_utils.EPSG_SCRIPT", fake_EPSG_SCRIPT)
+    @patch("utils.interlis_utils.subprocess.run")
+    @patch("utils.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
+    @patch("utils.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
+    @patch("utils.interlis_utils.EPSG_SCRIPT", fake_EPSG_SCRIPT)
     def test_importar_esquema_success(self, mock_run, mock_exists, mock_leer_config):
         # Simular que el archivo JAR existe
         mock_exists.return_value = True
@@ -119,21 +119,21 @@ class TestImportarEsquemaLadmRL2(unittest.TestCase):
         # Se verifica que check=True fue usado
         self.assertTrue(kwargs.get("check"))
 
-    @patch("utils.rl2.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
+    @patch("utils.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
     @patch("os.path.exists", return_value=False)
-    @patch("utils.rl2.interlis_utils.leer_configuracion", return_value=fake_config)
+    @patch("utils.interlis_utils.leer_configuracion", return_value=fake_config)
     def test_importar_esquema_jar_no_existe(self, mock_leer_config, mock_exists):
         with self.assertRaises(FileNotFoundError) as context:
             importar_esquema_ladm_rl2()
         self.assertIn("Archivo JAR no encontrado", str(context.exception))
 
 
-    @patch("utils.rl2.interlis_utils.leer_configuracion", return_value=fake_config)
+    @patch("utils.interlis_utils.leer_configuracion", return_value=fake_config)
     @patch("os.path.exists", return_value=True)
-    @patch("utils.rl2.interlis_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "java", "Error en importación"))
-    @patch("utils.rl2.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
-    @patch("utils.rl2.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
-    @patch("utils.rl2.interlis_utils.EPSG_SCRIPT", fake_EPSG_SCRIPT)
+    @patch("utils.interlis_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "java", "Error en importación"))
+    @patch("utils.interlis_utils.MODEL_DIR", fake_MODEL_DIR)
+    @patch("utils.interlis_utils.ILI2DB_JAR_PATH", fake_ILI2DB_JAR_PATH)
+    @patch("utils.interlis_utils.EPSG_SCRIPT", fake_EPSG_SCRIPT)
     def test_importar_esquema_failure(self, mock_run, mock_exists, mock_leer_config):
         with self.assertRaises(Exception) as context:
             importar_esquema_ladm_rl2()

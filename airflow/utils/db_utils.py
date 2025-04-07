@@ -2,7 +2,7 @@ import os
 import psycopg2
 import logging
 
-from utils.rl2.utils import leer_configuracion
+from utils.utils import leer_configuracion
 
 
 def ejecutar_sql(sql, params=None):

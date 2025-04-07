@@ -1,7 +1,7 @@
 import logging
 
-from utils.rl2.db_utils import ejecutar_sql
-from utils.rl2.utils import clean_sql_script
+from utils.db_utils import ejecutar_sql
+from utils.utils import clean_sql_script
 
 from dags.rl2.etl_rl2_sql import (
     estructura_intermedia,

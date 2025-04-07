@@ -1,6 +1,6 @@
 import logging
 
-from utils.rl2.gx_utils import (
+from utils.gx_utils import (
     _cargar_expectativas_desde_yaml,
     _obtener_tablas_esperadas,
     _obtener_engine_sqlalchemy,

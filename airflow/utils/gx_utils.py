@@ -5,7 +5,7 @@ import yaml  # Requiere PyYAML para leer archivos YAML
 import logging
 
 from config.general_config import GX_DIR
-from utils.rl2.utils import leer_configuracion
+from utils.utils import leer_configuracion
 
 
 def _cargar_expectativas_desde_yaml(yaml_filename):

@@ -6,7 +6,7 @@ import logging
 
 from config.general_config import TEMP_FOLDER, ETL_DIR
 
-from utils.rl2.utils import (
+from utils.utils import (
     leer_configuracion,
     limpiar_carpeta_temporal
 )

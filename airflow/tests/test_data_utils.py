@@ -8,7 +8,7 @@ from unittest.mock import patch, MagicMock, mock_open
 
 
 # Ajuste la ruta de importación según corresponda.
-from utils.rl2.data_utils import (
+from utils.data_utils import (
     obtener_insumos_desde_web,
     ejecutar_copia_insumo_local,
     copia_insumo_local,
@@ -26,12 +26,12 @@ from config.general_config import TEMP_FOLDER, ETL_DIR
 # Tests para obtener_insumos_desde_web
 # ---------------------------
 class TestObtenerInsumosDesdeWeb(unittest.TestCase):
-    @patch('utils.rl2.data_utils.limpiar_carpeta_temporal')
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils.limpiar_carpeta_temporal')
+    @patch('utils.data_utils.leer_configuracion')
     @patch('os.makedirs')
-    @patch('utils.rl2.data_utils.requests.get')
+    @patch('utils.data_utils.requests.get')
     @patch('os.path.getsize')
-    @patch('utils.rl2.data_utils.open', new_callable=mock_open)
+    @patch('utils.data_utils.open', new_callable=mock_open)
     def test_obtener_insumos_desde_web_exito(self, mock_file, mock_getsize, mock_requests_get, mock_makedirs,
                                                mock_leer_config, mock_limpiar_temp):
         """
@@ -64,12 +64,12 @@ class TestObtenerInsumosDesdeWeb(unittest.TestCase):
         mock_ti.xcom_push.assert_any_call(key="insumos_web", value=resultado)
 
     @patch('os.remove')
-    @patch('utils.rl2.data_utils.limpiar_carpeta_temporal')
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils.limpiar_carpeta_temporal')
+    @patch('utils.data_utils.leer_configuracion')
     @patch('os.makedirs')
-    @patch('utils.rl2.data_utils.requests.get')
+    @patch('utils.data_utils.requests.get')
     @patch('os.path.getsize')
-    @patch('utils.rl2.data_utils.open', new_callable=mock_open)
+    @patch('utils.data_utils.open', new_callable=mock_open)
     def test_obtener_insumos_desde_web_archivo_vacio(self, mock_file, mock_getsize, mock_requests_get, mock_makedirs,
                                                      mock_leer_config, mock_limpiar_temp, mock_remove):
         """
@@ -96,10 +96,10 @@ class TestObtenerInsumosDesdeWeb(unittest.TestCase):
         self.assertEqual(resultado, {"insumo1": None})
         mock_remove.assert_called_once_with(os.path.join(TEMP_FOLDER, "insumo1.zip"))
 
-    @patch('utils.rl2.data_utils.limpiar_carpeta_temporal')
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils.limpiar_carpeta_temporal')
+    @patch('utils.data_utils.leer_configuracion')
     @patch('os.makedirs')
-    @patch('utils.rl2.data_utils.requests.get', side_effect=Exception("Error de red"))
+    @patch('utils.data_utils.requests.get', side_effect=Exception("Error de red"))
     @patch('os.path.getsize')
     def test_obtener_insumos_desde_web_falla_descarga(self, mock_getsize, mock_requests_get, mock_makedirs,
                                                       mock_leer_config, mock_limpiar_temp):
@@ -119,8 +119,8 @@ class TestObtenerInsumosDesdeWeb(unittest.TestCase):
         resultado = obtener_insumos_desde_web(**context)
         self.assertEqual(resultado, {"insumo1": None})
 
-    @patch('utils.rl2.data_utils.limpiar_carpeta_temporal')
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils.limpiar_carpeta_temporal')
+    @patch('utils.data_utils.leer_configuracion')
     @patch('os.makedirs')
     def test_obtener_insumos_desde_web_sin_insumos_web(self, mock_makedirs, mock_leer_config, mock_limpiar_temp):
         """
@@ -139,7 +139,7 @@ class TestObtenerInsumosDesdeWeb(unittest.TestCase):
 # Tests para ejecutar_copia_insumo_local y copia_insumo_local/_validar_archivo_local
 # ---------------------------
 class TestCopiaInsumoLocal(unittest.TestCase):
-    @patch('utils.rl2.data_utils._validar_archivo_local', return_value='/base/local/insumo1.zip')
+    @patch('utils.data_utils._validar_archivo_local', return_value='/base/local/insumo1.zip')
     @patch('os.path.exists', return_value=True)
     def test_copia_insumo_local_exito(self, mock_exists, mock_validar):
         """
@@ -149,7 +149,7 @@ class TestCopiaInsumoLocal(unittest.TestCase):
                                        {"insumo1": "local/insumo1.zip"}, "/base", "error simulado")
         self.assertEqual(resultado, '/base/local/insumo1.zip')
 
-    @patch('utils.rl2.data_utils._validar_archivo_local', return_value='/base/local/insumo1.zip')
+    @patch('utils.data_utils._validar_archivo_local', return_value='/base/local/insumo1.zip')
     @patch('os.path.exists', return_value=False)
     def test_copia_insumo_local_falla(self, mock_exists, mock_validar):
         """
@@ -190,7 +190,7 @@ class TestValidarArchivoLocal(unittest.TestCase):
 # Tests para procesar_insumos_descargados y _extraer_zip
 # ---------------------------
 class TestProcesarInsumosDescargados(unittest.TestCase):
-    @patch('utils.rl2.data_utils._extraer_zip')
+    @patch('utils.data_utils._extraer_zip')
     @patch('os.makedirs')
     @patch('os.path.exists', return_value=True)
     def test_procesar_insumos_descargados_exito(self, mock_exists, mock_makedirs, mock_extraer_zip):
@@ -250,9 +250,9 @@ class TestExtraerZip(unittest.TestCase):
 # Tests para ejecutar_importar_shp_a_postgres, _buscar_shp_en_carpeta y _importar_shp_a_postgres
 # ---------------------------
 class TestImportarSHPPostgres(unittest.TestCase):
-    @patch('utils.rl2.data_utils._importar_shp_a_postgres')
-    @patch('utils.rl2.data_utils._buscar_shp_en_carpeta', return_value="/fake/path/file.shp")
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils._importar_shp_a_postgres')
+    @patch('utils.data_utils._buscar_shp_en_carpeta', return_value="/fake/path/file.shp")
+    @patch('utils.data_utils.leer_configuracion')
     def test_ejecutar_importar_shp_a_postgres_exito(self, mock_leer_config, mock_buscar_shp, mock_importar_shp):
         """
         Prueba que ejecutar_importar_shp_a_postgres invoque la importación del SHP correctamente.
@@ -278,7 +278,7 @@ class TestImportarSHPPostgres(unittest.TestCase):
             config["db"], "/fake/path/file.shp", "insumos.insumo1"
         )
 
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils.leer_configuracion')
     def test_ejecutar_importar_shp_a_postgres_sin_insumos(self, mock_leer_config):
         """
         Prueba que ejecutar_importar_shp_a_postgres lance excepción si XCom no retorna datos válidos.
@@ -290,8 +290,8 @@ class TestImportarSHPPostgres(unittest.TestCase):
             ejecutar_importar_shp_a_postgres(**context)
         self.assertIn("No se encontró información válida de insumos", str(ctx.exception))
 
-    @patch('utils.rl2.data_utils._buscar_shp_en_carpeta', return_value=None)
-    @patch('utils.rl2.data_utils.leer_configuracion')
+    @patch('utils.data_utils._buscar_shp_en_carpeta', return_value=None)
+    @patch('utils.data_utils.leer_configuracion')
     def test_ejecutar_importar_shp_a_postgres_sin_shp(self, mock_leer_config, mock_buscar_shp):
         """
         Prueba que ejecutar_importar_shp_a_postgres lance FileNotFoundError si no se encuentra un archivo SHP.
@@ -339,7 +339,7 @@ class TestBuscarEImportarSHP(unittest.TestCase):
         resultado = _buscar_shp_en_carpeta("/base")
         self.assertIsNone(resultado)
 
-    @patch('utils.rl2.data_utils.subprocess.run')
+    @patch('utils.data_utils.subprocess.run')
     def test_importar_shp_a_postgres_exito(self, mock_subproc):
         """
         Prueba que _importar_shp_a_postgres invoque correctamente ogr2ogr sin lanzar excepción.
@@ -377,7 +377,7 @@ class TestBuscarEImportarSHP(unittest.TestCase):
         mock_subproc.assert_called_once()
         self.assertEqual(mock_subproc.call_args[0][0], expected_command)
 
-    @patch('utils.rl2.data_utils.subprocess.run', side_effect=subprocess.CalledProcessError(1, 'ogr2ogr', "Error OGR2OGR"))
+    @patch('utils.data_utils.subprocess.run', side_effect=subprocess.CalledProcessError(1, 'ogr2ogr', "Error OGR2OGR"))
     def test_importar_shp_a_postgres_falla(self, mock_subproc):
         """
         Prueba que _importar_shp_a_postgres lance excepción cuando ogr2ogr falla.

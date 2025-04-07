@@ -2,7 +2,7 @@ import os
 import subprocess
 import logging
 
-from utils.rl2.utils import leer_configuracion
+from utils.utils import leer_configuracion
 from config.general_config import (
     MODEL_DIR,
     XTF_DIR,
