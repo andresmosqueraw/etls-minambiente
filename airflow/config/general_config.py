@@ -1,4 +1,3 @@
-# /opt/cpi/test/ETL_RL2/airflow/config/general_config.py
 import os
 
 # Rutas base fijas (iguales para ambos DAGs)
@@ -14,10 +13,6 @@ def get_dynamic_config(dag_id: str):
         model_dir_name = "Modelo_Reservas_Forestales_Protectoras_Productoras/MODELO"
         etl_dir_name = "ETL_RFPP"
     elif dag_id == "etl_rl2_xtf":
-        model_dir_name = "Modelo_Reservas_Ley_2/MODELO"
-        etl_dir_name = "ETL_RL2"
-    else:
-        # Valor por defecto, si quisieras manejar otros DAGs
         model_dir_name = "Modelo_Reservas_Ley_2/MODELO"
         etl_dir_name = "ETL_RL2"
 

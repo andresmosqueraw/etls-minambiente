@@ -26,7 +26,7 @@ def obtener_insumos_desde_web(cfg, **context):
         raise ValueError("No se encontraron 'insumos_web' en la configuración.")
     
     insumos_local = config.get("insumos_local", {})
-    base_local = "/opt/airflow/OTL/ETL_RL2"
+    base_local = cfg["ETL_DIR"]
     TEMP_FOLDER = cfg["TEMP_FOLDER"]
     os.makedirs(TEMP_FOLDER, exist_ok=True)
     resultado = {}
