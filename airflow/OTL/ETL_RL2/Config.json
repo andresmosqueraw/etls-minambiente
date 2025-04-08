@@ -13,6 +13,9 @@
 	"logs":{
 		"nombre_etl":"LADM-RL2"
 	},
+	"data_workflow": {
+		"etl_sql_module_dir": "dags.rl2.etl_rl2_sql"
+	},
 	"insumos_web": {
 		"area_reserva_ley2": "https://www.arcgis.com/sharing/rest/content/items/988bc78e62c64f8c8b0b8klioioio5fbac83c478/data",
 		"compensacion_ley2": "https://www.arcgis.com/sharing/rest/content/items/75a38dc85b6bgbggbgb64c3ead307b65b21e8900/data",

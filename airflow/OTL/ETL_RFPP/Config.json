@@ -13,6 +13,9 @@
 	"logs": {
 		"nombre_etl": "LADM-RFPP"
 	},
+	"data_workflow": {
+		"etl_sql_module_dir": "dags.rfpp.etl_rfpp_sql"
+	},
 	"insumos_web": {
 		"area_reserva": "https://hub.arcgis.com/api/v3/datasets/a0618bd0843744459fb1151c55514910_1/downloads/data?format=shp&spatialRefId=3857&where=1%3D1",
 		"compensaciones": "https://www.arcgis.com/sharing/rest/content/items/75a38dc85b664c3ead307b65b21e8900/data",

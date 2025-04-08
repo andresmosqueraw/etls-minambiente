@@ -1,26 +1,18 @@
 import logging
 import importlib
 
-from utils.db_utils import ejecutar_sql
+from utils.db_utils import (
+    ejecutar_sql,
+    leer_configuracion
+)
 from utils.utils import clean_sql_script
-
-# Función para importar dinámicamente el módulo SQL según ETL_DIR en la configuración
-def get_etl_sql_module(cfg):
-    etl_dir = cfg.get("ETL_DIR", "").upper()
-    if "RFPP" in etl_dir:
-        module_path = "dags.rfpp.etl_rfpp_sql"
-    elif "RL2" in etl_dir:
-        module_path = "dags.rl2.etl_rl2_sql"
-    elif "PRM" in etl_dir:
-        module_path = "dags.prm.etl_prm_sql"
-    else:
-        raise Exception("No se encontró un módulo SQL adecuado para ETL_DIR: " + cfg.get("ETL_DIR", ""))
-    print(f"Importando módulo SQL desde: {module_path}")
-    return importlib.import_module(module_path)
 
 # Función auxiliar que carga y retorna las funciones SQL requeridas
 def load_sql_functions(cfg):
-    sql_module = get_etl_sql_module(cfg)
+    config = leer_configuracion(cfg)
+    data_workflow = config["data_workflow"]
+    module_path = data_workflow["etl_sql_module_dir"]
+    sql_module = importlib.import_module(module_path)
     return (
         sql_module.estructura_intermedia,
         sql_module.transformacion_datos,
