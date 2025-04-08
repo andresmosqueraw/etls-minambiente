@@ -15,7 +15,7 @@ from utils.data_utils import (
     _validar_archivo_local,
     procesar_insumos_descargados,
     _extraer_zip,
-    ejecutar_importar_shp_a_postgres,
+    ejecutar_importacion_general_a_postgres,
     _buscar_shp_en_carpeta,
     _importar_shp_a_postgres
 )
@@ -247,7 +247,7 @@ class TestExtraerZip(unittest.TestCase):
             self.assertIn("no es un ZIP válido", str(ctx.exception))
 
 # ---------------------------
-# Tests para ejecutar_importar_shp_a_postgres, _buscar_shp_en_carpeta y _importar_shp_a_postgres
+# Tests para ejecutar_importacion_general_a_postgres, _buscar_shp_en_carpeta y _importar_shp_a_postgres
 # ---------------------------
 class TestImportarSHPPostgres(unittest.TestCase):
     @patch('utils.data_utils._importar_shp_a_postgres')
@@ -255,7 +255,7 @@ class TestImportarSHPPostgres(unittest.TestCase):
     @patch('utils.data_utils.leer_configuracion')
     def test_ejecutar_importar_shp_a_postgres_exito(self, mock_leer_config, mock_buscar_shp, mock_importar_shp):
         """
-        Prueba que ejecutar_importar_shp_a_postgres invoque la importación del SHP correctamente.
+        Prueba que ejecutar_importacion_general_a_postgres invoque la importación del SHP correctamente.
         """
         config = {
             "db": {
@@ -271,7 +271,7 @@ class TestImportarSHPPostgres(unittest.TestCase):
         ti.xcom_pull.return_value = [{"key": "insumo1", "zip_path": "/fake/path/file.zip"}]
         context = {"ti": ti}
 
-        ejecutar_importar_shp_a_postgres(**context)
+        ejecutar_importacion_general_a_postgres(**context)
         mock_buscar_shp.assert_called_once_with(os.path.join(TEMP_FOLDER, "insumo1"))
         # Se espera que _importar_shp_a_postgres se llame con la configuración y los paths adecuados
         mock_importar_shp.assert_called_once_with(
@@ -281,20 +281,20 @@ class TestImportarSHPPostgres(unittest.TestCase):
     @patch('utils.data_utils.leer_configuracion')
     def test_ejecutar_importar_shp_a_postgres_sin_insumos(self, mock_leer_config):
         """
-        Prueba que ejecutar_importar_shp_a_postgres lance excepción si XCom no retorna datos válidos.
+        Prueba que ejecutar_importacion_general_a_postgres lance excepción si XCom no retorna datos válidos.
         """
         ti = MagicMock()
         ti.xcom_pull.return_value = None  # O puede ser algo que no sea una lista
         context = {"ti": ti}
         with self.assertRaises(Exception) as ctx:
-            ejecutar_importar_shp_a_postgres(**context)
+            ejecutar_importacion_general_a_postgres(**context)
         self.assertIn("No se encontró información válida de insumos", str(ctx.exception))
 
     @patch('utils.data_utils._buscar_shp_en_carpeta', return_value=None)
     @patch('utils.data_utils.leer_configuracion')
     def test_ejecutar_importar_shp_a_postgres_sin_shp(self, mock_leer_config, mock_buscar_shp):
         """
-        Prueba que ejecutar_importar_shp_a_postgres lance FileNotFoundError si no se encuentra un archivo SHP.
+        Prueba que ejecutar_importacion_general_a_postgres lance FileNotFoundError si no se encuentra un archivo SHP.
         """
         config = {
             "db": {
@@ -310,7 +310,7 @@ class TestImportarSHPPostgres(unittest.TestCase):
         ti.xcom_pull.return_value = [{"key": "insumo1", "zip_path": "/fake/path/file.zip"}]
         context = {"ti": ti}
         with self.assertRaises(FileNotFoundError):
-            ejecutar_importar_shp_a_postgres(**context)
+            ejecutar_importacion_general_a_postgres(**context)
 
 class TestBuscarEImportarSHP(unittest.TestCase):
     @patch('os.walk')

@@ -55,7 +55,7 @@ from utils.data_utils import (
     obtener_insumos_desde_web,
     ejecutar_copia_insumo_local,
     procesar_insumos_descargados,
-    ejecutar_importar_shp_a_postgres
+    ejecutar_importacion_general_a_postgres
 )      
 
 from utils.interlis_utils import (
@@ -134,12 +134,13 @@ with DAG(
         trigger_rule=TriggerRule.ALL_DONE  # Asegura que se ejecute después de ambas tareas
     )
     
-    importar_shp_postgres_task = PythonOperator(
-        task_id="Importar_SHP_Postgres",
-        python_callable=partial(ejecutar_importar_shp_a_postgres, cfg=cfg),
+    importar_archivos_postgres_task = PythonOperator(
+        task_id="Importar_Archivos_Postgres",
+        python_callable=partial(ejecutar_importacion_general_a_postgres, cfg=cfg),
         provide_context=True,
         retries=0
     )
+    # asdfasdf
     
     reporte_expectativas_insumos_task = PythonOperator(
         task_id="Reporte_Expectativas_Insumos",
@@ -176,6 +177,7 @@ with DAG(
         python_callable=lambda: importar_esquema_ladm(cfg),
         retries=0
     )
+    # asdfasd
     
     reporte_expectativas_ladm_task = PythonOperator(
         task_id="Reporte_Expectativas_LADM",
@@ -227,8 +229,8 @@ with DAG(
         restablecer_estructura_intermedia_task,
         restablecer_esquema_ladm_task
     ]
-    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> copia_insumo_local_task >> descomprimir_insumos_task >> importar_shp_postgres_task >> reporte_expectativas_insumos_task
-    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> descomprimir_insumos_task >> importar_shp_postgres_task >> reporte_expectativas_insumos_task
+    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> copia_insumo_local_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >> reporte_expectativas_insumos_task
+    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >> reporte_expectativas_insumos_task
     restablecer_estructura_intermedia_task >> importar_estructura_intermedia_task >> reporte_expectativas_estructura_task
     restablecer_esquema_ladm_task >> importar_esquema_ladm_task >> reporte_expectativas_ladm_task
     [reporte_expectativas_insumos_task, reporte_expectativas_estructura_task, reporte_expectativas_ladm_task] >> migracion_datos_estructura_intermedia_task

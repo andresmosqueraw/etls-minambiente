@@ -45,22 +45,14 @@ def _obtener_tablas_esperadas(data):
 
 def _obtener_engine_sqlalchemy(cfg):
     logging.info("Iniciando _obtener_engine_sqlalchemy...")
+    config = leer_configuracion(cfg)
+    db_config = config["db"]
     try:
-        config = leer_configuracion(cfg)
-        db_config = config["db"]
-        db_user = db_config["user"]
-        db_password = db_config["password"]
-        db_host = db_config["host"]
-        db_port = db_config["port"]
-        db_name = db_config["db_name"]
-        connection_string = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-        engine = sqlalchemy.create_engine(connection_string)
-        logging.info("\033[92m✔ _obtener_engine_sqlalchemy finalizó sin errores.\033[0m")
+        url = f"postgresql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['db_name']}"
+        engine = sqlalchemy.create_engine(url)
         return engine
     except Exception as e:
-        logging.error(f"Error creando engine SQLAlchemy: {e}")
-        logging.error("\033[91m❌ _obtener_engine_sqlalchemy falló.\033[0m")
-        raise
+        raise Exception(f"Error creando engine SQLAlchemy: {e}")
 
 def _obtener_tablas_esquema(engine, schema):
     logging.info("Iniciando _obtener_tablas_esquema...")

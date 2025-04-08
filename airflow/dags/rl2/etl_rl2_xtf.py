@@ -55,7 +55,7 @@ from utils.data_utils import (
     obtener_insumos_desde_web,
     ejecutar_copia_insumo_local,
     procesar_insumos_descargados,
-    ejecutar_importar_shp_a_postgres 
+    ejecutar_importacion_general_a_postgres 
 )
 
 from utils.interlis_utils import (
@@ -136,7 +136,7 @@ with DAG(
     
     importar_shp_postgres_task = PythonOperator(
         task_id="Importar_SHP_Postgres",
-        python_callable=partial(ejecutar_importar_shp_a_postgres, cfg=cfg),
+        python_callable=partial(ejecutar_importacion_general_a_postgres, cfg=cfg),
         provide_context=True,
         retries=0
     )

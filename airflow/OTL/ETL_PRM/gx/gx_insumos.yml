@@ -1,0 +1,351 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - nombre
+    - escala
+    - acto_admin
+    - fecha_acto
+    - no_poligon
+    - fuente
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - shape_leng
+    - shape_area
+    - geom
+    exact_match: true
+  meta:
+    table: area_paramo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_paramo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: area_paramo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_paramo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_paramo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: area_paramo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_acto
+    type_: datetime
+  meta:
+    table: area_paramo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: no_poligon
+    type_: float
+  meta:
+    table: area_paramo
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente
+    type_: str
+  meta:
+    table: area_paramo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: area_paramo
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: area_paramo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: area_paramo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape_leng
+    type_: float
+  meta:
+    table: area_paramo
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape_area
+    type_: float
+  meta:
+    table: area_paramo
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_paramo
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - leyenda
+    - fecha
+    - clc3
+    - idid
+    - tipocob
+    - cambiont
+    - sereco
+    - promin
+    - altrest
+    - reminc
+    - catezon
+    - subczon
+    - detallezon
+    - shape_leng
+    - shape_area
+    - geom
+    exact_match: true
+  meta:
+    table: zonificacion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: zonificacion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: leyenda
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: clc3
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idid
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipocob
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: cambiont
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sereco
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: promin
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: altrest
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: reminc
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: catezon
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: subczon
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: detallezon
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape_leng
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape_area
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - zonificacion
+    - uso_principal
+    - uso_condicionado
+    - uso_prohibido
+    exact_match: true
+  meta:
+    table: zonificacion_uso
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: zonificacion
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso_principal
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso_condicionado
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso_prohibido
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - nit
+    - autoridad_ambiental
+    - nombre
+    - comision_conjunta
+    - paramo
+    exact_match: true
+  meta:
+    table: corporaciones
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nit
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: autoridad_ambiental
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comision_conjunta
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: paramo
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema insumos"
