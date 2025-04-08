@@ -52,7 +52,7 @@ def _obtener_engine_sqlalchemy(cfg):
         db_password = db_config["password"]
         db_host = db_config["host"]
         db_port = db_config["port"]
-        db_name = "arfw_etl_rl2"
+        db_name = db_config["db_name"]
         connection_string = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
         engine = sqlalchemy.create_engine(connection_string)
         logging.info("\033[92m✔ _obtener_engine_sqlalchemy finalizó sin errores.\033[0m")
