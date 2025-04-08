@@ -140,7 +140,6 @@ with DAG(
         provide_context=True,
         retries=0
     )
-    # asdfasdf
     
     reporte_expectativas_insumos_task = PythonOperator(
         task_id="Reporte_Expectativas_Insumos",
@@ -177,7 +176,6 @@ with DAG(
         python_callable=lambda: importar_esquema_ladm(cfg),
         retries=0
     )
-    # asdfasd
     
     reporte_expectativas_ladm_task = PythonOperator(
         task_id="Reporte_Expectativas_LADM",
