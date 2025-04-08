@@ -1,0 +1,30 @@
+{	"db":{
+		"host":"3.133.21.126",
+		"port":"5432",
+		"user":"ladm",
+		"password":"123456",
+		"db_name":"arfw_etl_prm"
+	},
+
+	"interlis": {
+		"nombre_archivo_xtf": "prm.xtf",
+		"nombre_modelo": "LADM_COL_v_1_0_0_Ext_PRM"
+	},
+	"logs": {
+		"nombre_etl": "LADM-PRM"
+	},
+	"insumos_web":{
+		"area_paramo":"https://www.arcgis.com/sharing/rest/content/items/9631ed8c44274baa824e6277276de48f/data",
+		"zonificacion":"",
+		"zonificacion_uso":"",
+		"corporaciones":""
+
+	},
+	"insumos_local":{
+		"area_paramo":"/Insumos/Área Páramo/area_paramo.zip",
+		"zonificacion":"/Insumos/Zonificación/zonificacion.zip",
+	    "zonificacion_uso":"/Insumos/Zonificacion_Uso/zonificacion_uso.xlsx",
+		"corporaciones":"/Insumos/Corporaciones/corporaciones.xlsx"
+
+	}		
+}

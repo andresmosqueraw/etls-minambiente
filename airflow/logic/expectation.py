@@ -9,6 +9,7 @@ from utils.gx_utils import (
     _revisar_columnas_tabla,
 )
 
+
 def reporte_expectativas_insumos(yaml_filename, schema, cfg):
     """
     Genera un reporte comparando las tablas y columnas esperadas (definidas en el YAML)

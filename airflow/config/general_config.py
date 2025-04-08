@@ -15,6 +15,9 @@ def get_dynamic_config(dag_id: str):
     elif dag_id == "etl_rl2_xtf":
         model_dir_name = "Modelo_Reservas_Ley_2/MODELO"
         etl_dir_name = "ETL_RL2"
+    elif dag_id == "etl_prm_xtf":
+        model_dir_name = "Modelo_Paramos/MODELO"
+        etl_dir_name = "ETL_PRM"
     else:
         raise Exception("DAG_ID desconocido: " + dag_id)
 

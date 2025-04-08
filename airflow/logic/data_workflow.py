@@ -11,6 +11,8 @@ def get_etl_sql_module(cfg):
         module_path = "dags.rfpp.etl_rfpp_sql"
     elif "RL2" in etl_dir:
         module_path = "dags.rl2.etl_rl2_sql"
+    elif "PRM" in etl_dir:
+        module_path = "dags.prm.etl_prm_sql"
     else:
         raise Exception("No se encontró un módulo SQL adecuado para ETL_DIR: " + cfg.get("ETL_DIR", ""))
     print(f"Importando módulo SQL desde: {module_path}")

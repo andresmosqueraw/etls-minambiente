@@ -1,0 +1,270 @@
+INTERLIS 2.3;
+
+/** Páramo es un socioecosistema propio de la alta montaña ecuatorial ubicado predominantemente entre el límite superior del bosque andino y, si se da el caso, con el límite inferior de los glaciares y bordes de nieve, con predominio de clima frío y relieve modelado dominantemente por la acumulación y retiro de las masas glaciares.
+ */
+!!@ technicalContact="Dirección de Bosques, Biodiversidad y Servicios Ecosistémicos"
+MODEL LADM_COL_v_1_0_0_Ext_PRM (es)
+AT "mailto:Obosques@minambiente.gov.co"
+VERSION "1.0.0"  =
+  IMPORTS LADM_COL_v_4_0_1_Nucleo;
+
+  DOMAIN
+
+    /** Tipo de derecho asociado con el Páramo
+     */
+    !!@ ili2db.dispName="Tipo de derecho"
+    PRM_DerechoTipo = (
+      /** De acuerdo con el artículo 4 de la Ley 1930 de 2018, el Ministerio de Ambiente y Desarrollo Sostenible hará la delimitación de los páramos con base en el área de referencia generada por el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt a escala 1:25.000 o la que esté disponible y los estudios técnicos, económicos, sociales y ambientales elaborados por la autoridad ambiental regional de conformidad con los términos de referencia expedidos por el Ministerio de Ambiente y Desarrollo Sostenible.
+       */
+      !!@ ili2db.dispName=Delimitar
+      Delimitar
+    );
+
+    PRM_EscalaTipo = (
+      /** Escala 1:25.000 para el componente espacial del Páramo
+       */
+      Escala_1_25000,
+      /** Escala 1:100.000 para el componente espacial del Páramo
+       */
+      Escala_1_100000,
+      /** Cuando la escala no se encuentra en el dominio de datos, seleccione esta opción
+       */
+      Otro
+    );
+
+    /** Define el acto administrativo relacionado con el Páramo
+     */
+    !!@ ili2db.dispName="Tipo de fuente administrativa"
+    PRM_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      !!@ ili2db.dispName="Documento público"
+      Documento_Publico(
+        /** Decisión administrativa emitida por una autoridad administrativa en ejercicio de sus funciones, que tiene efectos jurídicos dentro de su ámbito de competencia. Las resoluciones se utilizan para regular, interpretar, aplicar o ejecutar disposiciones legales o reglamentarias y son de carácter obligatorio para las personas o entidades a las que se dirigen.
+         */
+        !!@ ili2db.dispName="(Documento público) Resolución"
+        Resolucion,
+        /** Tipo de documento que adopta el plan de manejo. Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
+         */
+        !!@ ili2db.dispName="(Documento público) Acto administrtivo"
+        Acto_Administrativo
+      )
+    );
+
+    /** Tipo de responsabilidad asociado con el Páramo
+     */
+    !!@ ili2db.dispName="Tipo de responsabilidad"
+    PRM_ResponsabilidadTipo = (
+      /** De acuerdo con el artículo 30 de la Ley 1930 de 2018, el Ministerio de Ambiente y Desarrollo Sostenible, como organismo rector de la gestión del medio ambiente y para la conservación de los páramos en Colombia, expedirá las normas requeridas para el efecto de la gestión integral de los páramos en Colombia.
+       */
+      !!@ ili2db.dispName=Administrar
+      Administrar,
+      /** De acuerdo con el parágrafo 2 del artículo 4 de la Ley 1930 de 2018, los páramos que hayan sido delimitados al momento de la expedición de la presente ley mantendrán su delimitación. En estos casos, las autoridades ambientales regionales deberán generar los espacios de participación, en el marco de la zonificación y régimen de usos, con el fin de construir de manera concertada los programas, planes y proyectos de reconversión o sustitución de las actividades prohibidas que hayan quedado en su interior, conforme a los lineamientos que para el efecto hayan expedido el Ministerio de Ambiente y Desarrollo Sostenible y el Ministerio de Agricultura y Desarrollo Rural. 
+       * 
+       * Así mismo el artículo 9 de la Resolución 886 de 2018, establece que, las autoridades ambientales con jurisdicción en los páramos deberán realizar el proceso de ordenamiento a través de la zonificación y determinación del régimen de usos de los páramos
+       */
+      !!@ ili2db.dispName=Zonificar
+      Zonificar
+    );
+
+    /** La Resolución 886 de 2018 establece las directrices de las categorías básicas propuestas para la zonificación aplicable a un régimen de transición en páramo.
+     */
+    PRM_ZonificacionTipo = (
+      /** 1. Zona en tránsito a la reconversión y sustitución
+       */
+      !!@ ili2db.dispName="Zona en tránsito a la reconversión y sustitución"
+      Zona_Transito_Reconversion_Y_Sustitucion(
+        /** 1A. Sustitución prioritaria:
+         *  
+         * Corresponde a las áreas que deberán ser objeto de sustitución y restauración ecológica de forma prioritaria, actualmente en actividad agropecuaria y la recuperación de la funcionalidad de áreas estratégicas para la provisión de servicios ecosistémicos. Se contemplan los siguientes casos:
+         * 
+         * a) Áreas con actividades agropecuarias introducidas sobre áreas de vegetación natural desde el año 2011 en adelante;
+         * 
+         * b) Áreas en las que se venían desarrollando actividades agropecuarias antes del 16 de junio de 2011 pero que se consideren de alta importancia para el suministro de servicios ecosistémicos como por ejemplo: Nacimientos de agua, cuerpos de agua y sus rondas hídricas, humedales, áreas de importancia cultural, entre otras;
+         * 
+         * c) Áreas que fueron intervenidas por procesos de exploración y explotación de recursos minero energéticos de manera previa a la entrada en vigencia de la normativa relacionada.
+         * 
+         * Los usos y las actividades que allí se permitan deberán procurar recuperar y mantener la composición, estructura y función del páramo. Deberán ser sujetas de procesos de restauración con miras a la preservación.
+         */
+        !!@ ili2db.dispName="Sustitución Prioritaria"
+        Sustitucion_Prioritaria,
+        /** 1B. Reconversión y sustitución de los medios de vida de base agropecuaria:
+         * Incorpora las áreas en las que se venían desarrollando actividades agropecuarias antes del 16 de junio de 2011 y que se encuentran por fuera de las áreas de alta importancia objeto de la sustitución prioritaria. 
+         * 
+         * En estas áreas se condicionará el desarrollo de las actividades agropecuarias bajo los siguientes criterios:
+         * - No ampliar el área destinada a las actividades agropecuarias.
+         * - Someter las áreas con actividades agropecuarias a procesos de reconversión y sustitución gradual.
+         */
+        !!@ ili2db.dispName="Reconversión y sustitución de los medios de vida de base agropecuaria"
+        Reconversion_Y_Sustitucion_Medios_Vida_Base_Agropecuaria
+      ),
+      /** 2. Áreas prioritarias para la restauración ecológica:
+       * a) Áreas que actualmente no se encuentran bajo uso agropecuario pero que pudieron ser objeto de alteraciones de origen natural u antrópico y que deben ser restauradas para mejorar el funcionamiento de los ecosistemas en términos de biodiversidad y/o servicios ecosistémicos. Los usos allí permitidos buscarán restablecer y rehabilitar parcial o totalmente la composición estructura y función de la biodiversidad que haya sido alterada o degradada. 
+       * 
+       * b) Áreas que han sido afectadas por movimientos de remoción en masa, incendios de cobertura vegetal, invasión biológica o fenómenos hidrometeorológicos que hayan alterado significativamente el ecosistema y constituyan elementos de riesgo para la población circundante
+       */
+      !!@ ili2db.dispName="Áreas prioritarias para la restauración ecológica"
+      Area_Prioritaria_Restauracion_Ecologica,
+      /** 3. Áreas prioritarias para su preservación:
+       * a) Zonas de alta importancia ambiental o fragilidad ecológica, que contribuyan al mantenimiento de la estructura y función de los ecosistemas de páramo, así como al mantenimiento de sus recursos naturales renovables y bellezas escénicas.   
+       * 
+       * b) Zonas de especial importancia para la provisión de servicios ecosistémicos (cuencas aferentes de bocatomas de acueductos veredales o municipales, áreas de importancia cultural, turismo de naturaleza, entre otras)
+       */
+      !!@ ili2db.dispName="Áreas prioritarias para su preservación"
+      Area_Prioritaria_Preservacion,
+      /** Otro
+       */
+      !!@ ili2db.dispName=Otro
+      Otro
+    );
+
+  /** Los páramos son un socioecosistema propio de la alta montaña ecuatorial ubicado predominantemente entre el límite superior del bosque andino y, si se da el caso, con el límite inferior de los glaciares y bordes de nieve, con predominio de clima frío y relieve modelado dominantemente por la acumulación y retiro de las masas glaciares. Como rasgo distintivo, presenta vegetación de pajonales, frailejonales, chuscales, matorrales y formaciones discontinuas de bosque altoandino, con presencia de turberas, humedales, lagos y lagunas, quebradas y ríos, entre otras fuentes hídricas subterráneas o subsuperficiales. Es además un territorio pluriétnico y multicultural, en la medida que se reconoce que los páramos en general han sido habitados, intervenidos y transformados, moldeando los patrones preexistentes.
+   */
+  TOPIC PRM
+  EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo;
+
+    /** Agrupación de interesados en el Páramo
+     */
+    !!@ ili2db.dispName="Agrupación de interesados"
+    CLASS PRM_AgrupacionInteresados
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionInteresados =
+    END PRM_AgrupacionInteresados;
+
+    /** Establece el tipo de Derecho asociado con el Páramo
+     */
+    CLASS PRM_Derecho
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      /** Establece el tipo de Derecho asociado con el Páramo
+       */
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_PRM.PRM_DerechoTipo;
+    END PRM_Derecho;
+
+    /** Identifica el acto administrativo con el cual se sustenta la declaratoria, zonificación o plan de manejo del Páramo
+     */
+    !!@ ili2db.dispName="Fuente administrativa"
+    CLASS PRM_FuenteAdministrativa
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY LADM_COL_v_1_0_0_Ext_PRM.PRM_FuenteAdministrativaTipo;
+    END PRM_FuenteAdministrativa;
+
+    !!@ ili2db.dispName="Fuente espacial"
+    CLASS PRM_FuenteEspacial
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteEspacial =
+      /** Escala del límite del páramo delimitado
+       */
+      Escala : LADM_COL_v_1_0_0_Ext_PRM.PRM_EscalaTipo;
+      Detalle_Escala : TEXT*50;
+    END PRM_FuenteEspacial;
+
+    /** Interesado asociado con los DRR del Páramo
+     */
+    CLASS PRM_Interesado
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Interesado =
+      Observacion : TEXT*255;
+    END PRM_Interesado;
+
+    CLASS PRM_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END PRM_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS PRM_NU_CadenaCarasLimite
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_CadenaCarasLimite =
+    END PRM_NU_CadenaCarasLimite;
+
+    CLASS PRM_NU_Punto
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Punto =
+    END PRM_NU_Punto;
+
+    /** Teniendo en cuenta el artículo 5 de la Resolución 769 de 2002, en consideración de las especiales características de los páramos y sus ecosistemas adyacentes, todo proyecto, obra o actividad que se pretenda realizar en los páramos, deberá desarrollarse atendiendo los criterios de zonificación y ordenación ambiental que se definan en el plan de manejo y las estrategias, modelos y alternativas de manejo sostenible que se prevean en el mismo o según los permitidos por la categoría de manejo bajo la cual se haya declarado.
+     */
+    !!@ ili2db.dispName="Régimen de uso y actividades"
+    CLASS PRM_RegimenUsosActividades =
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, es el uso deseable que coincide con la función específica de la zona y que ofrece las mayores ventajas desde los puntos de vista del desarrollo sostenible.
+       */
+      Principal : MANDATORY MTEXT;
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, son aquellos que no se oponen al principal y concuerdan con la potencialidad, productividad y protección del suelo y demás recursos naturales conexos.
+       */
+      Compatible : MTEXT;
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, son aquellos que presentan algún grado de incompatibilidad con el uso principal y ciertos riesgos ambientales controlables por la autoridad ambiental o por el municipio.
+       */
+      Condicionado : MTEXT;
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, son aquellos incompatibles con el uso principal de una zona, con los propósitos de preservación ambiental o de planificación y, por consiguiente, entrañan graves riesgos de tipo ecológico y/o social.
+       */
+      Prohibido : MTEXT;
+    END PRM_RegimenUsosActividades;
+
+    /** Establece el tipo de Responsabilidad asociado con el Páramo
+     */
+    CLASS PRM_Responsabilidad
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      /** Establece el tipo de Responsabilidad asociado con el Páramo
+       */
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_PRM.PRM_ResponsabilidadTipo;
+    END PRM_Responsabilidad;
+
+    /** La capa de páramos delimitados contiene los polígonos de los complejos de paramo en el país, que han sido delimitados mediante acto administrativo y que se encuentran a escalas 1:25.000 y 1:100.000
+     */
+    !!@ ili2db.dispName="(PRM) UAB Área de páramo"
+    CLASS PRM_UAB_AreaParamo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** ID interno con el cual se identifica el páramo delimitado
+       */
+      Identificador : MANDATORY TEXT*6;
+      /** Nombre del complejo de páramo delimitado
+       */
+      !!@ ili2db.dispName="Nombre páramo"
+      Nombre_Paramo : MANDATORY TEXT*255;
+      UNIQUE Identificador;
+    END PRM_UAB_AreaParamo;
+
+    /** De acuerdo con lo establecido en el artículo 9 de la Resolución 886 de 2018, las autoridades ambientales con jurisdicción en los páramos deberán realizar el proceso de ordenamiento a través de la zonificación y determinación del régimen de usos de los páramos.
+     */
+    CLASS PRM_UAB_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Corresponde al tipo de zonificación definido en el artículo 9 de la Resolución 886 de 2018
+       */
+      !!@ ili2db.dispName="Tipo de zona"
+      Tipo_Zona : MANDATORY LADM_COL_v_1_0_0_Ext_PRM.PRM_ZonificacionTipo;
+      /** Cuando el tipo de zona corresponda a Otro diligenciar el detalle a cuál corresponda
+       */
+      !!@ ili2db.dispName="Detalle de la zona"
+      Detalle_Zona : TEXT*1000;
+      /** Descripción detallada de la categoría, de acuerdo con las categorías básicas propuestas para la zonificación aplicable a un régimen de transición en páramo, establecidas en el artículo 9 de la Resolución 886 de 2018.
+       */
+      Descripcion_Categoria : MTEXT*1000;
+    END PRM_UAB_Zonificacion;
+
+    /** Unidad Espacial del Páramo delimitado
+     */
+    CLASS PRM_UE_AreaParamo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas del complejo de paramo
+       */
+      !!@ ili2db.dispName="Área en hetáreas del páramo"
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END PRM_UE_AreaParamo;
+
+    /** Unidad Espacial de la zonificación del Páramo
+     */
+    CLASS PRM_UE_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas de la zonificación del páramo
+       */
+      Area_Ha : 0.0000 .. 200000000.0000;
+    END PRM_UE_Zonificacion;
+
+    ASSOCIATION PRM_AreaParamo_Zonificacion =
+      UAB_Zonificacion -- {0..*} PRM_UAB_Zonificacion;
+      UAB_AreaParamo -- {1} PRM_UAB_AreaParamo;
+    END PRM_AreaParamo_Zonificacion;
+
+    ASSOCIATION PRM_Zonificacion_RegimenUsosActividades =
+      UAB_Zonficacion -- {0..*} PRM_UAB_Zonificacion;
+      Regimen_Usos -- {1} PRM_RegimenUsosActividades;
+    END PRM_Zonificacion_RegimenUsosActividades;
+
+  END PRM;
+
+END LADM_COL_v_1_0_0_Ext_PRM.
