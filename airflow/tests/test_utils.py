@@ -6,48 +6,51 @@ import unittest
 from unittest.mock import patch, mock_open
 import logging
 
-# Se asume que las funciones a testear se encuentran en un módulo, por ejemplo, "utils.utils.py"
-from utils.utils import (
-    leer_configuracion,
-    limpiar_carpeta_temporal,
-    clean_sql_script
-)
+# Importamos las funciones a testear
+from utils.utils import leer_configuracion, limpiar_carpeta_temporal, clean_sql_script
 
-# Definimos valores ficticios para los constantes importados desde config.general_config
+# Constantes para las pruebas
 FAKE_CONFIG_PATH = "dummy_config.json"
 FAKE_TEMP_FOLDER = "temp_test"
 
 # ---------------------------
-# Tests para leer_configuracion
+# Pruebas para leer_configuracion
 # ---------------------------
 class TestLeerConfiguracion(unittest.TestCase):
-    @patch("utils.utils.CONFIG_PATH", new=FAKE_CONFIG_PATH)
+    def setUp(self):
+        # Cada test recibirá un diccionario de configuración con la clave CONFIG_PATH.
+        self.cfg = {"CONFIG_PATH": FAKE_CONFIG_PATH}
+
     def test_leer_configuracion_success(self):
         fake_data = {"key": "value"}
         m = mock_open(read_data=json.dumps(fake_data))
+        # Parchamos la función open en el módulo utils.utils para simular la lectura del archivo.
         with patch("utils.utils.open", m):
-            result = leer_configuracion()
+            result = leer_configuracion(self.cfg)
             self.assertEqual(result, fake_data)
-
-    @patch("utils.utils.CONFIG_PATH", new=FAKE_CONFIG_PATH)
+    
     def test_leer_configuracion_file_not_found(self):
+        # Simulamos que open lanza FileNotFoundError.
         with patch("utils.utils.open", side_effect=FileNotFoundError("No se encontró")):
             with self.assertRaises(FileNotFoundError) as context:
-                leer_configuracion()
+                leer_configuracion(self.cfg)
             self.assertIn("Archivo no encontrado", str(context.exception))
-
-    @patch("utils.utils.CONFIG_PATH", new=FAKE_CONFIG_PATH)
+    
     def test_leer_configuracion_other_exception(self):
+        # Simulamos otro error (por ejemplo, error al parsear)
         with patch("utils.utils.open", side_effect=Exception("Error inesperado")):
             with self.assertRaises(Exception) as context:
-                leer_configuracion()
+                leer_configuracion(self.cfg)
             self.assertIn("Error leyendo la configuración", str(context.exception))
 
 # ---------------------------
-# Tests para limpiar_carpeta_temporal
+# Pruebas para limpiar_carpeta_temporal
 # ---------------------------
 class TestLimpiarCarpetaTemporal(unittest.TestCase):
-    @patch("utils.utils.TEMP_FOLDER", new=FAKE_TEMP_FOLDER)
+    def setUp(self):
+        # Cada test recibirá un diccionario de configuración con la clave TEMP_FOLDER.
+        self.cfg = {"TEMP_FOLDER": FAKE_TEMP_FOLDER}
+
     def test_limpiar_carpeta_temporal_exists(self):
         # Simulamos que la carpeta existe y contiene un archivo y un directorio.
         with patch("utils.utils.os.path.exists", return_value=True) as mock_exists, \
@@ -59,25 +62,24 @@ class TestLimpiarCarpetaTemporal(unittest.TestCase):
              patch("utils.utils.shutil.rmtree") as mock_rmtree, \
              patch("utils.utils.os.makedirs") as mock_makedirs:
             
-            limpiar_carpeta_temporal()
+            limpiar_carpeta_temporal(self.cfg)
             
             file_path = os.path.join(FAKE_TEMP_FOLDER, "file.txt")
             dir_path = os.path.join(FAKE_TEMP_FOLDER, "dir")
             mock_unlink.assert_called_once_with(file_path)
             mock_rmtree.assert_called_once_with(dir_path)
+            # Verificamos que se cree la carpeta (con exist_ok=True)
             mock_makedirs.assert_called_once_with(FAKE_TEMP_FOLDER, exist_ok=True)
 
-    @patch("utils.utils.TEMP_FOLDER", new=FAKE_TEMP_FOLDER)
     def test_limpiar_carpeta_temporal_not_exists(self):
         # Simulamos que la carpeta no existe: se debe crear.
         with patch("utils.utils.os.path.exists", return_value=False) as mock_exists, \
              patch("utils.utils.os.makedirs") as mock_makedirs:
-            limpiar_carpeta_temporal()
+            limpiar_carpeta_temporal(self.cfg)
             mock_makedirs.assert_called_once_with(FAKE_TEMP_FOLDER, exist_ok=True)
 
-    @patch("utils.utils.TEMP_FOLDER", new=FAKE_TEMP_FOLDER)
     def test_limpiar_carpeta_temporal_error(self):
-        # Simulamos un error al eliminar un archivo (por ejemplo, en os.unlink).
+        # Simulamos un error al eliminar un archivo.
         with patch("utils.utils.os.path.exists", return_value=True) as mock_exists, \
              patch("utils.utils.os.listdir", return_value=["file.txt"]) as mock_listdir, \
              patch("utils.utils.os.path.isfile", return_value=True), \
@@ -85,11 +87,11 @@ class TestLimpiarCarpetaTemporal(unittest.TestCase):
              patch("utils.utils.os.unlink", side_effect=Exception("Error al eliminar")), \
              patch("utils.utils.os.makedirs") as mock_makedirs:
             with self.assertRaises(Exception) as context:
-                limpiar_carpeta_temporal()
+                limpiar_carpeta_temporal(self.cfg)
             self.assertIn("Error eliminando", str(context.exception))
 
 # ---------------------------
-# Tests para clean_sql_script
+# Pruebas para clean_sql_script
 # ---------------------------
 class TestCleanSqlScript(unittest.TestCase):
     def test_clean_sql_script_remove_balanced_comments(self):

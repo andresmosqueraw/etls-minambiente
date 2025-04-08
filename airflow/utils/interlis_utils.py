@@ -68,45 +68,48 @@ def importar_esquema_ladm(cfg):
     db_config = config["db"]
     logs = config["logs"]
     interlis = config["interlis"]
-    logging.info(f"Iniciando importar_esquema_ladm para {logs["nombre_etl"]}...")
-    logging.info(f"Importando esquema {logs["nombre_etl"]}...")
+    
+    logging.info(f"Iniciando importar_esquema_ladm para {logs['nombre_etl']}...")
+    logging.info(f"Importando esquema {logs['nombre_etl']}...")
+    
+    # Se valida la existencia del JAR fuera del try
+    if not os.path.exists(ILI2DB_JAR_PATH):
+        logging.error("❌ importar_esquema_ladm falló. JAR no encontrado.")
+        raise FileNotFoundError(f"Archivo JAR no encontrado: {ILI2DB_JAR_PATH}")
+    
+    # Se construye el comando
+    command = [
+        "java", "-Duser.language=es", "-Duser.country=ES", "-jar", ILI2DB_JAR_PATH,
+        "--schemaimport", "--setupPgExt",
+        "--dbhost", db_config["host"],
+        "--dbport", str(db_config["port"]),
+        "--dbusr", db_config["user"],
+        "--dbpwd", db_config["password"],
+        "--dbdatabase", db_config["db_name"],
+        "--dbschema", "ladm",
+        "--coalesceCatalogueRef", "--createNumChecks", "--createUnique",
+        "--createFk", "--createFkIdx", "--coalesceMultiSurface",
+        "--coalesceMultiLine", "--coalesceMultiPoint", "--coalesceArray",
+        "--beautifyEnumDispName", "--createGeomIdx", "--createMetaInfo",
+        "--expandMultilingual", "--createTypeConstraint",
+        "--createEnumTabsWithId", "--createTidCol", "--smart2Inheritance",
+        "--strokeArcs", "--createBasketCol",
+        "--defaultSrsAuth", "EPSG",
+        "--defaultSrsCode", "9377",
+        "--preScript", EPSG_SCRIPT,
+        "--postScript", "NULL",
+        "--modeldir", MODEL_DIR,
+        "--models", interlis["nombre_modelo"],
+        "--iliMetaAttrs", "NULL"
+    ]
+    
+    logging.info(f"Ejecutando ili2pg para importar {logs['nombre_etl']}...")
+    logging.info(" ".join(command))
+    
     try:
-        if not os.path.exists(ILI2DB_JAR_PATH):
-            logging.error("\033[91m❌ importar_esquema_ladm falló. JAR no encontrado.\033[0m")
-            raise FileNotFoundError(f"Archivo JAR no encontrado: {ILI2DB_JAR_PATH}")
-        command = [
-            "java", "-Duser.language=es", "-Duser.country=ES", "-jar", ILI2DB_JAR_PATH,
-            "--schemaimport", "--setupPgExt",
-            "--dbhost", db_config["host"],
-            "--dbport", str(db_config["port"]),
-            "--dbusr", db_config["user"],
-            "--dbpwd", db_config["password"],
-            "--dbdatabase", db_config["db_name"],
-            "--dbschema", "ladm",
-            "--coalesceCatalogueRef", "--createNumChecks", "--createUnique",
-            "--createFk", "--createFkIdx", "--coalesceMultiSurface",
-            "--coalesceMultiLine", "--coalesceMultiPoint", "--coalesceArray",
-            "--beautifyEnumDispName", "--createGeomIdx", "--createMetaInfo",
-            "--expandMultilingual", "--createTypeConstraint",
-            "--createEnumTabsWithId", "--createTidCol", "--smart2Inheritance",
-            "--strokeArcs", "--createBasketCol",
-            "--defaultSrsAuth", "EPSG",
-            "--defaultSrsCode", "9377",
-            "--preScript", EPSG_SCRIPT,
-            "--postScript", "NULL",
-            "--modeldir", MODEL_DIR,
-            "--models", interlis["nombre_modelo"],
-            "--iliMetaAttrs", "NULL"
-        ]
-        logging.info(f"Ejecutando ili2pg para importar {logs["nombre_etl"]}...")
-        logging.info(" ".join(command))
         subprocess.run(command, check=True)
-        logging.info(f"Esquema {logs["nombre_etl"]} importado correctamente.")
-        logging.info(f"\033[92m✔ importar_esquema_ladm para {logs["nombre_etl"]} finalizó sin errores.\033[0m")
+        logging.info(f"Esquema {logs['nombre_etl']} importado correctamente.")
+        logging.info(f"✔ importar_esquema_ladm para {logs['nombre_etl']} finalizó sin errores.")
     except subprocess.CalledProcessError as e:
-        logging.error(f"\033[91m❌ importar_esquema_ladm para {logs["nombre_etl"]} falló.\033[0m")
-        raise Exception(f"Error importando {logs["nombre_etl"]}: {e}")
-    except Exception as ex:
-        logging.error(f"Error: {ex}")
-        logging.error(f"\033[91m❌ importar_esquema_ladm para {logs["nombre_etl"]} falló.\033[0m")
-        raise Exception(f"Error importando {logs["nombre_etl"]}: {ex}")
+        logging.error("❌ importar_esquema_ladm para {0} falló.".format(logs['nombre_etl']))
+        raise Exception(f"Error importando {logs['nombre_etl']}: {e}")

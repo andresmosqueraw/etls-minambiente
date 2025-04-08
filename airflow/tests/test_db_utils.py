@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import unittest
 from unittest.mock import patch, MagicMock, call
 import psycopg2
@@ -32,20 +33,23 @@ class TestEjecutarSQL(unittest.TestCase):
     @patch('utils.db_utils.leer_configuracion')
     @patch('psycopg2.connect')
     def test_ejecutar_sql_success(self, mock_connect, mock_leer_config):
+        # Se simula que la configuración retorna fake_config
         mock_leer_config.return_value = fake_config
 
-        # Crear un fake connection y cursor
+        # Crear una conexión y cursor ficticios
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
+        # El cursor se usa en un contexto (with statement)
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
         sql = "SELECT * FROM tabla;"
         params = (1, 2, 3)
 
-        ejecutar_sql(sql, params)
+        # Se llama a la función con parámetros
+        ejecutar_sql(fake_config, sql, params)
 
-        # Verifica que se ejecute el SQL con parámetros y se haga commit
+        # Verificar que se haya ejecutado el SQL con parámetros y realizado el commit
         mock_cursor.execute.assert_called_with(sql, params)
         mock_conn.commit.assert_called_once()
         mock_conn.close.assert_called_once()
@@ -57,7 +61,7 @@ class TestEjecutarSQL(unittest.TestCase):
 
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
-        # Forzar una excepción al ejecutar el SQL
+        # Forzar excepción en la ejecución del SQL
         mock_cursor.execute.side_effect = Exception("Error de ejecución")
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
@@ -65,9 +69,9 @@ class TestEjecutarSQL(unittest.TestCase):
         sql = "INSERT INTO tabla VALUES (%s, %s);"
 
         with self.assertRaises(Exception) as context:
-            ejecutar_sql(sql)
-
+            ejecutar_sql(fake_config, sql)
         self.assertIn("Error ejecutando SQL", str(context.exception))
+        # Se debe llamar rollback y cerrar la conexión
         mock_conn.rollback.assert_called_once()
         mock_conn.close.assert_called_once()
 
@@ -82,7 +86,7 @@ class TestValidarConexionPostgres(unittest.TestCase):
         mock_conn = MagicMock()
         mock_connect.return_value = mock_conn
 
-        result = validar_conexion_postgres()
+        result = validar_conexion_postgres(fake_config)
         self.assertTrue(result)
         mock_conn.close.assert_called_once()
 
@@ -92,7 +96,7 @@ class TestValidarConexionPostgres(unittest.TestCase):
         mock_leer_config.return_value = fake_config
 
         with self.assertRaises(Exception) as context:
-            validar_conexion_postgres()
+            validar_conexion_postgres(fake_config)
         self.assertIn("Error en la conexión", str(context.exception))
 
 # ---------------------------
@@ -106,12 +110,13 @@ class TestRevisarExistenciaDB(unittest.TestCase):
 
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
-        # Simular que la base de datos existe (fetchone devuelve algo)
+        # Simular que la base de datos existe (fetchone devuelve algo distinto de None)
         mock_cursor.fetchone.return_value = (1,)
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
-        result = revisar_existencia_db()
+        result = revisar_existencia_db(fake_config)
+        # Se espera que si la base existe, se retorne la lista ["Adicionar_Extensiones"]
         self.assertEqual(result, ["Adicionar_Extensiones"])
         mock_conn.close.assert_called_once()
 
@@ -127,7 +132,8 @@ class TestRevisarExistenciaDB(unittest.TestCase):
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
-        result = revisar_existencia_db()
+        result = revisar_existencia_db(fake_config)
+        # En este caso se espera ["Crear_Base_Datos"]
         self.assertEqual(result, ["Crear_Base_Datos"])
         mock_conn.close.assert_called_once()
 
@@ -137,7 +143,7 @@ class TestRevisarExistenciaDB(unittest.TestCase):
         mock_leer_config.return_value = fake_config
 
         with self.assertRaises(Exception) as context:
-            revisar_existencia_db()
+            revisar_existencia_db(fake_config)
         self.assertIn("Error revisando existencia de la base de datos", str(context.exception))
 
 # ---------------------------
@@ -154,7 +160,7 @@ class TestCrearBaseDatos(unittest.TestCase):
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
-        crear_base_datos()
+        crear_base_datos(fake_config)
 
         expected_sql = f"CREATE DATABASE {fake_config['db']['db_name']};"
         mock_cursor.execute.assert_called_with(expected_sql)
@@ -167,13 +173,13 @@ class TestCrearBaseDatos(unittest.TestCase):
 
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
-        # Forzar error al crear la base de datos
+        # Forzar error al ejecutar el SQL de creación de la DB
         mock_cursor.execute.side_effect = Exception("Error al crear DB")
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
         with self.assertRaises(Exception) as context:
-            crear_base_datos()
+            crear_base_datos(fake_config)
         self.assertIn("Error creando base de datos", str(context.exception))
 
 # ---------------------------
@@ -190,7 +196,7 @@ class TestAdicionarExtensiones(unittest.TestCase):
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
-        adicionar_extensiones()
+        adicionar_extensiones(fake_config)
 
         expected_calls = [
             call("CREATE EXTENSION IF NOT EXISTS plpgsql;"),
@@ -207,13 +213,13 @@ class TestAdicionarExtensiones(unittest.TestCase):
 
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
-        # Forzar fallo al ejecutar una de las extensiones
+        # Forzar fallo al ejecutar alguna extensión
         mock_cursor.execute.side_effect = Exception("Error en extensión")
         mock_conn.cursor.return_value.__enter__.return_value = mock_cursor
         mock_connect.return_value = mock_conn
 
         with self.assertRaises(Exception) as context:
-            adicionar_extensiones()
+            adicionar_extensiones(fake_config)
         self.assertIn("Error adicionando extensiones", str(context.exception))
 
 # ---------------------------
@@ -222,23 +228,23 @@ class TestAdicionarExtensiones(unittest.TestCase):
 class TestRestablecerEsquema(unittest.TestCase):
     @patch('utils.db_utils.ejecutar_sql')
     def test_restablecer_esquema_insumos(self, mock_ejecutar_sql):
-        restablecer_esquema_insumos()
+        restablecer_esquema_insumos(fake_config)
         expected_sql = "DROP SCHEMA IF EXISTS insumos CASCADE; CREATE SCHEMA insumos;"
-        mock_ejecutar_sql.assert_called_once_with(expected_sql)
+        mock_ejecutar_sql.assert_called_once_with(fake_config, expected_sql)
 
     @patch('utils.db_utils.ejecutar_sql')
     def test_restablecer_esquema_estructura_intermedia(self, mock_ejecutar_sql):
-        restablecer_esquema_estructura_intermedia()
+        restablecer_esquema_estructura_intermedia(fake_config)
         expected_sql = "DROP SCHEMA IF EXISTS estructura_intermedia CASCADE; CREATE SCHEMA estructura_intermedia;"
-        mock_ejecutar_sql.assert_called_once_with(expected_sql)
+        mock_ejecutar_sql.assert_called_once_with(fake_config, expected_sql)
 
     @patch('utils.db_utils.ejecutar_sql')
     def test_restablecer_esquema_ladm(self, mock_ejecutar_sql):
-        restablecer_esquema_ladm()
+        restablecer_esquema_ladm(fake_config)
         expected_sql = "DROP SCHEMA IF EXISTS ladm CASCADE; CREATE SCHEMA ladm;"
-        mock_ejecutar_sql.assert_called_once_with(expected_sql)
+        mock_ejecutar_sql.assert_called_once_with(fake_config, expected_sql)
 
 if __name__ == '__main__':
-    # Para mostrar más información en la consola durante la ejecución de tests
+    # Se activa un nivel de logging para depuración (opcional)
     logging.basicConfig(level=logging.DEBUG)
     unittest.main()
