@@ -5,6 +5,8 @@ import subprocess
 import logging
 import pandas as pd
 import shutil
+import re
+import sqlalchemy
 
 from utils.utils import (
     leer_configuracion,
@@ -129,13 +131,20 @@ def _validar_archivo_local(key, insumos_local, base_local):
 def procesar_insumos_descargados(cfg, **context):
     """
     Procesa insumos descargados o copiados localmente:
-    - Descomprime archivos .zip en TEMP_FOLDER/<key>
-    - Copia archivos .xlsx y .geojson en TEMP_FOLDER/<key>
+    - Si el insumo es un archivo ZIP, se revisa su contenido:
+         * Si contiene la estructura propia de un Excel (por ejemplo, "[Content_Types].xml" o la carpeta "xl/"),
+           se copia el archivo y se renombra a .xlsx, tratándolo como Excel.
+         * Si no es un Excel, se descomprime en TEMP_FOLDER/<key>.
+    - Si el insumo es Excel (.xls o .xlsx) o GeoJSON (.geojson), se copia a TEMP_FOLDER/<key>.
+    - Se ignoran otros formatos.
     """
     logging.info("Iniciando procesar_insumos_descargados...")
     ti = context["ti"]
 
+    # Se obtiene la carpeta temporal desde la configuración.
     TEMP_FOLDER = cfg["TEMP_FOLDER"]
+
+    # Recuperamos los insumos (descargados y/o copiados localmente) desde XCom.
     insumos_web = ti.xcom_pull(task_ids="Obtener_Insumos_Web", key="insumos_web") or {}
     insumos_local = ti.xcom_pull(task_ids="copia_insumo_local_task", key="insumos_local") or {}
     insumos_totales = {**insumos_web, **insumos_local}
@@ -144,40 +153,72 @@ def procesar_insumos_descargados(cfg, **context):
         raise Exception("❌ No se encontraron insumos para procesar.")
 
     resultados = []
+
     for key, file_path in insumos_totales.items():
         if not file_path or not os.path.exists(file_path):
-            logging.error(f"❌ El archivo para '{key}' no existe: {file_path}")
-            raise Exception(f"Archivo no encontrado para '{key}'")
+            msg = f"❌ Archivo para '{key}' no encontrado: {file_path}"
+            logging.error(msg)
+            raise Exception(msg)
 
+        # Se crea la carpeta de destino para este insumo.
         extract_folder = os.path.join(TEMP_FOLDER, key)
         os.makedirs(extract_folder, exist_ok=True)
         ext = os.path.splitext(file_path)[1].lower()
 
         if ext == ".zip":
-            logging.info(f"Descomprimiendo ZIP '{file_path}' => {extract_folder}")
             try:
+                # Abrimos el ZIP para inspeccionar su contenido.
                 with zipfile.ZipFile(file_path, 'r') as zip_ref:
-                    zip_ref.extractall(extract_folder)
-                logging.info(f"✔ ZIP extraído correctamente en: {extract_folder}")
+                    namelist = zip_ref.namelist()
+
+                # Si se detecta estructura típica de un Excel, se tratará como Excel.
+                if "[Content_Types].xml" in namelist or any(n.startswith("xl/") for n in namelist):
+                    destino = os.path.join(extract_folder, key + ".xlsx")
+                    shutil.copy(file_path, destino)
+                    logging.info(f"Se detectó un Excel empaquetado en ZIP. Archivo copiado y renombrado a '{destino}'")
+                    resultados.append({
+                        "key": key,
+                        "file": destino,
+                        "folder": extract_folder,
+                        "type": "excel"
+                    })
+                else:
+                    logging.info(f"Descomprimiendo ZIP '{file_path}' en: {extract_folder}")
+                    with zipfile.ZipFile(file_path, 'r') as zip_ref:
+                        zip_ref.extractall(extract_folder)
+                    logging.info(f"✔ ZIP extraído correctamente en: {extract_folder}")
+                    resultados.append({
+                        "key": key,
+                        "file": file_path,
+                        "folder": extract_folder,
+                        "type": "zip"
+                    })
             except zipfile.BadZipFile as e:
-                logging.error(f"❌ Archivo ZIP inválido '{file_path}': {e}")
-                raise Exception(f"Archivo ZIP inválido: {file_path}")
+                msg = f"❌ Archivo ZIP inválido '{file_path}': {e}"
+                logging.error(msg)
+                raise Exception(msg)
             except Exception as e:
-                logging.error(f"❌ Error extrayendo '{file_path}': {e}")
-                raise Exception(f"Error extrayendo: {file_path}")
-        elif ext in [".xlsx", ".geojson"]:
+                msg = f"❌ Error extrayendo '{file_path}': {e}"
+                logging.error(msg)
+                raise Exception(msg)
+        elif ext in [".xls", ".xlsx", ".geojson"]:
             destino = os.path.join(extract_folder, os.path.basename(file_path))
-            shutil.copy(file_path, destino)
-            logging.info(f"✔ Archivo '{file_path}' copiado a '{destino}'")
+            try:
+                shutil.copy(file_path, destino)
+                logging.info(f"✔ Archivo '{file_path}' copiado a '{destino}'")
+                resultados.append({
+                    "key": key,
+                    "file": destino,
+                    "folder": extract_folder,
+                    "type": "file"
+                })
+            except Exception as e:
+                msg = f"❌ Error copiando el archivo '{file_path}' a '{destino}': {e}"
+                logging.error(msg)
+                raise Exception(msg)
         else:
             logging.warning(f"⚠ Formato '{ext}' no soportado para '{file_path}', se omite.")
             continue
-
-        resultados.append({
-            "key": key,
-            "zip_path": file_path,  # se conserva por compatibilidad
-            "folder": extract_folder
-        })
 
     ti.xcom_push(key="insumos_procesados", value=resultados)
     logging.info(f"✔ Insumos procesados correctamente: {resultados}")
@@ -258,7 +299,7 @@ def ejecutar_importacion_general_a_postgres(cfg, **kwargs):
                     archivo_directo = insumo.get("zip_path")  # ya es ruta absoluta
                     if archivo_directo and archivo_directo.lower().endswith(".xlsx") and os.path.exists(archivo_directo):
                         logging.info(f"Procesando Excel directo para '{key}': {archivo_directo}")
-                        _importar_excel_a_postgres(engine, archivo_directo, table_name=key, schema="insumos")
+                        _importar_excel_a_postgres(cfg, engine, archivo_directo, table_name=key, schema="insumos")
                         continue  # saltar búsqueda de carpetas
 
             if not folder:
@@ -290,7 +331,7 @@ def ejecutar_importacion_general_a_postgres(cfg, **kwargs):
 
             for xlsx_file in xlsx_files:
                 logging.info(f"Importando Excel: {xlsx_file} -> insumos.{key}")
-                _importar_excel_a_postgres(engine, xlsx_file, table_name=key, schema="insumos")
+                _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name=key, schema="insumos")
 
         logging.info("✔ Importación a PostgreSQL completada correctamente.")
     except Exception as e:
@@ -351,7 +392,13 @@ def _importar_geojson_a_postgres(db_config, geojson_file, table_name):
         logging.error(f"\033[91m❌ _importar_geojson_a_postgres falló: {e.stderr}\033[0m")
         raise Exception(f"Error importando GeoJSON en '{table_name}': {e.stderr}")
 
-def _importar_excel_a_postgres(engine, xlsx_file, table_name, schema="insumos"):
+def _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name, schema="insumos", ): 
+    if "ETL_AP" in cfg["ETL_DIR"]: 
+        config = leer_configuracion(cfg)
+        db_config = config["db"] 
+        print("entre")
+        return import_excel_to_db(db_config, xlsx_file, table_name)
+    print("no entra")
     logging.info(f"Iniciando _importar_excel_a_postgres... Importando '{xlsx_file}' en '{schema}.{table_name}'...")
     try:
         df = pd.read_excel(xlsx_file)
@@ -359,3 +406,79 @@ def _importar_excel_a_postgres(engine, xlsx_file, table_name, schema="insumos"):
         logging.info(f"\033[92m✔ Excel '{xlsx_file}' importado correctamente en {schema}.{table_name}.\033[0m")
     except Exception as e:
         raise Exception(f"Error importando Excel '{xlsx_file}': {e}")
+    
+def import_excel_to_db(db_config, excel_file, key):
+    """
+    Lee las hojas "General" y "Actos" del Excel.
+    
+    La hoja "General" es la base (por ejemplo, 30 filas). Para cada "Id del área protegida" en 
+    la hoja "Actos" se selecciona la primera fila que cumpla que "Objeto del acto" esté en la 
+    lista de valores válidos; si ninguna cumple, se toma la primera fila del grupo.
+    
+    Se realiza un merge LEFT usando "Id del área protegida" como llave, de modo que se 
+    conservan exactamente las filas de la hoja "General". El resultado se inserta en la 
+    tabla insumos.<key>_excel.
+    """
+    logging.info(f"Iniciando import_excel_to_db para {excel_file} en insumo '{key}'...")
+
+    # Leer la hoja "General" sin usar ninguna columna como índice y reiniciar índice.
+    try:
+        df_general = pd.read_excel(excel_file, sheet_name="General", index_col=None)
+        df_general = df_general.reset_index(drop=True)
+        logging.info(f"Hoja 'General' leída con {len(df_general)} filas.")
+    except Exception as e:
+        logging.error(f"Error leyendo la hoja 'General' de {excel_file}: {e}")
+        raise Exception(f"Error leyendo Excel (General): {e}")
+
+    # Leer la hoja "Actos" de la misma forma.
+    try:
+        df_actos = pd.read_excel(excel_file, sheet_name="Actos", index_col=None)
+        df_actos = df_actos.reset_index(drop=True)
+        logging.info(f"Hoja 'Actos' leída con {len(df_actos)} filas.")
+    except Exception as e:
+        logging.error(f"Error leyendo la hoja 'Actos' de {excel_file}: {e}")
+        raise Exception(f"Error leyendo Excel (Actos): {e}")
+
+    # Lista de valores válidos para "Objeto del acto"
+    valid_objetos = ["Declaratoria", "Registro RNSC", "Declaratoria y adopcion de plan de manejo"]
+
+    # Función para seleccionar la fila adecuada en cada grupo
+    def choose_row(group):
+        matching = group[group["Objeto del acto"].isin(valid_objetos)]
+        if not matching.empty:
+            return matching.iloc[0]
+        else:
+            return group.iloc[0]
+
+    try:
+        # Agrupar por "Id del área protegida" y aplicar la función para elegir la fila deseada
+        df_actos_reducido = df_actos.groupby("Id del área protegida", group_keys=False).apply(choose_row)
+        # Resetear el índice para evitar que "Id del área protegida" esté tanto en el índice como en la columna
+        df_actos_reducido = df_actos_reducido.reset_index(drop=True)
+        logging.info(f"Reducción de 'Actos': {len(df_actos_reducido)} filas resultantes (1 por cada id).")
+    except Exception as e:
+        logging.error(f"Error reduciendo 'Actos': {e}")
+        raise Exception(f"Error reduciendo 'Actos': {e}")
+
+    try:
+        # Realizar un merge LEFT usando la hoja General como base.
+        df_merged = pd.merge(df_general, df_actos_reducido, on="Id del área protegida", how="left")
+        logging.info(f"Merge realizado: {len(df_merged)} filas resultantes (deberían ser {len(df_general)}).")
+    except Exception as e:
+        logging.error(f"Error realizando merge: {e}")
+        raise Exception(f"Error en merge: {e}")
+
+    # Insertar el DataFrame resultante en la base de datos
+    table_name = f"insumos.{shorten_identifier(key)}_excel"
+    engine = sqlalchemy.create_engine(
+        f"postgresql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['db_name']}"
+    )
+    try:
+        df_merged.to_sql(table_name.split('.')[-1], engine, schema="insumos", if_exists="replace", index=False)
+        logging.info(f"Excel importado en la tabla {table_name}.")
+    except Exception as e:
+        logging.error(f"Error insertando Excel en {table_name}: {e}")
+        raise Exception(f"Error insertando Excel a DB: {e}")
+    
+def shorten_identifier(identifier):
+    return re.sub(r'\W+', '_', identifier).lower()    

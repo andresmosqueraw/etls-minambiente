@@ -1,0 +1,427 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - objectid
+    - ap_id
+    - condicion
+    - ap_nombre
+    - ap_categor
+    - ap_shape_i
+    - fecha_insc
+    - fecha_regi
+    - organizaci
+    - nit
+    - area_ha_to
+    - area_ha_ma
+    - area_ha_te
+    - centroide_
+    - centroid_1
+    - area_ha__1
+    - area_ha__2
+    - area_ha__3
+    - territoria
+    - sirap
+    - url
+    - wkid
+    - territor_1
+    - geom
+    exact_match: true
+  meta:
+    table: area_protegida
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_protegida
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: objectid
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: condicion
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_nombre
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_categor
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_shape_i
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_insc
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_regi
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: organizaci
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nit
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha_to
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha_ma
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha_te
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: centroide_
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: centroid_1
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha__1
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha__2
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha__3
+    type_: float
+  meta:
+    table: area_protegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: territoria
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sirap
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: wkid
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: territor_1
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_protegida
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - "Id del \xE1rea protegida"
+    - "\xC1mbito de gesti\xF3n"
+    - Nombre de la autoridad ambiental_x
+    - NIT de la autoridad ambiental
+    - "Nombre del \xE1rea protegida_x"
+    - "Categor\xEDa de manejo_x"
+    - "Categor\xEDa UICN"
+    - "Extensi\xF3n total acto administrativo en hect\xE1reas"
+    - "Extensi\xF3n terrestre acto administrativo en hect\xE1reas_x"
+    - "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_x"
+    - "Extensi\xF3n terrestre geogr\xE1fica en hect\xE1reas"
+    - "Extensi\xF3n mar\xEDtima geogr\xE1fica en hect\xE1reas"
+    - "Extensi\xF3n total geogr\xE1fica en hect\xE1reas"
+    - "Fecha de inscripci\xF3n"
+    - "\xDAltima fecha de solicitud de validaci\xF3n"
+    - "\xDAltima fecha de validaci\xF3n tem\xE1tica exitosa"
+    - "\xDAltima fecha de validaci\xF3n geogr\xE1fica exitosa"
+    - Nombre de la autoridad ambiental_y
+    - "Nombre del \xE1rea protegida_y"
+    - "Categor\xEDa de manejo_y"
+    - Tipo de acto administrativo
+    - Objeto del acto
+    - "N\xFAmero del acto"
+    - Fecha del acto
+    - "Extensi\xF3n terrestre acto administrativo en hect\xE1reas_y"
+    - "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_y"
+    exact_match: true
+  meta:
+    table: "informaci\xF3n_runap_excel"
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Id del \xE1rea protegida"
+    type_: int
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "\xC1mbito de gesti\xF3n"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Nombre de la autoridad ambiental_x
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: NIT de la autoridad ambiental
+    type_: int
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Nombre del \xE1rea protegida_x"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Categor\xEDa de manejo_x"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Categor\xEDa UICN"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n total acto administrativo en hect\xE1reas"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n terrestre acto administrativo en hect\xE1reas_x"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_x"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n terrestre geogr\xE1fica en hect\xE1reas"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n mar\xEDtima geogr\xE1fica en hect\xE1reas"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n total geogr\xE1fica en hect\xE1reas"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Fecha de inscripci\xF3n"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "\xDAltima fecha de solicitud de validaci\xF3n"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "\xDAltima fecha de validaci\xF3n tem\xE1tica exitosa"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "\xDAltima fecha de validaci\xF3n geogr\xE1fica exitosa"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Nombre de la autoridad ambiental_y
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Nombre del \xE1rea protegida_y"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Categor\xEDa de manejo_y"
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Tipo de acto administrativo
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Objeto del acto
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "N\xFAmero del acto"
+    type_: int
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Fecha del acto
+    type_: str
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n terrestre acto administrativo en hect\xE1reas_y"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_y"
+    type_: float
+  meta:
+    table: "informaci\xF3n_runap_excel"
+    postgres_type: double precision
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema insumos"

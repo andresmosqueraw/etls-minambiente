@@ -1,0 +1,289 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_id_ap
+    - uab_nombre_area_protegida
+    - uab_categoria
+    - uab_ambito_gestion
+    - uab_estado
+    - uab_fecha_inscripcion_runap
+    - uab__fecha_registro_runap
+    - uab_area_total_ha
+    - uab_area_terrestre_ha
+    - uab_area_maritima_ha
+    - nombre
+    - interesado_nombre
+    - interesado_tipo_interesado
+    - interesado_tipo_documento
+    - interesado_numero_documento
+    - fuente_administrativa_tipo
+    - fuente_administrativa_estado_disponibilidad
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_nombre
+    - ddr_tipo_resposabilidad
+    - ddr_tipo_derecho
+    exact_match: true
+  meta:
+    table: ap_uab_areaprotegida
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_id_ap
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre_area_protegida
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_categoria
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_ambito_gestion
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_estado
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_fecha_inscripcion_runap
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab__fecha_registro_runap
+    type_: datetime
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_area_total_ha
+    type_: float
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_area_terrestre_ha
+    type_: float
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_area_maritima_ha
+    type_: float
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_nombre
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_interesado
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_documento
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_numero_documento
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_estado_disponibilidad
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_nombre
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_resposabilidad
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_derecho
+    type_: str
+  meta:
+    table: ap_uab_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - id_ap
+    - ue_geometria
+    - ue_area_total_ha
+    - ue_area_terrestre_ha
+    - ue_area_maritima_ha
+    exact_match: true
+  meta:
+    table: ap_ue_areaprotegida
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id_ap
+    type_: str
+  meta:
+    table: ap_ue_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_geometria
+    type_: str
+  meta:
+    table: ap_ue_areaprotegida
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_area_total_ha
+    type_: str
+  meta:
+    table: ap_ue_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_area_terrestre_ha
+    type_: str
+  meta:
+    table: ap_ue_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_area_maritima_ha
+    type_: str
+  meta:
+    table: ap_ue_areaprotegida
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_numero
+    - fuente_administrativa_anio
+    exact_match: true
+  meta:
+    table: ap_fuenteadministrativa
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: ap_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: ap_fuenteadministrativa
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: ap_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_numero
+    type_: int
+  meta:
+    table: ap_fuenteadministrativa
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_anio
+    type_: int
+  meta:
+    table: ap_fuenteadministrativa
+    postgres_type: bigint
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema estructura_intermedia"

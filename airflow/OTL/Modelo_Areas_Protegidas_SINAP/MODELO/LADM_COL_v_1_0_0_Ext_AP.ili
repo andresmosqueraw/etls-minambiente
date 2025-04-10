@@ -1,0 +1,285 @@
+INTERLIS 2.3;
+
+/** Una Área Protegida es un área definida geográficamente que ha sido designada, regulada y administrada a fin de alcanzar objetivos específicos de conservación.
+ */
+!!@ technicalContact="Grupo de gestión e integración del SINAP"
+MODEL LADM_COL_v_1_0_0_Ext_AP (es)
+AT "mailto:ivan.martinez@parquesnacionales.gov.co"
+VERSION "1.0.0"  =
+  IMPORTS LADM_COL_v_4_0_1_Nucleo;
+
+  DOMAIN
+
+    /** Los ámbitos de gestión, las competencias en los procesos de declaratoria y administración dentro de las áreas protegidas de carácter público están reguladas bajo lo dictado en el Decreto 1076 de 2015.
+     */
+    AP_AmbitoGestionTipo = (
+      /** Conjunto de estrategias, políticas y acciones implementadas por las autoridades ambientales competentes a nivel nacional para la conservación, protección y manejo sostenible de las áreas protegidas de carácter nacional.
+       */
+      !!@ ili2db.dispName=Nacional
+      Nacional,
+      /** Conjunto de estrategias, políticas y acciones implementadas por las autoridades ambientales competentes a nivel regional para la conservación, protección y manejo sostenible de las áreas protegidas de ámbito regional.
+       */
+      !!@ ili2db.dispName=Regional
+      Regional,
+      /** Aplica para las áreas protegidas privadas deniminadas Reservas Naturales de la Sociedad, cuyo ámbito de gestión es local y protegen parte o toda el área de un inmueble que contenga una muestra de ecosistema natural, y que los recursos naturales sean manejados bajo sustentabilidad.
+       */
+      !!@ ili2db.dispName=Local
+      Local
+    );
+
+    /** De acuerdo con el aartículo 2.2.2.1.2.1. las categorías de áreas protegidas que conforman el Sinap son:
+     * 
+     * Áreas protegidas públicas:
+     * a) Las del Sistema de Parques Nacionales Naturales.
+     * b) Las Reservas Forestales Protectoras.
+     * c) Los Parques Naturales Regionales.
+     * d) Los Distritos de Manejo Integrado.
+     * e) Los Distritos de Conservación de Suelos.
+     * f) Las Áreas de Recreación.
+     * 
+     * Áreas Protegidas Privadas:
+     * g) Las Reservas Naturales de la Sociedad Civil.
+     */
+    AP_CategoriaAreaProtegidaTipo = (
+      /** El calificativo de pública de un área protegida hace referencia únicamente al carácter de la entidad competente para su declaración.
+       */
+      !!@ ili2db.dispName=Público
+      Publico(
+        /** Definido en el artículo 327 del Decreto 2811 de 1974, como el conjunto de áreas con valores excepcionales para el patrimonio Nacional que, en beneficio de los habitantes de la nación y debido a sus características naturales, culturales o históricas, se reserva y declara comprendida en cualquiera de las categorías que adelante se enumeran.
+         * 
+         * El artículo 11 del Decreto 2372 de 2010, establece que el Sistema de Parques Nacionales Naturales forma parte del Sinap y está integrado por los siguientes tipos de áreas, según lo determina el artículo 329 del Decreto 2811 de 1974:
+         * - Parque Nacional
+         * - Reserva Natural
+         * - Área Natural Única
+         * - Santuario de Flora
+         * - Santuario de Fauna
+         * - Vía Parque
+         */
+        !!@ ili2db.dispName="(Público) Sistema de Parques Nacionales Naturales"
+        Sistema_Parques_Nacionales_Naturales(
+          /** Definido en el artículo 329 del Decreto 2811 de 1974 como un Área de extensión que permita su autorregulación ecológica y cuyos ecosistemas en general no han sido alterados sustancialmente por la explotación u ocupación humana, y donde las especies vegetales de animales, complejos geomorfológicos y manifestaciones históricas o culturales tiene valor científico, educativo, estético y recreativo Nacional y para su perpetuación se somete a un régimen adecuado de manejo.
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Parque Nacional"
+          Parque_Nacional,
+          /** Definido en el artículo 329 del Decreto 2811 de 1974 como un Área en la cual existen condiciones primitivas de flora, fauna y gea, y está destinada a la conservación, investigación y estudio de sus riquezas naturales
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Reserva Natural"
+          Reserva_Natural,
+          /** Definido en el artículo 329 del Decreto 2811 de 1974 como un Área que, por poseer condiciones especiales de flora o gea es escenario natural raro.
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Área Natural Única"
+          Area_Natural_Unica,
+          /** Definido en el artículo 329 del Decreto 2811 de 1974 como un Área dedicada a preservar especies o comunidades vegetales para conservar recursos genéticos de la flora Nacional.
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Santuario de Flora"
+          Santuario_Flora,
+          /** Definido en el artículo 329 del Decreto 2811 de 1974 como un Área dedicada a preservar especies o comunidades de animales silvestres, para conservar recursos genéticos de la fauna Nacional.
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Santuario de Fauna"
+          Santuario_Fauna,
+          /** Santuario de Flora: Definido en el artículo 329 del Decreto 2811 de 1974 como un Área dedicada a preservar especies o comunidades vegetales para conservar recursos genéticos de la flora Nacional.
+           * Santuario de Fauna: Definido en el artículo 329 del Decreto 2811 de 1974 como un Área dedicada a preservar especies o comunidades de animales silvestres, para conservar recursos genéticos de la fauna Nacional.
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Santuario de Flora y Fauna"
+          Santuario_Flora_y_Fauna,
+          /** Definido en el artículo 329 del Decreto 2811 de 1974 como  Faja de terreno con carretera, que posee bellezas panorámicas singulares o valores naturales o culturales, conservada para fines de educación y esparcimiento.
+           */
+          !!@ ili2db.dispName="(Sistema de Parques Nacionales Naturales) Vía Parque"
+          Via_Parque
+        ),
+        /** Definida en el artículo 12 del Decreto 2372 de 2010, como un Espacio geográfico en el que los ecosistemas de bosque mantienen su función, aunque su estructura y composición haya sido modificada y los valores naturales asociados se ponen al alcance de la población humana para destinarlos a su preservación, uso sostenible, restauración, conocimiento y disfrute. Esta zona de propiedad pública o privada se reserva para destinarla al establecimiento o mantenimiento y utilización sostenible de los bosques y demás coberturas vegetales naturales.
+         */
+        !!@ ili2db.dispName="(Público) Reservas Forestales Protectoras"
+        Reserva_Forestal_Protectora,
+        /** Definido en el artículo 13 del Decreto 2372 de 2010, como un Espacio geográfico en el que paisajes y ecosistemas estratégicos en la escala regional, mantienen la estructura, composición y función, así como los procesos ecológicos y evolutivos que los sustentan y cuyos valores naturales y culturales asociados se ponen al alcance de la población humana para destinarlas a su preservación, restauración, conocimiento y disfrute.
+         */
+        !!@ ili2db.dispName="(Público) Parque Natural Regional"
+        Parque_Natural_Regional,
+        /** Definido en el artículo 14 del Decreto 2372 de 2010, como un Espacio geográfico, en el que los paisajes y ecosistemas mantienen su composición y función, aunque su estructura haya sido modificada y cuyos valores naturales y culturales asociados se ponen al alcance de la población humana para destinarlos a su uso sostenible, preservación, restauración, conocimiento y disfrute.
+         */
+        !!@ ili2db.dispName="(Público) Distritos de Manejo Integrado"
+        Distrito_Manejo_Integrado,
+        /** Definido en el artículo 16 del Decreto 2372 de 2010, como un Espacio geográfico cuyos ecosistemas estratégicos en la escala regional, mantienen su función, aunque su estructura y composición hayan sido modificadas y aportan esencialmente a la generación de bienes y servicios ambientales, cuyos valores naturales y culturales asociados se ponen al alcance de la población humana para destinarlos a su restauración, uso sostenible, preservación, conocimiento y disfrute.
+         * 
+         * Esta área se delimita para someterla a un manejo especial orientado a la recuperación de suelos alterados o degradados o la prevención de fenómenos que causen alteración o degradación en áreas especialmente vulnerables por sus condiciones físicas o climáticas o por la clase de utilidad que en ellas se desarrolla.
+         */
+        !!@ ili2db.dispName="(Público) Distritos de Conservación de Suelos"
+        Distrito_Conservacion_Suelos,
+        /** Definido en el artículo 15 del Decreto 2372 de 2010, como un Espacio geográfico en los que los paisajes y ecosistemas estratégicos en la escala regional, mantienen la función, aunque su estructura y composición hayan sido modificadas, con un potencial significativo de recuperación y cuyos valores naturales y culturales asociados, se ponen al alcance de la población humana para destinarlos a su restauración, uso sostenible, conocimiento y disfrute.
+         */
+        !!@ ili2db.dispName="(Público) Áreas de recreación"
+        Area_Recreacion
+      ),
+      /** Aplica para las áreas protegidas privadas deniminadas Reservas Naturales de la Sociedad.
+       */
+      !!@ ili2db.dispName=Privado
+      Privado(
+        /** Definido en el artículo 17 del Decreto 2372 de 2010, como Parte o todo del área de un inmueble que conserve una muestra de un ecosistema natural y sea manejado bajo los principios de sustentabilidad en el uso de los recursos naturales y que por la voluntad de su propietario se destina para su uso sostenible, preservación o restauración con vocación de largo plazo.
+         */
+        !!@ ili2db.dispName="(Privado) Reserva Natural de la Sociedad Civil"
+        Reserva_Natural_Sociedad_Civil
+      )
+    );
+
+    /** Tipo de derecho asociado con el Área Protegida.
+     */
+    !!@ ili2db.dispName="Derecho tipo"
+    AP_DerechoTipo = (
+      /** De acuerdo con el artículo 38 del Decreto 2372 de 2010, la declaratoria de áreas protegidas se hará con base en estudios técnicos, sociales y ambientales, en los cuales se aplicarán ciertos criterios mínimos.
+       */
+      !!@ ili2db.dispName=Declarar
+      Declarar,
+      /** Corresponde a la iniciativa del propietario del predio, de manera libre, voluntaria y autónoma, destinar la totalidad o parte de su inmueble como reserva natural de la sociedad civil.
+       */
+      !!@ ili2db.dispName=Destinar
+      Destinar
+    );
+
+    AP_EstadoAreaProtegidaTipo = (
+      !!@ ili2db.dispName=Inscrita
+      Inscrita,
+      !!@ ili2db.dispName=Registrada
+      Registrada
+    );
+
+    /** Define el acto administrativo relacionado con el Área Protegida.
+     */
+    !!@ ili2db.dispName="Tipo Fuente Administrativa"
+    AP_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      !!@ ili2db.dispName="Documento público"
+      Documento_Publico(
+        /** Acto legislativo o normativo de carácter local que es expedido por diferentes autoridades dentro de la estructura administrativa del país, tales como los concejales, alcaldes, personerías, contralorías y Juntas Administradoras Locales (JAL).
+         */
+        !!@ ili2db.dispName="(Documento público) Acuerdo"
+        Acuerdo,
+        /** Acto administrativo promulgado por el poder ejecutivo con contenido normativo reglamentario sin necesidad de ser sometida al órgano legislativo.
+         */
+        !!@ ili2db.dispName="(Documento público) Decreto"
+        Decreto,
+        /** Norma jurídica dictada por el Congreso de la República o por el gobierno en ejercicio de sus competencias, que establece reglas de conducta obligatorias para todos los habitantes del país.
+         */
+        !!@ ili2db.dispName="(Documento público) Ley"
+        Ley,
+        /** Decisión administrativa emitida por una autoridad administrativa en ejercicio de sus funciones, que tiene efectos jurídicos dentro de su ámbito de competencia. Las resoluciones se utilizan para regular, interpretar, aplicar o ejecutar disposiciones legales o reglamentarias y son de carácter obligatorio para las personas o entidades a las que se dirigen.
+         */
+        !!@ ili2db.dispName="(Documento público) Resolución"
+        Resolucion
+      )
+    );
+
+    /** Tipo de responsabilidad asociado con el Área Protegida.
+     */
+    !!@ ili2db.dispName="Tipo Responsabilidad"
+    AP_ResponsabilidadTipo = (
+      /** Administrar el Área Protegida
+       */
+      !!@ ili2db.dispName=Administrar
+      Administrar
+    );
+
+  /** Según el Código Nacional de Recursos Naturales y Protección del Medio Ambiente, se entiende por área forestal protectora la zona que debe ser conservada permanentemente con bosques naturales o artificiales, para proteger estos mismos recursos u otros naturales renovables. En el área forestal protectora debe prevalecer el efecto protector y solo se permitirá la obtención de frutos secundarios del bosque (artículo 204, Decreto 2811 de 1974).
+   * 
+   * El artículo 12 del Decreto 2372 de 2010 define, que las Reservas Forestales Protectoras son un espacio geográfico en el que los ecosistemas de bosque mantienen su función, aunque su estructura y composición haya sido modificada y los valores naturales asociados se ponen al alcance de la población humana para destinarlos a su preservación, uso sostenible, restauración, conocimiento y disfrute. Esta zona de propiedad pública o privada se reserva para destinarla al establecimiento o mantenimiento y utilización sostenible de los bosques y demás coberturas vegetales naturales.
+   * 
+   * Adicionalmente, el mismo decreto establece a las Reservas Forestales Protectoras como una categoría de manejo de las áreas protegidas que conforman el SINAP, así como indica que cada una de las áreas protegidas que integran el SINAP contará con un Plan de Manejo Ambiental que será el principal instrumento de planificación que orienta su gestión de conservación para un periodo de 5 años (Artículos 10 y 12, decreto 2372 de 2010).
+   */
+  TOPIC AP
+  EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo;
+
+    /** Agrupación de interesados en el Área Protegida
+     */
+    !!@ ili2db.dispName="Agrupación de interesados"
+    CLASS AP_AgrupacionInteresados
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionInteresados =
+    END AP_AgrupacionInteresados;
+
+    /** Establece el tipo de Derecho asociado con el Área Protegida
+     */
+    !!@ ili2db.dispName=Derecho
+    CLASS AP_Derecho
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      /** Tipo de Derecho
+       */
+      !!@ ili2db.dispName=Tipo
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_AP.AP_DerechoTipo;
+    END AP_Derecho;
+
+    /** Identifica el acto administrativo con el cual se sustenta la reserva, delimitación, alinderación, declaración del Área Protegida.
+     */
+    !!@ ili2db.dispName="Fuente Administrativa"
+    CLASS AP_FuenteAdministrativa
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY LADM_COL_v_1_0_0_Ext_AP.AP_FuenteAdministrativaTipo;
+    END AP_FuenteAdministrativa;
+
+    !!@ ili2db.dispName="Fuente espacial"
+    CLASS AP_FuenteEspacial
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteEspacial =
+    END AP_FuenteEspacial;
+
+    /** Interesado asociado con los DRR del Área Protegida
+     */
+    CLASS AP_Interesado
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Interesado =
+      Observacion : TEXT*255;
+    END AP_Interesado;
+
+    CLASS AP_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END AP_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS AP_NU_CadenaCarasLimite
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_CadenaCarasLimite =
+    END AP_NU_CadenaCarasLimite;
+
+    CLASS AP_NU_Punto
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Punto =
+    END AP_NU_Punto;
+
+    /** Establece el tipo de Responsabilidad asociado con el Área Protegida
+     */
+    CLASS AP_Responsabilidad
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_AP.AP_ResponsabilidadTipo;
+    END AP_Responsabilidad;
+
+    /** La Ley 165 de 1994 define área protegida en su artículo 2 como un área definida geográficamente, que haya sido designada, regulada y administrada a fin de alcanzar objetivos específicos de conservación.
+     */
+    !!@ ili2db.dispName="Área Protegida"
+    CLASS AP_UAB_AreaProtegida
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      Id_Ap : MANDATORY 1 .. 1000000000000;
+      /** Nombre con el cual se identifica el Área Protegida
+       */
+      !!@ ili2db.dispName="Nombre Área Protegida"
+      Nombre_Area_Protegida : MANDATORY TEXT*255;
+      Categoria : MANDATORY LADM_COL_v_1_0_0_Ext_AP.AP_CategoriaAreaProtegidaTipo;
+      Ambito_Gestion : MANDATORY LADM_COL_v_1_0_0_Ext_AP.AP_AmbitoGestionTipo;
+      Estado : MANDATORY LADM_COL_v_1_0_0_Ext_AP.AP_EstadoAreaProtegidaTipo;
+      Fecha_Inscripcion_RUNAP : MANDATORY INTERLIS.XMLDate;
+      Fecha_Registro_RUNAP : INTERLIS.XMLDate;
+      Area_Total_Ha : MANDATORY 0.000000 .. 300000000.000000;
+      Area_Terrestre_Ha : MANDATORY 0.000000 .. 200000000.000000;
+      Area_Maritima_Ha : MANDATORY 0.000000 .. 100000000.000000;
+      UNIQUE Id_Ap;
+    END AP_UAB_AreaProtegida;
+
+    /** Unidad Espacial del Área Protegida
+     */
+    CLASS AP_UE_AreaProtegida
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas
+       */
+      !!@ ili2db.dispName="Area en hectáreas"
+      Area_Total_Ha : MANDATORY 0.000000 .. 300000000.000000;
+      Area_Terrestre_Ha : MANDATORY 0.000000 .. 200000000.000000;
+      Area_Maritima_Ha : MANDATORY 0.000000 .. 100000000.000000;
+    END AP_UE_AreaProtegida;
+
+  END AP;
+
+END LADM_COL_v_1_0_0_Ext_AP.
