@@ -225,11 +225,26 @@ SELECT
         WHEN info."Ámbito de gestión" ILIKE '%protegidas regional%' THEN 'Regional' 
         ELSE NULL 
     END AS uab_ambito_gestion,
-    CASE
-        WHEN LOWER(TRIM(ap.condicion)) = 'inscrita' OR ap.condicion IS NULL OR TRIM(ap.condicion) = '' THEN 'Inscrita'
-        WHEN LOWER(TRIM(ap.condicion)) = 'registrada' THEN 'Registrada'
-        ELSE 'Inscrita' 
-    END AS uab_estado,
+CASE
+    /* 1. Casos explícitos de “inscrita” (o vacío / NULL)           */
+    WHEN LOWER(TRIM(COALESCE(ap.condicion, ''))) = 'inscrita' 
+         OR TRIM(COALESCE(ap.condicion, '')) = ''               -- vacío
+    THEN 'Inscrita'
+
+    /* 2. Caso explícito de “registrada”                           */
+    WHEN LOWER(TRIM(ap.condicion)) = 'registrada'
+    THEN 'Registrada'
+
+    /* 3. Cualquier otro valor en “condicion”:
+          ─ Si fecha_regi es NULL o el string 'NaT'  → Inscrita
+          ─ De lo contrario                         → Registrada */
+    WHEN ap.fecha_regi IS NULL
+         OR ap.fecha_regi::text ILIKE 'nat'        -- por si llegó como texto
+    THEN 'Inscrita'
+    
+    ELSE 'Registrada'
+END AS uab_estado,
+
     NULLIF(ap.fecha_insc, 'NaT')::date AS uab_fecha_inscripcion_runap,
     NULLIF(ap.fecha_regi, 'NaT')::date AS uab__fecha_registro_runap,
     COALESCE(ap.area_ha_to, 0) AS uab_area_total_ha,

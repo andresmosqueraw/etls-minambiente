@@ -21,6 +21,12 @@ def get_dynamic_config(dag_id: str):
     elif dag_id == "etl_ap_xtf":
         model_dir_name = "Modelo_Areas_Protegidas_SINAP/MODELO"
         etl_dir_name = "ETL_AP"
+    elif dag_id == "etl_hmdr_xtf":
+        model_dir_name = "Modelo_Humedales_RAMSAR/MODELO"
+        etl_dir_name = "ETL_HMDR"
+    elif dag_id == "etl_rfpn_xtf":
+        model_dir_name = "Modelo_Reservas_Forestales_Protectoras_Nacionales/MODELO"
+        etl_dir_name = "ETL_RFPN"
     else:
         raise Exception("DAG_ID desconocido: " + dag_id)
 

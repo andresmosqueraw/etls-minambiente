@@ -1,0 +1,30 @@
+{	"db":{
+		"host":"3.133.21.126",
+		"port":"5432",
+		"user":"ladm",
+		"password":"123456",
+		"db_name":"arfw_etl_hmdr"
+	},
+	"interlis": {
+		"nombre_archivo_xtf": "hmdr.xtf",
+		"nombre_modelo": "LADM_COL_v_1_0_0_Ext_HMDR"
+	},
+	"logs": {
+		"nombre_etl": "LADM-HMDR"
+	},
+	"data_workflow": {
+		"etl_sql_module_dir": "dags.hmdr.etl_hmdr_sql"
+	},
+	"insumos_web":{
+		"area_humedal":"https://www.arcgis.com/sharing/rest/content/items/145a8d9eb8bf41ec9650a7f9d69a9638/data",
+		"zonificacion":"https://hub.arcgis.com/api/v3/datasets/756ba747c815442cb2d3e47bcf1a081d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+		"zonificacion_uso":"",
+		"corporaciones":""
+	},
+	"insumos_local":{
+		"area_humedal":"/Insumos/Area Reserva/HUMEDALES_RAMSAR.zip",
+		"zonificacion":"/Insumos/Zonificacion/Zonificacion_sitio_RAMSAR.geojson",
+		"zonificacion_uso":"/Insumos/Zonificacion_Uso/zonificacion_uso.xlsx",
+		"corporaciones":"/Insumos/Corporaciones/corporaciones.xlsx"
+	}		
+}

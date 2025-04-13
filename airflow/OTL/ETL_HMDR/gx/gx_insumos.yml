@@ -1,0 +1,343 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - id
+    - nombre
+    - acto_admin
+    - fecha_acto
+    - escala
+    - estado_pro
+    - area_ha
+    - fecha_ingr
+    - fecha_reco
+    - globalid
+    - st_area_sh
+    - st_perimet
+    - geom
+    exact_match: true
+  meta:
+    table: area_humedal
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_humedal
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: acto_admin
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_acto
+    type_: datetime
+  meta:
+    table: area_humedal
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: estado_pro
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: area_humedal
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_ingr
+    type_: datetime
+  meta:
+    table: area_humedal
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_reco
+    type_: datetime
+  meta:
+    table: area_humedal
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: globalid
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_area_sh
+    type_: float
+  meta:
+    table: area_humedal
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: st_perimet
+    type_: float
+  meta:
+    table: area_humedal
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_humedal
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - objectid
+    - nombre
+    - zoni_res_196_2006
+    - zoni_drmi_sonso
+    - area_ha_mo
+    - area_ha_mb
+    - anno_estudio
+    - anno_ajuste
+    - shape_length
+    - shape_area
+    - geom
+    exact_match: true
+  meta:
+    table: zonificacion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: zonificacion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: objectid
+    type_: int
+  meta:
+    table: zonificacion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: zoni_res_196_2006
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: zoni_drmi_sonso
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha_mo
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha_mb
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: anno_estudio
+    type_: int
+  meta:
+    table: zonificacion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: anno_ajuste
+    type_: int
+  meta:
+    table: zonificacion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape_length
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: shape_area
+    type_: float
+  meta:
+    table: zonificacion
+    postgres_type: double precision
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: zonificacion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - humedal
+    - zonificacion
+    - zona
+    - uso principal
+    - uso compatible
+    - uso condicionado
+    - uso prohibido
+    exact_match: true
+  meta:
+    table: zonificacion_uso
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: humedal
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: zonificacion
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: zona
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso principal
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso compatible
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso condicionado
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uso prohibido
+    type_: str
+  meta:
+    table: zonificacion_uso
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - id
+    - humedal ramsar
+    - autoridad ambiental
+    - nombre
+    - "comisi\xF3n conjunta"
+    - NIT
+    exact_match: true
+  meta:
+    table: corporaciones
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: int
+  meta:
+    table: corporaciones
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: humedal ramsar
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: autoridad ambiental
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "comisi\xF3n conjunta"
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: NIT
+    type_: str
+  meta:
+    table: corporaciones
+    postgres_type: text
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema insumos"

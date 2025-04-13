@@ -1,0 +1,545 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - interesado_hmdr_interesado
+    - agrupacion
+    - area_humedal
+    exact_match: true
+  meta:
+    table: col_miembros
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_interesado
+    type_: str
+  meta:
+    table: col_miembros
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: agrupacion
+    type_: str
+  meta:
+    table: col_miembros
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_humedal
+    type_: str
+  meta:
+    table: col_miembros
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - id
+    - tipo
+    - observacion
+    - nombre
+    - tipo_interesado
+    - tipo_documento
+    - numero_documento
+    exact_match: true
+  meta:
+    table: hmdr_interesado
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: observacion
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_interesado
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_documento
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: numero_documento
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - id
+    - tipo
+    - nombre
+    - tipo_interesado
+    exact_match: true
+  meta:
+    table: hmdr_agrupacioninteresados
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: id
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_interesado
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_nombre_humedal
+    - estado_proceso
+    - uab_nombre
+    - ue_geometria
+    - interesado_tipo
+    - interesado_nombre
+    - interesado_tipo_interesado
+    - interesado_tipo_documento
+    - interesado_numero_documento
+    - hmdr_interesado
+    - hmdr_agrupacioninteresados
+    - fuente_administrativa_tipo
+    - fuente_administrativa_estado_disponibilidad
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_nombre
+    - ddr_tipo_resposabilidad
+    - ddr_tipo_derecho
+    exact_match: true
+  meta:
+    table: hmdr_uab_areahumedal
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre_humedal
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: estado_proceso
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_geometria
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_nombre
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_interesado
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo_documento
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_numero_documento
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_interesado
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_agrupacioninteresados
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_estado_disponibilidad
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_nombre
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_resposabilidad
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_derecho
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_zona
+    - uab_principal
+    - uab_compatible
+    - uab_condicionado
+    - uab_prohibido
+    exact_match: true
+  meta:
+    table: hmdr_regimenusosactividades
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: hmdr_regimenusosactividades
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_zona
+    type_: str
+  meta:
+    table: hmdr_regimenusosactividades
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_principal
+    type_: str
+  meta:
+    table: hmdr_regimenusosactividades
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_compatible
+    type_: str
+  meta:
+    table: hmdr_regimenusosactividades
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_condicionado
+    type_: str
+  meta:
+    table: hmdr_regimenusosactividades
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_prohibido
+    type_: str
+  meta:
+    table: hmdr_regimenusosactividades
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - uab_tipo_zona
+    - uab_detalle_zona
+    - uab_regimen_usos
+    - uab_areahumedal
+    - uab_etiqueta
+    - uab_nombre
+    - ue_geometria
+    - interesado_tipo
+    - hmdr_interesado
+    - hmdr_agrupacioninteresados
+    - fuente_administrativa_tipo
+    - fuente_administrativa_estado_disponibilidad
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_nombre
+    - ddr_tipo_resposabilidad
+    - ddr_tipo_derecho
+    exact_match: true
+  meta:
+    table: hmdr_uab_zonificacion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_tipo_zona
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_detalle_zona
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_regimen_usos
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_areahumedal
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_etiqueta
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_nombre
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_geometria
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_tipo
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_interesado
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_agrupacioninteresados
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_estado_disponibilidad
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_nombre
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_resposabilidad
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ddr_tipo_derecho
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - uab_identificador
+    - fuente_administrativa_fecha_documento_fuente
+    - fuente_administrativa_tipo_formato
+    - fuente_administrativa_numero
+    - fuente_administrativa_anio
+    exact_match: true
+  meta:
+    table: hmdr_fuenteadministrativa
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_identificador
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_tipo_formato
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_numero
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa_anio
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: integer
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema estructura_intermedia"

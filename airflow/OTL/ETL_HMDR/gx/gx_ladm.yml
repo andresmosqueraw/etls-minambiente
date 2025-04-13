@@ -1,0 +1,4689 @@
+data_asset_type: Dataset
+expectations:
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - thisclass
+    - baseclass
+    exact_match: true
+  meta:
+    table: t_ili2db_inheritance
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: t_ili2db_inheritance
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: t_ili2db_inheritance
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - tag
+    - setting
+    exact_match: true
+  meta:
+    table: t_ili2db_settings
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tag
+    type_: str
+  meta:
+    table: t_ili2db_settings
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: setting
+    type_: str
+  meta:
+    table: t_ili2db_settings
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - iliname
+    - tag
+    - setting
+    exact_match: true
+  meta:
+    table: t_ili2db_trafo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: iliname
+    type_: str
+  meta:
+    table: t_ili2db_trafo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tag
+    type_: str
+  meta:
+    table: t_ili2db_trafo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: setting
+    type_: str
+  meta:
+    table: t_ili2db_trafo
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - filename
+    - iliversion
+    - modelname
+    - content
+    - importdate
+    exact_match: true
+  meta:
+    table: t_ili2db_model
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: filename
+    type_: str
+  meta:
+    table: t_ili2db_model
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: iliversion
+    type_: str
+  meta:
+    table: t_ili2db_model
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: modelname
+    type_: str
+  meta:
+    table: t_ili2db_model
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: content
+    type_: str
+  meta:
+    table: t_ili2db_model
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: importdate
+    type_: datetime
+  meta:
+    table: t_ili2db_model
+    postgres_type: timestamp without time zone
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - iliname
+    - sqlname
+    exact_match: true
+  meta:
+    table: t_ili2db_classname
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: iliname
+    type_: str
+  meta:
+    table: t_ili2db_classname
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sqlname
+    type_: str
+  meta:
+    table: t_ili2db_classname
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - iliname
+    - sqlname
+    - colowner
+    - target
+    exact_match: true
+  meta:
+    table: t_ili2db_attrname
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: iliname
+    type_: str
+  meta:
+    table: t_ili2db_attrname
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sqlname
+    type_: str
+  meta:
+    table: t_ili2db_attrname
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: colowner
+    type_: str
+  meta:
+    table: t_ili2db_attrname
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: target
+    type_: str
+  meta:
+    table: t_ili2db_attrname
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - tablename
+    - subtype
+    - columnname
+    - tag
+    - setting
+    exact_match: true
+  meta:
+    table: t_ili2db_column_prop
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tablename
+    type_: str
+  meta:
+    table: t_ili2db_column_prop
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: subtype
+    type_: str
+  meta:
+    table: t_ili2db_column_prop
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: columnname
+    type_: str
+  meta:
+    table: t_ili2db_column_prop
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tag
+    type_: str
+  meta:
+    table: t_ili2db_column_prop
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: setting
+    type_: str
+  meta:
+    table: t_ili2db_column_prop
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - tablename
+    - tag
+    - setting
+    exact_match: true
+  meta:
+    table: t_ili2db_table_prop
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tablename
+    type_: str
+  meta:
+    table: t_ili2db_table_prop
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tag
+    type_: str
+  meta:
+    table: t_ili2db_table_prop
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: setting
+    type_: str
+  meta:
+    table: t_ili2db_table_prop
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - ilielement
+    - attr_name
+    - attr_value
+    exact_match: true
+  meta:
+    table: t_ili2db_meta_attrs
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilielement
+    type_: str
+  meta:
+    table: t_ili2db_meta_attrs
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: attr_name
+    type_: str
+  meta:
+    table: t_ili2db_meta_attrs
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: attr_value
+    type_: str
+  meta:
+    table: t_ili2db_meta_attrs
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - dataset
+    - topic
+    - t_ili_tid
+    - attachmentkey
+    - domains
+    exact_match: true
+  meta:
+    table: t_ili2db_basket
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: t_ili2db_basket
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dataset
+    type_: int
+  meta:
+    table: t_ili2db_basket
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: topic
+    type_: str
+  meta:
+    table: t_ili2db_basket
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: t_ili2db_basket
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: attachmentkey
+    type_: str
+  meta:
+    table: t_ili2db_basket
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: domains
+    type_: str
+  meta:
+    table: t_ili2db_basket
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - t_seq
+    - avalue
+    - gm_multisurface3d_geometry
+    exact_match: true
+  meta:
+    table: gm_surface3dlistvalue
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: gm_surface3dlistvalue
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: gm_surface3dlistvalue
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: gm_surface3dlistvalue
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_seq
+    type_: int
+  meta:
+    table: gm_surface3dlistvalue
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: avalue
+    type_: str
+  meta:
+    table: gm_surface3dlistvalue
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gm_multisurface3d_geometry
+    type_: int
+  meta:
+    table: gm_surface3dlistvalue
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - t_seq
+    exact_match: true
+  meta:
+    table: gm_multisurface3d
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: gm_multisurface3d
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: gm_multisurface3d
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: gm_multisurface3d
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_seq
+    type_: int
+  meta:
+    table: gm_multisurface3d
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - t_seq
+    - fecha_aceptacion
+    - datos
+    - extraccion
+    - fecha_grabacion
+    - fecha_entrega
+    - espacio_de_nombres
+    - local_id
+    - hmdr_fuenteadmnstrtiva_ext_archivo_id
+    - hmdr_fuenteespacial_ext_archivo_id
+    exact_match: true
+  meta:
+    table: extarchivo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extarchivo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: extarchivo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: extarchivo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_seq
+    type_: int
+  meta:
+    table: extarchivo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_aceptacion
+    type_: datetime
+  meta:
+    table: extarchivo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: datos
+    type_: str
+  meta:
+    table: extarchivo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: extraccion
+    type_: datetime
+  meta:
+    table: extarchivo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_grabacion
+    type_: datetime
+  meta:
+    table: extarchivo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_entrega
+    type_: datetime
+  meta:
+    table: extarchivo
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: extarchivo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: extarchivo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_fuenteadmnstrtiva_ext_archivo_id
+    type_: int
+  meta:
+    table: extarchivo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_fuenteespacial_ext_archivo_id
+    type_: int
+  meta:
+    table: extarchivo
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - tipo
+    - fecha_fin
+    - estado_disponibilidad
+    - tipo_formato
+    - fecha_documento_fuente
+    - nombre
+    - descripcion
+    - url
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_fuenteadministrativa
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_fin
+    type_: datetime
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: estado_disponibilidad
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_formato
+    type_: int
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: descripcion
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_fuenteadministrativa
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - escala
+    - tipo
+    - metadato
+    - estado_disponibilidad
+    - tipo_formato
+    - fecha_documento_fuente
+    - nombre
+    - descripcion
+    - url
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_fuenteespacial
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: metadato
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: estado_disponibilidad
+    type_: int
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_formato
+    type_: int
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fecha_documento_fuente
+    type_: datetime
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: date
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: descripcion
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_fuenteespacial
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - t_seq
+    - tipo_direccion
+    - es_direccion_principal
+    - localizacion
+    - codigo_postal
+    - clase_via_principal
+    - valor_via_principal
+    - letra_via_principal
+    - sector_ciudad
+    - valor_via_generadora
+    - letra_via_generadora
+    - numero_predio
+    - sector_predio
+    - complemento
+    - nombre_predio
+    - extinteresado_ext_direccion_id
+    - hmdr_ue_areahumedal_ext_direccion_id
+    - hmdr_ue_zonificacion_ext_direccion_id
+    exact_match: true
+  meta:
+    table: extdireccion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_seq
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_direccion
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: es_direccion_principal
+    type_: bool
+  meta:
+    table: extdireccion
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: localizacion
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: codigo_postal
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: clase_via_principal
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: valor_via_principal
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: letra_via_principal
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sector_ciudad
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: valor_via_generadora
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: letra_via_generadora
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: numero_predio
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: sector_predio
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: complemento
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre_predio
+    type_: str
+  meta:
+    table: extdireccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: extinteresado_ext_direccion_id
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_ue_areahumedal_ext_direccion_id
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_ue_zonificacion_ext_direccion_id
+    type_: int
+  meta:
+    table: extdireccion
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: extdireccion_tipo_direccion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: extdireccion_tipo_direccion
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: extdireccion_clase_via_principal
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: extdireccion_clase_via_principal
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: extdireccion_sector_ciudad
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: extdireccion_sector_ciudad
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: extdireccion_sector_predio
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: extdireccion_sector_predio
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - t_seq
+    - huella_dactilar
+    - nombre
+    - fotografia
+    - firma
+    - documento_escaneado
+    - hmdr_agrupacionntrsdos_ext_pid
+    - hmdr_interesado_ext_pid
+    exact_match: true
+  meta:
+    table: extinteresado
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: extinteresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: extinteresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: extinteresado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_seq
+    type_: int
+  meta:
+    table: extinteresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: huella_dactilar
+    type_: str
+  meta:
+    table: extinteresado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: extinteresado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fotografia
+    type_: str
+  meta:
+    table: extinteresado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: firma
+    type_: str
+  meta:
+    table: extinteresado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: documento_escaneado
+    type_: str
+  meta:
+    table: extinteresado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_agrupacionntrsdos_ext_pid
+    type_: int
+  meta:
+    table: extinteresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_interesado_ext_pid
+    type_: int
+  meta:
+    table: extinteresado
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_areatipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_areatipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_areatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_areatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_areatipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_areatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_areatipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_areatipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_areatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_areatipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - t_seq
+    - tipo
+    - area
+    - datos_proyeccion
+    - hmdr_ue_areahumedal_area
+    - hmdr_ue_zonificacion_area
+    exact_match: true
+  meta:
+    table: col_areavalor
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_areavalor
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_areavalor
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: col_areavalor
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_seq
+    type_: int
+  meta:
+    table: col_areavalor
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: col_areavalor
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area
+    type_: float
+  meta:
+    table: col_areavalor
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: datos_proyeccion
+    type_: str
+  meta:
+    table: col_areavalor
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_ue_areahumedal_area
+    type_: int
+  meta:
+    table: col_areavalor
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hmdr_ue_zonificacion_area
+    type_: int
+  meta:
+    table: col_areavalor
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - tipo
+    - nombre
+    - tipo_interesado
+    - tipo_documento
+    - numero_documento
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_agrupacioninteresados
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_interesado
+    type_: int
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_documento
+    type_: int
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: numero_documento
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_agrupacioninteresados
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - tipo
+    - observacion
+    - nombre
+    - tipo_interesado
+    - tipo_documento
+    - numero_documento
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_interesado
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_interesado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_interesado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_interesado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: observacion
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_interesado
+    type_: int
+  meta:
+    table: hmdr_interesado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_documento
+    type_: int
+  meta:
+    table: hmdr_interesado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: numero_documento
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_interesado
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_interesado
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_interesado
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - interesado_hmdr_interesado
+    - interesado_hmdr_agrupacioninteresados
+    - unidad_hmdr_uab_zonificacion
+    - unidad_hmdr_uab_areahumedal
+    exact_match: true
+  meta:
+    table: col_baunitcomointeresado
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_baunitcomointeresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_baunitcomointeresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_interesado
+    type_: int
+  meta:
+    table: col_baunitcomointeresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_agrupacioninteresados
+    type_: int
+  meta:
+    table: col_baunitcomointeresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_zonificacion
+    type_: int
+  meta:
+    table: col_baunitcomointeresado
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_areahumedal
+    type_: int
+  meta:
+    table: col_baunitcomointeresado
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - tipo_zona
+    - detalle_zona
+    - area_hidrografica
+    - regimen_usos
+    - uab_areaparamo
+    - nombre
+    - tipo
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_uab_zonificacion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo_zona
+    type_: int
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: detalle_zona
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_hidrografica
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: regimen_usos
+    type_: int
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: uab_areaparamo
+    type_: int
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_uab_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - nombre_humedal
+    - estado_proceso
+    - nombre
+    - tipo
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_uab_areahumedal
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre_humedal
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: estado_proceso
+    type_: int
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_uab_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - interesado_hmdr_interesado
+    - interesado_hmdr_agrupacioninteresados
+    - agrupacion
+    - participacion
+    exact_match: true
+  meta:
+    table: col_miembros
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_miembros
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_miembros
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_interesado
+    type_: int
+  meta:
+    table: col_miembros
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_agrupacioninteresados
+    type_: int
+  meta:
+    table: col_miembros
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: agrupacion
+    type_: int
+  meta:
+    table: col_miembros
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: participacion
+    type_: float
+  meta:
+    table: col_miembros
+    postgres_type: numeric
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - fuente_administrativa
+    - rrr_hmdr_derecho
+    - rrr_hmdr_responsabilidad
+    exact_match: true
+  meta:
+    table: col_rrrfuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_rrrfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_rrrfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa
+    type_: int
+  meta:
+    table: col_rrrfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: rrr_hmdr_derecho
+    type_: int
+  meta:
+    table: col_rrrfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: rrr_hmdr_responsabilidad
+    type_: int
+  meta:
+    table: col_rrrfuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - tipo
+    - descripcion
+    - interesado_hmdr_interesado
+    - interesado_hmdr_agrupacioninteresados
+    - unidad_hmdr_uab_zonificacion
+    - unidad_hmdr_uab_areahumedal
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_derecho
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_derecho
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: descripcion
+    type_: str
+  meta:
+    table: hmdr_derecho
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_interesado
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_agrupacioninteresados
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_zonificacion
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_areahumedal
+    type_: int
+  meta:
+    table: hmdr_derecho
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_derecho
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_derecho
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_derecho
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_derecho
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - tipo
+    - descripcion
+    - interesado_hmdr_interesado
+    - interesado_hmdr_agrupacioninteresados
+    - unidad_hmdr_uab_zonificacion
+    - unidad_hmdr_uab_areahumedal
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_responsabilidad
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: tipo
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: descripcion
+    type_: str
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_interesado
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_agrupacioninteresados
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_zonificacion
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_areahumedal
+    type_: int
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_responsabilidad
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - ue_hmdr_ue_areahumedal
+    - ue_hmdr_ue_zonificacion
+    - baunit_hmdr_uab_zonificacion
+    - baunit_hmdr_uab_areahumedal
+    exact_match: true
+  meta:
+    table: col_uebaunit
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_uebaunit
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_uebaunit
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_hmdr_ue_areahumedal
+    type_: int
+  meta:
+    table: col_uebaunit
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_hmdr_ue_zonificacion
+    type_: int
+  meta:
+    table: col_uebaunit
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baunit_hmdr_uab_zonificacion
+    type_: int
+  meta:
+    table: col_uebaunit
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baunit_hmdr_uab_areahumedal
+    type_: int
+  meta:
+    table: col_uebaunit
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - fuente_administrativa
+    - unidad_hmdr_uab_zonificacion
+    - unidad_hmdr_uab_areahumedal
+    exact_match: true
+  meta:
+    table: col_unidadfuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_unidadfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_unidadfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa
+    type_: int
+  meta:
+    table: col_unidadfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_zonificacion
+    type_: int
+  meta:
+    table: col_unidadfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_areahumedal
+    type_: int
+  meta:
+    table: col_unidadfuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - fuente_administrativa
+    - interesado_hmdr_interesado
+    - interesado_hmdr_agrupacioninteresados
+    exact_match: true
+  meta:
+    table: col_responsablefuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_responsablefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_responsablefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_administrativa
+    type_: int
+  meta:
+    table: col_responsablefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_interesado
+    type_: int
+  meta:
+    table: col_responsablefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: interesado_hmdr_agrupacioninteresados
+    type_: int
+  meta:
+    table: col_responsablefuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - parte_hmdr_ue_areahumedal
+    - parte_hmdr_ue_zonificacion
+    - todo
+    exact_match: true
+  meta:
+    table: col_ueuegrupo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_ueuegrupo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_ueuegrupo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: parte_hmdr_ue_areahumedal
+    type_: int
+  meta:
+    table: col_ueuegrupo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: parte_hmdr_ue_zonificacion
+    type_: int
+  meta:
+    table: col_ueuegrupo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: todo
+    type_: int
+  meta:
+    table: col_ueuegrupo
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - fuente_espacial
+    - punto
+    exact_match: true
+  meta:
+    table: col_puntofuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_puntofuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_puntofuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_espacial
+    type_: int
+  meta:
+    table: col_puntofuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: punto
+    type_: int
+  meta:
+    table: col_puntofuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - posicion_interpolacion
+    - puntotipo
+    - metodoproduccion
+    - geometria
+    - ue_hmdr_ue_areahumedal
+    - ue_hmdr_ue_zonificacion
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_nu_punto
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: posicion_interpolacion
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: puntotipo
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: metodoproduccion
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geometria
+    type_: str
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_hmdr_ue_areahumedal
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_hmdr_ue_zonificacion
+    type_: int
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_nu_punto
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - ccl
+    - fuente_espacial
+    exact_match: true
+  meta:
+    table: col_cclfuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_cclfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_cclfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ccl
+    type_: int
+  meta:
+    table: col_cclfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_espacial
+    type_: int
+  meta:
+    table: col_cclfuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - geometria
+    - localizacion_textual
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geometria
+    type_: str
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: localizacion_textual
+    type_: str
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_nu_cadenacaraslimite
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - ue_hmdr_ue_areahumedal
+    - ue_hmdr_ue_zonificacion
+    - fuente_espacial
+    exact_match: true
+  meta:
+    table: col_uefuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_uefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_uefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_hmdr_ue_areahumedal
+    type_: int
+  meta:
+    table: col_uefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_hmdr_ue_zonificacion
+    type_: int
+  meta:
+    table: col_uefuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_espacial
+    type_: int
+  meta:
+    table: col_uefuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - fuente_espacial
+    - unidad_hmdr_uab_zonificacion
+    - unidad_hmdr_uab_areahumedal
+    exact_match: true
+  meta:
+    table: col_baunitfuente
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_baunitfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_baunitfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fuente_espacial
+    type_: int
+  meta:
+    table: col_baunitfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_zonificacion
+    type_: int
+  meta:
+    table: col_baunitfuente
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: unidad_hmdr_uab_areahumedal
+    type_: int
+  meta:
+    table: col_baunitfuente
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - ccl_menos
+    - ue_menos_hmdr_ue_areahumedal
+    - ue_menos_hmdr_ue_zonificacion
+    exact_match: true
+  meta:
+    table: col_menosccl
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_menosccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_menosccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ccl_menos
+    type_: int
+  meta:
+    table: col_menosccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_menos_hmdr_ue_areahumedal
+    type_: int
+  meta:
+    table: col_menosccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_menos_hmdr_ue_zonificacion
+    type_: int
+  meta:
+    table: col_menosccl
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - ccl_mas
+    - ue_mas_hmdr_ue_areahumedal
+    - ue_mas_hmdr_ue_zonificacion
+    exact_match: true
+  meta:
+    table: col_masccl
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_masccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_masccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ccl_mas
+    type_: int
+  meta:
+    table: col_masccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_mas_hmdr_ue_areahumedal
+    type_: int
+  meta:
+    table: col_masccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ue_mas_hmdr_ue_zonificacion
+    type_: int
+  meta:
+    table: col_masccl
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - punto
+    - ccl
+    exact_match: true
+  meta:
+    table: col_puntoccl
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_puntoccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: col_puntoccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: punto
+    type_: int
+  meta:
+    table: col_puntoccl
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ccl
+    type_: int
+  meta:
+    table: col_puntoccl
+    postgres_type: bigint
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_grupointeresadotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_grupointeresadotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_interesadotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_interesadotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_interesadotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_interesadotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_interesadotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_interesadotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_documentotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_documentotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_documentotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_documentotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_documentotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_documentotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_documentotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_documentotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_documentotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_documentotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: hmdr_derechotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: hmdr_derechotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_fuenteadministrativatipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_fuenteadministrativatipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_estadodisponibilidadtipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_estadodisponibilidadtipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_formatotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_formatotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_formatotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_formatotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_formatotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_formatotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_formatotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_formatotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_formatotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_formatotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_fuenteespacialtipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_fuenteespacialtipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: hmdr_interesadotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: hmdr_interesadotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - nivel_jerarquico
+    - etiqueta
+    - nombre
+    - punto_referencia
+    - agrupacion
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nivel_jerarquico
+    type_: int
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: etiqueta
+    type_: str
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: punto_referencia
+    type_: str
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: agrupacion
+    type_: int
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_nu_agrupacionunidadesespaciales
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_interpolaciontipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_interpolaciontipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_puntotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_puntotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_puntotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_puntotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_puntotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_puntotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_puntotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_puntotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_puntotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_puntotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_metodoproducciontipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_metodoproducciontipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - principal
+    - compatible
+    - condicionado
+    - prohibido
+    exact_match: true
+  meta:
+    table: hmdr_regimenusos
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: principal
+    type_: str
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: compatible
+    type_: str
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: condicionado
+    type_: str
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: prohibido
+    type_: str
+  meta:
+    table: hmdr_regimenusos
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: hmdr_responsabilidadtipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: hmdr_responsabilidadtipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: hmdr_estadoprocesotipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: hmdr_estadoprocesotipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_unidadadministrativabasicatipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_unidadadministrativabasicatipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: hmdr_zonificaciontipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: hmdr_zonificaciontipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - area_ha
+    - etiqueta
+    - relacion_superficie
+    - geometria
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_ue_areahumedal
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: etiqueta
+    type_: str
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: relacion_superficie
+    type_: int
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geometria
+    type_: str
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_ue_areahumedal
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - thisclass
+    - baseclass
+    - itfcode
+    - ilicode
+    - seq
+    - inactive
+    - dispname
+    - description
+    exact_match: true
+  meta:
+    table: col_relacionsuperficietipo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: thisclass
+    type_: str
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: baseclass
+    type_: str
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: itfcode
+    type_: int
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ilicode
+    type_: str
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: seq
+    type_: int
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: inactive
+    type_: bool
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: boolean
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: dispname
+    type_: str
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: description
+    type_: str
+  meta:
+    table: col_relacionsuperficietipo
+    postgres_type: text
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - t_basket
+    - t_ili_tid
+    - area_ha
+    - etiqueta
+    - relacion_superficie
+    - geometria
+    - comienzo_vida_util_version
+    - fin_vida_util_version
+    - espacio_de_nombres
+    - local_id
+    exact_match: true
+  meta:
+    table: hmdr_ue_zonificacion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_basket
+    type_: int
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_ili_tid
+    type_: str
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: uuid
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: area_ha
+    type_: float
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: etiqueta
+    type_: str
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: relacion_superficie
+    type_: int
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geometria
+    type_: str
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: comienzo_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fin_vida_util_version
+    type_: datetime
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: timestamp without time zone
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: espacio_de_nombres
+    type_: str
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: local_id
+    type_: str
+  meta:
+    table: hmdr_ue_zonificacion
+    postgres_type: character varying
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - t_id
+    - datasetname
+    exact_match: true
+  meta:
+    table: t_ili2db_dataset
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: t_id
+    type_: int
+  meta:
+    table: t_ili2db_dataset
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: datasetname
+    type_: str
+  meta:
+    table: t_ili2db_dataset
+    postgres_type: character varying
+meta:
+  great_expectations_version: 0.15.50
+  notes:
+    format: markdown
+    content: "Expectations generadas autom\xE1ticamente para el esquema ladm"

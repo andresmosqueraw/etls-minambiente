@@ -1,0 +1,244 @@
+INTERLIS 2.3;
+
+/** Según el Convenio Ramsar protección de humedales, en su artículo número 1 del protocolo define una zona húmeda o humedal como cualquier extensión de marisma, pantano o turbera, o superficie cubierta de aguas, sean estas de régimen natural o artificial, permanentes o temporales, estancadas o corrientes, dulces, salobres o saladas, incluidas las extensiones de aguas marinas cuya profundidad en marea baja no exceda de seis metros.
+ */
+!!@ technicalContact="Dirección de Bosques, Biodiversidad y Servicios Ecosistémicos"
+MODEL LADM_COL_v_1_0_0_Ext_HMDR (es)
+AT "mailto:Obosques@minambiente.gov.co"
+VERSION "1.0.0"  =
+  IMPORTS LADM_COL_v_4_0_1_Nucleo;
+
+  DOMAIN
+
+    /** Tipo de derecho asociado con el Humedal RAMSAR
+     */
+    !!@ ili2db.dispName="Tipo de derecho"
+    HMDR_DerechoTipo = (
+      /** De acuerdo con el artículo 12 de la Resolución 157 de 2004, el Ministerio de Ambiente, coordinará el proceso de selección de los humedales para su inclusión en la lista de los considerados de importancia internacional, de acuerdo con los lineamientos que para el efecto desarrolle la Convención Ramsar.
+       */
+      !!@ ili2db.dispName=Designar
+      Designar
+    );
+
+    /** Estado del proceso del sitio RAMSAR
+     */
+    !!@ ili2db.dispName="Estado del proceso"
+    HMDR_EstadoProcesoTipo = (
+      /** Finalizado
+       */
+      !!@ ili2db.dispName=Finalizado
+      Finalizado,
+      /** Proceso de ajuste
+       */
+      !!@ ili2db.dispName="Proceso de ajuste"
+      Proceso_Ajuste
+    );
+
+    /** Define el acto administrativo relacionado con el Humedal RAMSAR
+     */
+    HMDR_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      !!@ ili2db.dispName="Documento público"
+      Documento_Publico(
+        /** Acto administrativo promulgado por el poder ejecutivo con contenido normativo reglamentario sin necesidad de ser sometida al órgano legislativo.
+         */
+        !!@ ili2db.dispName="(Documento público) Decreto"
+        Decreto,
+        /** Decisión administrativa emitida por una autoridad administrativa en ejercicio de sus funciones, que tiene efectos jurídicos dentro de su ámbito de competencia. Las resoluciones se utilizan para regular, interpretar, aplicar o ejecutar disposiciones legales o reglamentarias y son de carácter obligatorio para las personas o entidades a las que se dirigen.
+         */
+        !!@ ili2db.dispName="(Documento público) Resolución"
+        Resolucion
+      )
+    );
+
+    /** Establece el tipo de interesado asociado con los DRR del Humedal RAMSAR
+     */
+    !!@ ili2db.dispName="Tipo de interesado"
+    HMDR_InteresadoTipo = (
+      /** Entidad encargada de administrar y vigilar el Humedal RAMSAR
+       */
+      !!@ ili2db.dispName=Administrador
+      Administrador,
+      /** Autoridad ambiental encargada de la normativa y regulaciones del Humedal RAMSAR
+       */
+      !!@ ili2db.dispName="Ente regulador"
+      Regulador
+    );
+
+    /** Tipo de responsabilidad asociado con el Humedal RAMSAR
+     */
+    !!@ ili2db.dispName="Tipo de responsabilidad"
+    HMDR_ResponsabilidadTipo = (
+      /** De acuerdo con el artículo 15 de la Resolución 157 de 2004, la administración de los humedales de importancia internacional, estará a cargo de la autoridad ambiental a la cual, de acuerdo con las competencias asignadas por la Ley 99 de 1993, le corresponda la declaratoria de la categoría o figura de manejo ambiental o protección bajo la cual se reserve.
+       */
+      !!@ ili2db.dispName=Administrar
+      Administrar,
+      /** De acuerdo con el artículo 7 de la Resolución 157 de 2004, en el marco de la formulación del plan de manejo ambiental, las autoridades ambientales realizarán la zonificación de los humedales localizados en su jurisdicción, con el fin de optimizar su utilización y la definición de usos de acuerdo con sus condiciones naturales y socioeconómicas específicas y tomando en consideración criterios biofísicos, ecológicos, socioeconómicos, culturales y situaciones de conflicto.
+       */
+      !!@ ili2db.dispName=Zonificar
+      Zonificar
+    );
+
+    /** La Resolución 196 de 2006 establece las directrices para la formulación de planes de manejo para humedales en Colombia y establece las unidades de manejo para el humedal.
+     */
+    !!@ ili2db.dispName="Tipo de zonificación"
+    HMDR_ZonificacionTipo = (
+      /** Zona de preservación y protección ambiental
+       */
+      !!@ ili2db.dispName="Preservación y protección ambiental"
+      Preservacion_Y_Proteccion_Ambiental,
+      /** Zona de recuperación ambiental
+       */
+      !!@ ili2db.dispName="Recuperación ambiental"
+      Recuperacion_Ambiental,
+      /** Zona de producción sostenible bajo condicionamientos ambientales específicos
+       */
+      !!@ ili2db.dispName="Producción sostenible"
+      Produccion_Sostenible,
+      /** Otro
+       */
+      !!@ ili2db.dispName=Otro
+      Otro
+    );
+
+  /** Un sitio Ramsar es un humedal designado como de importancia internacional bajo el Convenio de Ramsar.
+   */
+  TOPIC HMDR
+  EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo;
+
+    /** Agrupación de interesados en el Humedal RAMSAR
+     */
+    !!@ ili2db.dispName="Agrupación de interesados"
+    CLASS HMDR_AgrupacionInteresados
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionInteresados =
+    END HMDR_AgrupacionInteresados;
+
+    /** Establece el tipo de Derecho asociado con el Humedal RAMSAR
+     */
+    CLASS HMDR_Derecho
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_HMDR.HMDR_DerechoTipo;
+    END HMDR_Derecho;
+
+    /** Identifica el acto administrativo con el cual se sustenta la designación, zonificación o plan de manejo del Humedal RAMSAR
+     */
+    !!@ ili2db.dispName="Fuente administrativa"
+    CLASS HMDR_FuenteAdministrativa
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY LADM_COL_v_1_0_0_Ext_HMDR.HMDR_FuenteAdministrativaTipo;
+    END HMDR_FuenteAdministrativa;
+
+    !!@ ili2db.dispName="Fuente espacial"
+    CLASS HMDR_FuenteEspacial
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteEspacial =
+      /** Escala del límite del sitio RAMSAR
+       */
+      Escala : TEXT*15;
+    END HMDR_FuenteEspacial;
+
+    /** Interesado asociado con los DRR del Humedal RAMSAR
+     */
+    CLASS HMDR_Interesado
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Interesado =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_HMDR.HMDR_InteresadoTipo;
+      Observacion : TEXT*255;
+    END HMDR_Interesado;
+
+    CLASS HMDR_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END HMDR_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS HMDR_NU_CadenaCarasLimite
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_CadenaCarasLimite =
+    END HMDR_NU_CadenaCarasLimite;
+
+    CLASS HMDR_NU_Punto
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Punto =
+    END HMDR_NU_Punto;
+
+    /** La Resolución 196 de 2006, establece que como parte de los resultados de la zonificación, se debe establecer para cada área en particular, los usos y las restricciones.
+     */
+    !!@ ili2db.dispName="Régimen de usos"
+    CLASS HMDR_RegimenUsos =
+      /** Teniendo en cuenta la Resolución 196 de 2006, es el uso deseable cuyo aprovechamiento corresponde a la función específica del área y ofrece las mejores ventajas o la mayor eficiencia desde los puntos de vista ecológico, económico y social.
+       */
+      Principal : MANDATORY MTEXT*5000;
+      /** Teniendo en cuenta la Resolución 196 de 2006, son aquellos que no se oponen al principal y concuerdan con la potencialidad, la productividad y demás recursos naturales conexos.
+       */
+      Compatible : MTEXT*5000;
+      /** Teniendo en cuenta la Resolución 196 de 2006, son aquellos que por presentar algún grado de incompatibilidad con el uso principal y ciertos riesgos ambientales previsibles y controlables para la protección de los recursos naturales del humedal están supeditados a permisos y/o autorizaciones previas y a condicionamientos específicos de manejo.
+       */
+      Condicionado : MTEXT*5000;
+      /** Teniendo en cuenta la Resolución 196 de 2006, son aquellos incompatibles con el uso principal del área en particular y con los propósitos de conservación ambiental y/o manejo. Entrañan graves riesgos de tipo ecológico y/o para la salud y la seguridad de la población.
+       */
+      Prohibido : MTEXT*5000;
+    END HMDR_RegimenUsos;
+
+    /** Establece el tipo de Responsabilidad asociado con el Humedal RAMSAR
+     */
+    CLASS HMDR_Responsabilidad
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_HMDR.HMDR_ResponsabilidadTipo;
+    END HMDR_Responsabilidad;
+
+    /** Contiene la información de los Humedales RAMSAR, correspondiente a la convención relativa a los humedales de Importancia Internacional, especialmente como Hábitat de Aves Acuáticas.
+     */
+    !!@ ili2db.dispName="(HMDR) UAB Área de Humedal RAMSAR"
+    CLASS HMDR_UAB_AreaHumedal
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Nombre del sitio RAMSAR
+       */
+      Nombre_Humedal : MANDATORY TEXT*255;
+      Estado_Proceso : MANDATORY LADM_COL_v_1_0_0_Ext_HMDR.HMDR_EstadoProcesoTipo;
+      UNIQUE Nombre_Humedal;
+    END HMDR_UAB_AreaHumedal;
+
+    /** La zonificación de humedales es el proceso mediante el cual, a partir de un análisis integral ecosistémico y holístico, se busca identificar y entender áreas que puedan considerarse como unidades homogéneas en función de la similitud de sus componentes físicos, biológicos, socio económicos y culturales.
+     */
+    CLASS HMDR_UAB_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Corresponde al tipo de zonificación definido en el artículo 9 de la Resolución 886 de 2018
+       */
+      Tipo_Zona : MANDATORY LADM_COL_v_1_0_0_Ext_HMDR.HMDR_ZonificacionTipo;
+      /** Cuando el tipo de zona corresponda a Otro diligenciar el detalle a cuál corresponda
+       */
+      Detalle_Zona : TEXT*1000;
+      Area_Hidrografica : TEXT*255;
+    END HMDR_UAB_Zonificacion;
+
+    /** Unidad Espacial del Humedal RAMSAR
+     */
+    CLASS HMDR_UE_AreaHumedal
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área en hectáreas del sitio RAMSAR
+       */
+      !!@ ili2db.dispName="Área en hectáreas del humedal RAMSAR"
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END HMDR_UE_AreaHumedal;
+
+    /** Unidad Espacial de la zonificación del Humedal RAMSAR
+     */
+    CLASS HMDR_UE_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área en hectáreas de la zonificación del Humedal RAMSAR
+       */
+      !!@ ili2db.dispName="Área en hectáreas de la zonificación"
+      Area_Ha : 0.0000 .. 200000000.0000;
+    END HMDR_UE_Zonificacion;
+
+    ASSOCIATION HMDR_AreaParamo_Zonificacion =
+      UAB_Zonificacion -- {0..*} HMDR_UAB_Zonificacion;
+      UAB_AreaParamo -- {1} HMDR_UAB_AreaHumedal;
+    END HMDR_AreaParamo_Zonificacion;
+
+    ASSOCIATION HMDR_Zonificacion_RegimenUsos =
+      UAB_Zonficacion -- {0..*} HMDR_UAB_Zonificacion;
+      Regimen_Usos -- {1} HMDR_RegimenUsos;
+    END HMDR_Zonificacion_RegimenUsos;
+
+  END HMDR;
+
+END LADM_COL_v_1_0_0_Ext_HMDR.
