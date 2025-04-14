@@ -5,16 +5,14 @@ from functools import partial
 
 # Airflow
 from airflow import DAG
-
-from airflow.operators.python import PythonOperator
-from airflow.operators.python import BranchPythonOperator
+from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.utils.trigger_rule import TriggerRule
 
 # Importamos la función que nos da las rutas dinámicas
 from config.general_config import get_dynamic_config
 
-# Cambiamos el nivel a INFO para que se vea en Airflow
+# Configuración de logging para Airflow
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 sys.path.append('/opt/airflow/dags/')
 
@@ -30,9 +28,7 @@ GX_DIR = cfg["GX_DIR"]
 ILI2DB_JAR_PATH = cfg["ILI2DB_JAR_PATH"]
 EPSG_SCRIPT = cfg["EPSG_SCRIPT"]
 
-from logic.expectation import (
-    reporte_expectativas_insumos
-)
+from logic.expectation import reporte_expectativas_insumos
 
 from logic.data_workflow import (
     ejecutar_importar_estructura_intermedia,
@@ -51,19 +47,19 @@ from utils.db_utils import (
     restablecer_esquema_ladm
 )
 
+# Aquí importamos las funciones desde data_utils, incluyendo la nueva función para el cruce
 from utils.data_utils import (
     obtener_insumos_desde_web,
     ejecutar_copia_insumo_local,
     procesar_insumos_descargados,
-    ejecutar_importacion_general_a_postgres
-)      
+    ejecutar_importacion_general_a_postgres,
+)
 
 from utils.interlis_utils import (
     importar_esquema_ladm,
     exportar_datos_ladm
 )
 
-# ------------------------- DEFINICIÓN DEL DAG -------------------------
 default_args = {
     "owner": "airflow",
     "start_date": datetime(2025, 2, 25)
@@ -124,14 +120,14 @@ with DAG(
         task_id="copia_insumo_local_task",
         python_callable=ejecutar_copia_insumo_local,
         provide_context=True,
-        trigger_rule=TriggerRule.ONE_SUCCESS  # Se ejecuta si hay éxito o fallo parcial
+        trigger_rule=TriggerRule.ONE_SUCCESS
     )
     
     descomprimir_insumos_task = PythonOperator(
         task_id="Descomprimir_Insumos",
         python_callable=partial(procesar_insumos_descargados, cfg=cfg),
         provide_context=True,
-        trigger_rule=TriggerRule.ALL_DONE  # Asegura que se ejecute después de ambas tareas
+        trigger_rule=TriggerRule.ALL_DONE
     )
     
     importar_archivos_postgres_task = PythonOperator(
@@ -140,6 +136,7 @@ with DAG(
         provide_context=True,
         retries=0
     )
+ 
     
     reporte_expectativas_insumos_task = PythonOperator(
         task_id="Reporte_Expectativas_Insumos",
@@ -228,7 +225,7 @@ with DAG(
         restablecer_esquema_ladm_task
     ]
     restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> copia_insumo_local_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >> reporte_expectativas_insumos_task
-    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >> reporte_expectativas_insumos_task
+    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >>  reporte_expectativas_insumos_task
     restablecer_estructura_intermedia_task >> importar_estructura_intermedia_task >> reporte_expectativas_estructura_task
     restablecer_esquema_ladm_task >> importar_esquema_ladm_task >> reporte_expectativas_ladm_task
     [reporte_expectativas_insumos_task, reporte_expectativas_estructura_task, reporte_expectativas_ladm_task] >> migracion_datos_estructura_intermedia_task

@@ -125,9 +125,15 @@ def copia_insumo_local(url, key, insumos_local, base_local, error_msg):
 def _validar_archivo_local(key, insumos_local, base_local):
     """
     Verifica que exista un respaldo local para la clave dada y retorna la ruta.
+    
+    Se maneja el caso en el cual el valor en la configuración puede ser:
+      - Directamente una cadena (ruta), o
+      - Un diccionario con subclaves, por lo que se espera que 'key' tenga formato compuesto (e.g. "padre_hijo")
     """
     logging.info("Iniciando validación de archivo local...")
-    if key in insumos_local:
+
+    # Caso 1: La clave existe directamente y su valor es un string.
+    if key in insumos_local and isinstance(insumos_local[key], str):
         local_zip_path = os.path.join(base_local, insumos_local[key].lstrip("/"))
         if os.path.exists(local_zip_path):
             logging.info(f"Usando archivo local para '{key}': {local_zip_path}")
@@ -137,6 +143,31 @@ def _validar_archivo_local(key, insumos_local, base_local):
             msg = f"Archivo local para '{key}' no encontrado en {local_zip_path}."
             logging.error(msg)
             raise FileNotFoundError(msg)
+
+    # Caso 2: La clave es compuesta (contiene un '_') y se busca en estructura anidada.
+    if "_" in key:
+        parent, child = key.split("_", 1)
+        if parent in insumos_local and isinstance(insumos_local[parent], dict):
+            if child in insumos_local[parent]:
+                local_zip_path = os.path.join(base_local, insumos_local[parent][child].lstrip("/"))
+                if os.path.exists(local_zip_path):
+                    logging.info(f"Usando archivo local para '{key}': {local_zip_path}")
+                    logging.info("\033[92m✔ Archivo local validado correctamente.\033[0m")
+                    return local_zip_path
+                else:
+                    msg = f"Archivo local para '{key}' no encontrado en {local_zip_path}."
+                    logging.error(msg)
+                    raise FileNotFoundError(msg)
+            else:
+                msg = f"No se encontró la subclave '{child}' en la configuración para '{parent}'."
+                logging.error(msg)
+                raise FileNotFoundError(msg)
+        else:
+            msg = f"No se encontró entrada local para '{parent}' o su valor no es un diccionario."
+            logging.error(msg)
+            raise FileNotFoundError(msg)
+
+    # Si no se cumple ninguno de los casos anteriores:
     msg = f"No se encontró entrada local para '{key}' en la configuración."
     logging.error(msg)
     raise FileNotFoundError(msg)
