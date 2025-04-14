@@ -2,7 +2,7 @@ import os
 
 # Rutas base fijas (iguales para ambos DAGs)
 BASE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'OTL')
-ILI2DB_JAR_PATH = os.path.join(BASE_PATH, "LIBS/ili2pg-5.1.0.jar")
+ILI2DB_JAR_PATH = os.path.join(BASE_PATH, "libs/ili2pg-5.1.0.jar")
 EPSG_SCRIPT = os.path.join(BASE_PATH, "scripts/insert_ctm12_pg.sql")
 
 def get_dynamic_config(dag_id: str):

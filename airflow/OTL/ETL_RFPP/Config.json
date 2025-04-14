@@ -7,14 +7,14 @@
 		"db_name": "arfw_etl_rfpp"
 	},
 	"interlis": {
-		"nombre_archivo_xtf": "rfpp.xtf",
+		"nombre_archivo_xtf": "dag_rfpp.xtf",
 		"nombre_modelo": "LADM_COL_v_1_0_0_Ext_RFPP"
 	},
 	"logs": {
 		"nombre_etl": "LADM-RFPP"
 	},
 	"data_workflow": {
-		"etl_sql_module_dir": "dags.rfpp.etl_rfpp_sql"
+		"etl_sql_module_dir": "dags.dag_rfpp.etl_rfpp_sql"
 	},
 	"insumos_web": {
 		"area_reserva": "https://hub.arcgis.com/api/v3/datasets/a0618bd0843744459fb1151c55514910_1/downloads/data?format=shp&spatialRefId=3857&where=1%3D1",

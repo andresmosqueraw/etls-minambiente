@@ -11,9 +11,9 @@ import sqlalchemy
 from utils.utils import leer_configuracion, limpiar_carpeta_temporal
 from utils.gx_utils import _obtener_engine_sqlalchemy
 
-# ============================================================================
+# ==============================================================================
 # Funciones de descarga y validación de insumos desde la web y respaldo local
-# ============================================================================
+# ==============================================================================
 
 def obtener_insumos_desde_web(cfg, **context):
     """
@@ -172,9 +172,9 @@ def _validar_archivo_local(key, insumos_local, base_local):
     logging.error(msg)
     raise FileNotFoundError(msg)
 
-# ============================================================================
+# ==============================================================================
 # Funciones para procesar insumos descargados
-# ============================================================================
+# ==============================================================================
 
 def procesar_insumos_descargados(cfg, **context):
     """
@@ -272,9 +272,9 @@ def _procesar_zip(key, file_path, extract_folder):
         logging.error(msg)
         raise Exception(msg)
 
-# ============================================================================
+# ==============================================================================
 # Funciones de importación a PostgreSQL
-# ============================================================================
+# ==============================================================================
 
 def ejecutar_importar_shp_a_postgres(cfg, **kwargs):
     """
@@ -394,9 +394,9 @@ def _buscar_archivos_en_carpeta(folder, extensiones):
                     encontrados.append(full_path)
     return encontrados
 
-# ============================================================================
+# ==============================================================================
 # Funciones para importar archivos a PostgreSQL utilizando ogr2ogr y Pandas
-# ============================================================================
+# ==============================================================================
 
 def _importar_shp_a_postgres(db_config, shp_file, table_name):
     """
@@ -413,6 +413,7 @@ def _importar_shp_a_postgres(db_config, shp_file, table_name):
         "-progress",
         "-lco", "GEOMETRY_NAME=geom",
         "-lco", "FID=gid",
+        "-lco", "SPATIAL_INDEX=NO",   # Opción para evitar índice espacial
         "-nlt", "PROMOTE_TO_MULTI",
         "-t_srs", "EPSG:9377"
     ]
@@ -442,6 +443,7 @@ def _importar_geojson_a_postgres(db_config, geojson_file, table_name):
         "-progress",
         "-lco", "GEOMETRY_NAME=geom",
         "-lco", "FID=gid",
+        "-lco", "SPATIAL_INDEX=NO",   # Opción para evitar índice espacial
         "-nlt", "PROMOTE_TO_MULTI",
         "-t_srs", "EPSG:9377"
     ]
@@ -524,16 +526,16 @@ def import_excel_to_db(db_config, excel_file, key):
         logging.error(msg)
         raise Exception(msg)
 
-    table_name = f"insumos.{shorten_identifier(key)}_excel"
+    table_name_final = f"insumos.{shorten_identifier(key)}_excel"
     engine = sqlalchemy.create_engine(
         f"postgresql://{db_config['user']}:{db_config['password']}@"
         f"{db_config['host']}:{db_config['port']}/{db_config['db_name']}"
     )
     try:
-        df_merged.to_sql(table_name.split('.')[-1], engine, schema="insumos", if_exists="replace", index=False)
-        logging.info(f"Excel importado en la tabla {table_name}.")
+        df_merged.to_sql(table_name_final.split('.')[-1], engine, schema="insumos", if_exists="replace", index=False)
+        logging.info(f"Excel importado en la tabla {table_name_final}.")
     except Exception as e:
-        msg = f"Error insertando Excel en {table_name}: {e}"
+        msg = f"Error insertando Excel en {table_name_final}: {e}"
         logging.error(msg)
         raise Exception(msg)
 

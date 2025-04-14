@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE metadata SYSTEM "http://www.fgdc.gov/metadata/fgdc-std-001-1998.dtd">
+<metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <origin>MinAmbiente</origin>
+                <pubdate>2024</pubdate>
+                <pubtime>2021</pubtime>
+                <title>Serranía La Lindosa - Angosturas II</title>
+                <edition>3d452b0b</edition>
+                <geoform>Vector digital data</geoform>
+                <serinfo>
+                    <sername>1</sername>
+                    <issue>No establecida</issue>
+                </serinfo>
+                <pubinfo>
+                    <pubplace>No publicado</pubplace>
+                    <publish>Sin informacion</publish>
+                </pubinfo>
+                <othercit>No information</othercit>
+                <onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>Límite oficial del Área Protegida del (Reservas Forestales Protectoras Nacionales Serranía La Lindosa - Angosturas II) de acuerdo a la resolución 128 de 24/07/1987 a escala 1:100.000: ubicada en el municipio San José Del Guaviare, departamento de Guaviare.</abstract>
+            <purpose>para identificar en el territorio las áreas a recuperar, manejar y conservar con la participación de todos los actores.&#13;
+</purpose>
+            <supplinf>La información fue suministrada por el Ministerio de Ambiente, Vivienda y Desarrollo Territorial</supplinf>
+        </descript>
+        <timeperd>
+            <timeinfo>
+                <sngdate>
+                    <caldate>2024</caldate>
+                    <time>2021</time>
+                </sngdate>
+            </timeinfo>
+            <current>2024</current>
+        </timeperd>
+        <status>
+            <progress>Complete</progress>
+            <update>No planeada</update>
+        </status>
+        <spdom>
+            <bounding>
+                <westbc>-72.899344</westbc>
+                <eastbc>-72.611809</eastbc>
+                <northbc>2.614329</northbc>
+                <southbc>2.415564</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>No especificado</themekt>
+                <themekey>RUNAP, Reserva Forestal Protectora Nacional</themekey>
+            </theme>
+            <place>
+                <placekt>No especificado</placekt>
+                <placekey>Reserva Forestal Protectora Serranía La Lindosa - Angosturas II.</placekey>
+            </place>
+        </keywords>
+        <accconst>La información se puede acceder de manera libre, haciendo la solicitud directamente a la entidad o descargándola desde el Registro Único Nacional de Áreas Protegidas (RUNAP).</accconst>
+        <useconst>El usuario se compromete a hacer referencia bibliográfica del origen de esta información.</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>MinAmbiente</cntorg>
+                    <cntper>Ministerio de Ambiente, Vivienda y Desarrollo Territorial</cntper>
+                </cntorgp>
+                <cntpos>Oficina de las Tecnologías de Información y las Comunicaciones.</cntpos>
+                <cntaddr>
+                    <addrtype>Física</addrtype>
+                    <address>Calle 37 No 8-40</address>
+                    <city>BOGOTÁ, D.C.</city>
+                    <state>BOGOTÁ, D.C.</state>
+                    <postal>1140</postal>
+                    <country>Colombia</country>
+                </cntaddr>
+                <cntvoice>(+57) (1) 3532400</cntvoice>
+                <cntfax>(+57) (1) 3532400</cntfax>
+                <cntemail>servicioalciudadano@minambiente.gov.co</cntemail>
+                <hours>2021</hours>
+                <cntinst>Se puede comunicar a los teléfonos de la entidad. Horario de atención de lunes a viernes 8:00 am a 5:00 pm o mediante correo electrónico.</cntinst>
+            </cntinfo>
+        </ptcontac>
+        <datacred>Ministerio de Ambiente, Vivienda y Desarrollo Territorial.</datacred>
+        <secinfo>
+            <secsys>La información digital no tiene protocolos de seguridad para su manejo luego de ser entregada al usuario.</secsys>
+            <secclass>Sin clasificar</secclass>
+            <sechandl>La información digital no tiene protocolos de seguridad para su manejo luego de ser entregada al usuario.</sechandl>
+        </secinfo>
+        <native>Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.0.1770</native>
+        <crossref>
+            <citeinfo>
+                <origin>MinAmbiente</origin>
+                <pubdate>2024</pubdate>
+                <pubtime>2021</pubtime>
+                <title>Serranía La Lindosa - Angosturas II</title>
+                <edition>3d452b0b</edition>
+                <geoform>map</geoform>
+                <serinfo>
+                    <sername>1</sername>
+                    <issue>No establecida</issue>
+                </serinfo>
+                <pubinfo>
+                    <pubplace>No establecido</pubplace>
+                    <publish>No establecido</publish>
+                </pubinfo>
+                <othercit>Ninguno</othercit>
+            </citeinfo>
+        </crossref>
+    </idinfo>
+    <spdoinfo>
+        <direct>Vector</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>G-polygon</sdtstype>
+                <ptvctcnt>1</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <spref>
+        <horizsys>
+            <planar>
+                <mapproj>
+                    <mapprojn>Transverse Mercator</mapprojn>
+                    <transmer>
+                        <sfctrmer>1.000000</sfctrmer>
+                        <longcm>-74.077508</longcm>
+                        <latprjo>4.596200</latprjo>
+                        <feast>1000000.000000</feast>
+                        <fnorth>1000000.000000</fnorth>
+                    </transmer>
+                </mapproj>
+                <planci>
+                    <plance>coordinate pair</plance>
+                    <coordrep>
+                        <absres>0.000001</absres>
+                        <ordres>0.000001</ordres>
+                    </coordrep>
+                    <plandu>meters</plandu>
+                </planci>
+            </planar>
+            <geodetic>
+                <horizdn>Magna - Sirgas</horizdn>
+                <ellips>GRS 80</ellips>
+                <semiaxis>6378137.000000</semiaxis>
+                <denflat>298.257222</denflat>
+            </geodetic>
+        </horizsys>
+    </spref>
+    <distinfo>
+        <distrib>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>MinAmbiente</cntorg>
+                    <cntper>Ministerio de Ambiente, Vivienda y Desarrollo Territorial</cntper>
+                </cntorgp>
+                <cntpos>Oficina de las Tecnologías de Información y las Comunicaciones.</cntpos>
+                <cntaddr>
+                    <addrtype>Física</addrtype>
+                    <address>Calle 37 No 8-40</address>
+                    <city>BOGOTÁ, D.C.</city>
+                    <state>BOGOTÁ, D.C.</state>
+                    <postal>1140</postal>
+                    <country>Colombia</country>
+                </cntaddr>
+                <cntvoice>(+57) (1) 3532400</cntvoice>
+                <cntfax>(+57) (1) 3532400</cntfax>
+                <cntemail>servicioalciudadano@minambiente.gov.co</cntemail>
+                <hours>2021</hours>
+                <cntinst>Se puede comunicar a los teléfonos de la entidad. Horario de atención de lunes a viernes 8:00 am a 5:00 pm o mediante correo electrónico.</cntinst>
+            </cntinfo>
+        </distrib>
+        <resdesc>resdesc</resdesc>
+        <distliab>El usuario se compromete a  hacer referencia bibliografica del origen de la informacion utilizada y a no generar modificaciones a la informacion entregada.</distliab>
+        <stdorder>
+            <digform>
+                <digtinfo>
+                    <formname>SHP</formname>
+                    <formvern>1</formvern>
+                    <formspec>No information</formspec>
+                    <formcont>No information</formcont>
+                    <filedec>no compression applied</filedec>
+                    <transize>0.206</transize>
+                </digtinfo>    
+                <digtopt>
+                    <onlinopt>
+                        <computer>
+                            <networka>
+                                <networkr>http://runap.parquesnacionales.gov.co</networkr>
+                            </networka>
+                        </computer>
+                        <accinstr>Solicitar acceso</accinstr>
+                        <oncomp>No information</oncomp>
+                    </onlinopt>
+                </digtopt>
+            </digform>
+            <fees>0</fees>
+            <ordering>No information</ordering>
+            <turnarnd>No information</turnarnd>
+        </stdorder>
+        <custom>La información se puede acceder de manera libre, previa solucitud por escrito o vía correo electrónico a la Entidad.</custom>
+        <techpreq>Software GIS, Sistema de Referencia MAGNA-SIRGAS (Coordenadas grados decimales).</techpreq>
+        <availabl>
+            <timeinfo>
+                <sngdate>
+                    <caldate>2024</caldate>
+                    <time>2021</time>
+                </sngdate>
+            </timeinfo>
+        </availabl>
+    </distinfo>
+    <metainfo>
+        <metd>20240530</metd>
+        <metrd>20240530</metrd>
+        <metfrd>20250530</metfrd>
+        <metc>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>MinAmbiente</cntorg>
+                    <cntper>Ministerio de Ambiente, Vivienda y Desarrollo Territorial</cntper>
+                </cntorgp>
+                <cntpos>Oficina de las Tecnologías de Información y las Comunicaciones.</cntpos>
+                <cntaddr>
+                    <addrtype>Física</addrtype>
+                    <city>BOGOTÁ, D.C.</city>
+                    <state>BOGOTÁ, D.C.</state>
+                    <postal>1140</postal>
+                </cntaddr>
+                <cntvoice>(+57) (1) 3532400</cntvoice>
+                <cntemail>servicioalciudadano@minambiente.gov.co</cntemail>
+                <hours>2021</hours>
+                <cntinst>Se puede comunicar a los teléfonos de la entidad. Horario de atención de lunes a viernes 8:00 am a 5:00 pm o mediante correo electrónico.</cntinst>
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+        <metac>No information</metac>
+        <metuc>No information</metuc>
+        <metsi>
+            <metscs>No information</metscs>
+            <metsc>Unclassified</metsc>
+            <metshd>No information</metshd>
+        </metsi>
+        <metextns>
+            <onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+            <metprof>ESRI Metadata Profile</metprof>
+        </metextns>
+    </metainfo>
+</metadata>

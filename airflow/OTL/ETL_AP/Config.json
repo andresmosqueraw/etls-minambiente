@@ -6,14 +6,14 @@
 		"db_name":"arfw_etl_ap"
 	},
 	"interlis": {
-		"nombre_archivo_xtf": "ap.xtf",
+		"nombre_archivo_xtf": "dag_ap.xtf",
 		"nombre_modelo": "LADM_COL_v_1_0_0_Ext_AP"
 	},
 	"logs": {
 		"nombre_etl": "LADM-AP"
 	},
 	"data_workflow": {
-		"etl_sql_module_dir": "dags.ap.etl_ap_sql"
+		"etl_sql_module_dir": "dags.dag_ap.etl_ap_sql"
 	},
 	"insumos_web":{
 		"area_protegida":"https://storage.googleapis.com/pnn_geodatabase/runap/latest.zip",

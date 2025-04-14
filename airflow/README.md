@@ -75,7 +75,7 @@ coverage run -m unittest tests.test_data_utils
 cd /opt/cpi/test/ETL_RL2/airflow
 python3 -m unittest -b tests.test_utils
 ```
-## Ejecutar todos los tests de rl2
+## Ejecutar todos los tests de dag_rl2
 ```bash
 python3 -m unittest discover -s tests -t .
 ```
@@ -105,27 +105,30 @@ TASKS
 # Rebranding
 ########################
 
-Renombrar  LIBS por libs
+Renombrar  libs por libs. yaaaaa
 
 Renombrar directorio del dag:
-rl2 --> dag_rl2
-prm --> dag_prm
-rfpp --> dag_rfpp
+dag_rl2 --> dag_rl2
+dag_ap --> dag_ap
+dag_prm --> dag_prm
+dag_rfpp --> dag_rfpp
+dag_rfpn --> dag_rfpn
+dag_hmdr --> dag_hmdr
 
 Estructura de directorios OTL/
 
 ETL: 
-otl/etl/etl_prm
-otl/etl/etl_rl2
-otl/etl/etl_rfpp
+OTL/etl/etl_prm
+OTL/etl/etl_rl2
+OTL/etl/etl_rfpp
 
 Modelos:
 
 OTL/MODELOS/Modelo_Reservas_Forestales_Protectoras_Productoras
 
-otl/modelos/modelo_rfpp
-otl/modelos/modelo_rl2
-otl/modelos/modelo_prm
+OTL/modelos/modelo_rfpp
+OTL/modelos/modelo_rl2
+OTL/modelos/modelo_prm
 
 Salida de XTF
 output:
@@ -141,7 +144,7 @@ Ignorar carpeta ETL_PRM/temp
 ##########################################
 # Archivo de configuración
 #########################################
-dejar en el submodule el archivo de configuración de cada otl
+dejar en el submodule el archivo de configuración de cada OTL
 y no usar la función de get_dynamic_config
 
 

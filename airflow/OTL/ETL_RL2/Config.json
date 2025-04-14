@@ -7,14 +7,14 @@
 		"db_name": "arfw_etl_rl2"
 	},
 	"interlis": {
-		"nombre_archivo_xtf":"rl2.xtf",
+		"nombre_archivo_xtf":"dag_rl2.xtf",
 		"nombre_modelo":"LADM_COL_v_1_0_0_Ext_RL2"
 	},
 	"logs":{
 		"nombre_etl":"LADM-RL2"
 	},
 	"data_workflow": {
-		"etl_sql_module_dir": "dags.rl2.etl_rl2_sql"
+		"etl_sql_module_dir": "dags.dag_rl2.etl_rl2_sql"
 	},
 	"insumos_web": {
 		"area_reserva_ley2": "https://www.arcgis.com/sharing/rest/content/items/988bc78e62c64f8c8b0b8klioioio5fbac83c478/data",

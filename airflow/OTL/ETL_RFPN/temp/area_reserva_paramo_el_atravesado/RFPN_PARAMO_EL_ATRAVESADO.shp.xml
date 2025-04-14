@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE metadata SYSTEM "http://www.fgdc.gov/metadata/fgdc-std-001-1998.dtd">
+<metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <origin>MADS</origin>
+                <pubdate>2018</pubdate>
+                <pubtime>1201</pubtime>
+                <title>Páramo El Atravesado</title>
+                <edition>989ad39d</edition>
+                <geoform>Vector digital data</geoform>
+                <serinfo>
+                    <sername>1</sername>
+                    <issue>No establecida</issue>
+                </serinfo>
+                <pubinfo>
+                    <pubplace>No publicado</pubplace>
+                    <publish>Sin informacion</publish>
+                </pubinfo>
+                <othercit>No information</othercit>
+                <onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>Mapa de la Reserva Forestal Protectora Nacional del Páramo El Atravesado precisado cartográficamente</abstract>
+            <purpose>Precisar el límite cartográfico de la Reserva Forestal Protectora Nacional del Páramo El Atravesado</purpose>
+            <supplinf>Información base elaborada por el IGAC a escala 1:25.000 para el año 2014</supplinf>
+        </descript>
+        <timeperd>
+            <timeinfo>
+                <sngdate>
+                    <caldate>2018</caldate>
+                    <time>1201</time>
+                </sngdate>
+            </timeinfo>
+            <current>2018</current>
+        </timeperd>
+        <status>
+            <progress>Complete</progress>
+            <update>No planeada</update>
+        </status>
+        <spdom>
+            <bounding>
+                <westbc>-73.806479</westbc>
+                <eastbc>-73.744026</eastbc>
+                <northbc>4.354503</northbc>
+                <southbc>4.233813</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>No especificado</themekt>
+                <themekey>Reservas Forestales Protectoras Nacionales &#13;
+Áreas Protegidas&#13;
+SINAP</themekey>
+            </theme>
+            <place>
+                <placekt>No especificado</placekt>
+                <placekey>Páramo el Atravesado</placekey>
+            </place>
+        </keywords>
+        <accconst>Es necesario contar con herramientas del Sistema de Información Geográfico </accconst>
+        <useconst>No Aplica</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>MADS</cntorg>
+                    <cntper>Luis Francisco Camargo</cntper>
+                </cntorgp>
+                <cntpos>Director de Bosques, Biodiversidad y Servicios Ecosistémicos (E)</cntpos>
+                <cntaddr>
+                    <addrtype>Ministerio de Ambiente y Desarrollo Sostenible</addrtype>
+                    <address>Calle 37 No. 8-40</address>
+                    <city>BOGOTÁ, D.C.</city>
+                    <state>BOGOTÁ, D.C.</state>
+                    <postal>110311</postal>
+                    <country>Colombia</country>
+                </cntaddr>
+                <cntvoice>3323422</cntvoice>
+                <cntfax>3323422</cntfax>
+                <cntemail>lcamargo@minambiente.gov.co</cntemail>
+                <hours>1201</hours>
+                <cntinst>El encargado de la información es el director de Bosques, Biodiversidad y Servicios Ecosistémicos del Ministerio de Ambiente y Desarrollo Sostenible encargado.</cntinst>
+            </cntinfo>
+        </ptcontac>
+        <datacred>Dirección de Bosques, Biodiversidad y Servicios Geográfico del Ministerio de Ambiente y Desarrollo Sostenible</datacred>
+        <secinfo>
+            <secsys>No Aplica</secsys>
+            <secclass>Sin clasificar</secclass>
+            <sechandl>No Aplica</sechandl>
+        </secinfo>
+        <native>Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.0.1770</native>
+        <crossref>
+            <citeinfo>
+                <origin>MADS</origin>
+                <pubdate>2018</pubdate>
+                <pubtime>1201</pubtime>
+                <title>Páramo El Atravesado</title>
+                <edition>989ad39d</edition>
+                <geoform>map</geoform>
+                <serinfo>
+                    <sername>1</sername>
+                    <issue>No establecida</issue>
+                </serinfo>
+                <pubinfo>
+                    <pubplace>No establecido</pubplace>
+                    <publish>No establecido</publish>
+                </pubinfo>
+                <othercit>Ninguno</othercit>
+            </citeinfo>
+        </crossref>
+    </idinfo>
+    <spdoinfo>
+        <direct>Vector</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>G-polygon</sdtstype>
+                <ptvctcnt>1</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <spref>
+        <horizsys>
+            <planar>
+                <mapproj>
+                    <mapprojn>Transverse Mercator</mapprojn>
+                    <transmer>
+                        <sfctrmer>1.000000</sfctrmer>
+                        <longcm>-74.077508</longcm>
+                        <latprjo>4.596200</latprjo>
+                        <feast>1000000.000000</feast>
+                        <fnorth>1000000.000000</fnorth>
+                    </transmer>
+                </mapproj>
+                <planci>
+                    <plance>coordinate pair</plance>
+                    <coordrep>
+                        <absres>0.000001</absres>
+                        <ordres>0.000001</ordres>
+                    </coordrep>
+                    <plandu>meters</plandu>
+                </planci>
+            </planar>
+            <geodetic>
+                <horizdn>Magna - Sirgas</horizdn>
+                <ellips>GRS 80</ellips>
+                <semiaxis>6378137.000000</semiaxis>
+                <denflat>298.257222</denflat>
+            </geodetic>
+        </horizsys>
+    </spref>
+    <distinfo>
+        <distrib>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>MADS</cntorg>
+                    <cntper>Luis Francisco Camargo</cntper>
+                </cntorgp>
+                <cntpos>Director de Bosques, Biodiversidad y Servicios Ecosistémicos (E)</cntpos>
+                <cntaddr>
+                    <addrtype>Ministerio de Ambiente y Desarrollo Sostenible</addrtype>
+                    <address>Calle 37 No. 8-40</address>
+                    <city>BOGOTÁ, D.C.</city>
+                    <state>BOGOTÁ, D.C.</state>
+                    <postal>110311</postal>
+                    <country>Colombia</country>
+                </cntaddr>
+                <cntvoice>3323422</cntvoice>
+                <cntfax>3323422</cntfax>
+                <cntemail>lcamargo@minambiente.gov.co</cntemail>
+                <hours>1201</hours>
+                <cntinst>El encargado de la información es el director de Bosques, Biodiversidad y Servicios Ecosistémicos del Ministerio de Ambiente y Desarrollo Sostenible encargado.</cntinst>
+            </cntinfo>
+        </distrib>
+        <resdesc>resdesc</resdesc>
+        <distliab>El usuario se compromete a  hacer referencia bibliografica del origen de la informacion utilizada y a no generar modificaciones a la informacion entregada.</distliab>
+        <stdorder>
+            <digform>
+                <digtinfo>
+                    <formname>DXF</formname>
+                    <formvern>1</formvern>
+                    <formspec>No information</formspec>
+                    <formcont>No information</formcont>
+                    <filedec>no compression applied</filedec>
+                    <transize>0.206</transize>
+                </digtinfo>    
+                <digtopt>
+                    <onlinopt>
+                        <computer>
+                            <networka>
+                                <networkr>http://runap.parquesnacionales.gov.co</networkr>
+                            </networka>
+                        </computer>
+                        <accinstr>Solicitar acceso</accinstr>
+                        <oncomp>No information</oncomp>
+                    </onlinopt>
+                </digtopt>
+            </digform>
+            <fees>0</fees>
+            <ordering>No information</ordering>
+            <turnarnd>No information</turnarnd>
+        </stdorder>
+        <custom>La información se puede acceder de manera libre, previa solucitud por escrito o vía correo electrónico a la Entidad.</custom>
+        <techpreq>No Aplica</techpreq>
+        <availabl>
+            <timeinfo>
+                <sngdate>
+                    <caldate>2018</caldate>
+                    <time>1201</time>
+                </sngdate>
+            </timeinfo>
+        </availabl>
+    </distinfo>
+    <metainfo>
+        <metd>20181231</metd>
+        <metrd>20200401</metrd>
+        <metfrd>20200401</metfrd>
+        <metc>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>MADS</cntorg>
+                    <cntper>Luis Francisco Camargo</cntper>
+                </cntorgp>
+                <cntpos>Director de Bosques, Biodiversidad y Servicios Ecosistémicos (E)</cntpos>
+                <cntaddr>
+                    <addrtype>Ministerio de Ambiente y Desarrollo Sostenible</addrtype>
+                    <city>BOGOTÁ, D.C.</city>
+                    <state>BOGOTÁ, D.C.</state>
+                    <postal>110311</postal>
+                </cntaddr>
+                <cntvoice>3323422</cntvoice>
+                <cntemail>lcamargo@minambiente.gov.co</cntemail>
+                <hours>1201</hours>
+                <cntinst>El encargado de la información es el director de Bosques, Biodiversidad y Servicios Ecosistémicos del Ministerio de Ambiente y Desarrollo Sostenible encargado.</cntinst>
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+        <metac>No information</metac>
+        <metuc>No information</metuc>
+        <metsi>
+            <metscs>No information</metscs>
+            <metsc>Unclassified</metsc>
+            <metshd>No information</metshd>
+        </metsi>
+        <metextns>
+            <onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+            <metprof>ESRI Metadata Profile</metprof>
+        </metextns>
+    </metainfo>
+</metadata>
