@@ -3,13 +3,13 @@
 ### Clonar repositorio
 
 ```bash
-git clone https://github.com/ceicol/ETL_RL2.git
+git clone https://github.com/ceicol/etl/etl_rl2.git
 ```
 
 ### Crear ambiente
 
 ```bash
-cd ETL_RL2/airflow/
+cd etl/etl_rl2/airflow/
 python3 -m venv .venv
 ```
 
@@ -38,13 +38,13 @@ coverage xml
 ### Clonar repositorio
 
 ```bash
-git clone https://github.com/ceicol/ETL_RL2.git
+git clone https://github.com/ceicol/etl/etl_rl2.git
 ```
 
 ###  Ejecutar docker compose
 
 ```bash
-cd ETL_RL2/airflow
+cd etl/etl_rl2/airflow
 docker compose up -d
 ```
 
@@ -72,7 +72,7 @@ coverage run -m unittest tests.test_data_utils
 
 ## Ejecutar tests individualmente
 ```bash
-cd /opt/cpi/test/ETL_RL2/airflow
+cd /opt/cpi/test/etl/etl_rl2/airflow
 python3 -m unittest -b tests.test_utils
 ```
 ## Ejecutar todos los tests de dag_rl2
@@ -118,9 +118,13 @@ dag_hmdr --> dag_hmdr
 Estructura de directorios OTL/
 
 ETL: 
-OTL/etl/etl_prm
-OTL/etl/etl_rl2
-OTL/etl/etl_rfpp
+OTL/etl/etl_ap   etl/etl_ap
+OTL/etl/etl_hmdr  etl/etl_hmdr
+OTL/etl/etl_prm  etl/etl_prm
+OTL/etl/etl_rfpn  etl/etl_rfpn
+OTL/etl/etl_rfpp  etl/etl_rfpp
+OTL/etl/etl_rl2  etl/etl_rl2
+
 
 Modelos:
 
@@ -139,7 +143,7 @@ output:
 # No cargar carpeta temporal de insumos
 #########################################
 
-Ignorar carpeta ETL_PRM/temp
+Ignorar carpeta etl/etl_prm/temp. yaaaaa
 
 ##########################################
 # Archivo de configuración

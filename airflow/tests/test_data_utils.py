@@ -11,7 +11,7 @@ import pandas as pd
 import json
 
 # Agregamos al path la ubicación del módulo a probar
-sys.path.append('/opt/cpi/test/ETL_RL2/airflow/utils')
+# sys.path.append('/opt/cpi/test/etl/etl_rl2/airflow/utils')
 
 import data_utils
 

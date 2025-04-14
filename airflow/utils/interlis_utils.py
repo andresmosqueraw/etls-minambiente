@@ -1,4 +1,4 @@
-# /opt/cpi/test/ETL_RL2/airflow/utils/interlis_utils.py
+# /opt/cpi/test/etl/etl_rl2/airflow/utils/interlis_utils.py
 import os
 import subprocess
 import logging

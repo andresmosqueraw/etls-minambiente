@@ -459,10 +459,10 @@ def _importar_geojson_a_postgres(db_config, geojson_file, table_name):
 def _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name, schema="insumos"):
     """
     Importa un archivo Excel a PostgreSQL.
-    Si el directorio ETL contiene 'ETL_AP', se utiliza la función import_excel_to_db;
+    Si el directorio ETL contiene 'etl/etl_ap', se utiliza la función import_excel_to_db;
     en caso contrario se utiliza pandas para leer y enviar los datos.
     """
-    if "ETL_AP" in cfg["ETL_DIR"]:
+    if "etl/etl_ap" in cfg["ETL_DIR"]:
         config = leer_configuracion(cfg)
         db_config = config["db"]
         return import_excel_to_db(db_config, xlsx_file, table_name)

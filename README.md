@@ -1,4 +1,4 @@
-# ETL_RL2
+# etl/etl_rl2
 ETL para transformar los datos de reserva ley 2 al modelo extendido LADM_COL de Reservas Ley 2
 
 # Documentación de Shapes de Reservas Forestales Ley 2 de 1959
