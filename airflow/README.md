@@ -90,3 +90,63 @@ coverage report -m
 coverage xml
 coverage html
 ```
+
+
+
+
+#######################################
+TASKS
+#######################################
+
+
+
+
+########################
+# Rebranding
+########################
+
+Renombrar  LIBS por libs
+
+Renombrar directorio del dag:
+rl2 --> dag_rl2
+prm --> dag_prm
+rfpp --> dag_rfpp
+
+Estructura de directorios OTL/
+
+ETL: 
+otl/etl/etl_prm
+otl/etl/etl_rl2
+otl/etl/etl_rfpp
+
+Modelos:
+
+OTL/MODELOS/Modelo_Reservas_Forestales_Protectoras_Productoras
+
+otl/modelos/modelo_rfpp
+otl/modelos/modelo_rl2
+otl/modelos/modelo_prm
+
+Salida de XTF
+output:
+├── xtf_prm
+└── xtf_rl2
+
+##########################################
+# No cargar carpeta temporal de insumos
+#########################################
+
+Ignorar carpeta ETL_PRM/temp
+
+##########################################
+# Archivo de configuración
+#########################################
+dejar en el submodule el archivo de configuración de cada otl
+y no usar la función de get_dynamic_config
+
+
+###########################
+# TESTS
+###########################
+
+Validar tests y coverages
