@@ -1,7 +1,11 @@
 # data
 *.xtf
-airflow/OTL/ETL_RL2/temp/
+airflow/OTL/ETL_AP/temp/
+airflow/OTL/ETL_HMDR/temp/
+airflow/OTL/ETL_PRM/temp/
+airflow/OTL/ETL_RFPN/temp/
 airflow/OTL/ETL_RFPP/temp/
+airflow/OTL/ETL_RL2/temp/
 
 # dags
 airflow/dags/__pycache__/*
