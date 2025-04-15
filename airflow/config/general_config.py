@@ -10,22 +10,22 @@ def get_dynamic_config(dag_id: str):
     Retorna un diccionario con las rutas dinámicas según el DAG.
     """
     if dag_id == "etl_rfpp_xtf":
-        model_dir_name = "modelos/modelo_rfpp/Modelo_Reservas_Forestales_Protectoras_Productoras/MODELO"
+        model_dir_name = "modelos/modelo_rfpp"
         etl_dir_name = "etl/etl_rfpp"
     elif dag_id == "etl_rl2_xtf":
-        model_dir_name = "modelos/modelo_rl2/Modelo_Reservas_Ley_2/MODELO"
+        model_dir_name = "modelos/modelo_rl2"
         etl_dir_name = "etl/etl_rl2"
     elif dag_id == "etl_prm_xtf":
-        model_dir_name = "modelos/modelo_prm/Modelo_Paramos/MODELO"
+        model_dir_name = "modelos/modelo_prm"
         etl_dir_name = "etl/etl_prm"
     elif dag_id == "etl_ap_xtf":
-        model_dir_name = "modelos/modelo_ap/Modelo_Areas_Protegidas_SINAP/MODELO"
+        model_dir_name = "modelos/modelo_ap"
         etl_dir_name = "etl/etl_ap"
     elif dag_id == "etl_hmdr_xtf":
-        model_dir_name = "modelos/modelo_hmdr/Modelo_Humedales_RAMSAR/MODELO"
+        model_dir_name = "modelos/modelo_hmdr"
         etl_dir_name = "etl/etl_hmdr"
     elif dag_id == "etl_rfpn_xtf":
-        model_dir_name = "modelos/modelo_rfpn/Modelo_Reservas_Forestales_Protectoras_Nacionales/MODELO"
+        model_dir_name = "modelos/modelo_rfpn"
         etl_dir_name = "etl/etl_rfpn"
     else:
         raise Exception("DAG_ID desconocido: " + dag_id)

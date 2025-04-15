@@ -43,4 +43,4 @@ Hasta la fecha se ha logrado delimitar 36 de los 37 páramos de Colombia, entre 
 - Tota-Bijagual-Mamapacha
 - Yariguíes
 
-<img src="MODELO\Diagrama.jpeg">
+<img src="MODELO\diagrama.jpeg">

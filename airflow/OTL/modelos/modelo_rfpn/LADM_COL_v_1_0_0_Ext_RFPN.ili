@@ -1,0 +1,431 @@
+INTERLIS 2.3;
+
+/** Una Reserva Forestal Protectora Nacional es un área territorial destinada a la conservación de los ecosistemas forestales, cuya finalidad es proteger su biodiversidad, recursos hídricos y garantizar el equilibrio ambiental. Estas áreas tienen restricciones legales específicas que limitan las actividades humanas para asegurar la sostenibilidad ambiental y evitar su degradación.
+ */
+!!@ technicalContact="Dirección de Bosques, Biodiversidad y Servicios Ecosistémicos"
+MODEL LADM_COL_v_1_0_0_Ext_RFPN (es)
+AT "mailto:Obosques@minambiente.gov.co"
+VERSION "1.0.0"  =
+  IMPORTS LADM_COL_v_4_0_1_Nucleo;
+
+  DOMAIN
+
+    /** Tipo de derecho asociado con la Reserva Forestal Protectora Nacional
+     */
+    !!@ ili2db.dispName="Derecho tipo"
+    RFPN_DerechoTipo = (
+      /** De acuerdo con el artículo 204 de la ley 1450 de 2011, las autoridades ambientales, en el marco de sus competencias, y con base en estudios técnicos, económicos, sociales y ambientales adoptados por el Ministerio de Ambiente, Vivienda y Desarrollo Territorial, podrán re alinderar las áreas de reserva forestal.
+       */
+      !!@ ili2db.dispName=Realinderar
+      Realinderar,
+      /** De acuerdo con el artículo 204 de la ley 1450 de 2011, las autoridades ambientales, en el marco de sus competencias, y con base en estudios técnicos, económicos, sociales y ambientales adoptados por el Ministerio de Ambiente, Vivienda y Desarrollo Territorial, podrán re categorizar las áreas de reserva forestal.
+       */
+      !!@ ili2db.dispName=Recategorizar
+      Recategorizar,
+      /** De acuerdo con el artículo 204 de la ley 1450 de 2011, las autoridades ambientales, en el marco de sus competencias, y con base en estudios técnicos, económicos, sociales y ambientales adoptados por el Ministerio de Ambiente, Vivienda y Desarrollo Territorial, podrán integrar las áreas de reserva forestal.
+       */
+      !!@ ili2db.dispName=Integrar
+      Integrar,
+      /** De acuerdo con el artículo 204 de la ley 1450 de 2011, las autoridades ambientales, en el marco de sus competencias, y con base en estudios técnicos, económicos, sociales y ambientales adoptados por el Ministerio de Ambiente, Vivienda y Desarrollo Territorial, podrán sustraer las áreas de reserva forestal.
+       */
+      !!@ ili2db.dispName=Sustraer
+      Sustraer
+    );
+
+    /** Define el acto administrativo relacionado con la Reserva Forestal Protectora Nacional
+     */
+    !!@ ili2db.dispName="Tipo Fuente Administrativa"
+    RFPN_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      !!@ ili2db.dispName="Documento público"
+      Documento_Publico(
+        /** Acto legislativo o normativo de carácter local que es expedido por diferentes autoridades dentro de la estructura administrativa del país, tales como los concejales, alcaldes, personerías, contralorías y Juntas Administradoras Locales (JAL).
+         */
+        !!@ ili2db.dispName="(Documento público) Acuerdo"
+        Acuerdo,
+        /** Decisión judicial que resuelve cuestiones procesales durante el curso de un proceso. Es dictado por un juez o tribunal y tiene efectos obligatorios para las partes involucradas
+         */
+        !!@ ili2db.dispName="(Documento público) Auto"
+        Auto,
+        /** Decisión administrativa emitida por una autoridad administrativa en ejercicio de sus funciones, que tiene efectos jurídicos dentro de su ámbito de competencia. Las resoluciones se utilizan para regular, interpretar, aplicar o ejecutar disposiciones legales o reglamentarias y son de carácter obligatorio para las personas o entidades a las que se dirigen.
+         */
+        !!@ ili2db.dispName="(Documento público) Resolución"
+        Resolucion
+      )
+    );
+
+    /** Tipo de responsabilidad asociado con la Reserva Forestal Protectora Nacional
+     */
+    !!@ ili2db.dispName="Tipo Responsabilidad"
+    RFPN_ResponsabilidadTipo = (
+      /** De acuerdo con el artículo 31 de la ley 99 de 1993, las Corporaciones Autónomas Regionales ejercerán entre sus funciones:
+       * Reservar, alinderar, administrar, en los términos y condiciones que fijen la ley y los reglamentos, los distritos de manejo integrado, los distritos de conservación de suelos, las reservas forestales y parques naturales de carácter regional, y reglamentar su uso y funcionamiento. Administrar las Reservas Forestales Nacionales en el área de su jurisdicción;
+       */
+      !!@ ili2db.dispName=Administrar
+      Administrar,
+      /** De acuerdo con el inciso 2° del artículo 204 de la Ley 1450 de 2011, establece que, en los casos en que proceda la sustracción de las áreas de reserva forestal, sea esta temporal o definitiva, la autoridad ambiental competente impondrá al interesado en la sustracción, las medidas de compensación, restauración y recuperación a que haya lugar, sin perjuicio de las que sean impuestas en virtud del desarrollo de la actividad que se pretenda desarrollar en el área sustraída.
+       */
+      !!@ ili2db.dispName=Compensar
+      Compensar,
+      /** De acuerdo con el artículo 203 de la Ley 1450 de 2011, corresponde a las Corporaciones Autónomas Regionales, bajo la coordinación del Ministerio de Ambiente, Vivienda y Desarrollo Territorial o quien haga sus veces, realizar la clasificación, ordenamiento y zonificación y, determinar el régimen de usos de las áreas forestales en el territorio nacional, salvo las que se encuentren en las áreas de reserva forestal nacional y en áreas que conforman el sistema de parques nacionales naturales.
+       */
+      !!@ ili2db.dispName=Zonificar
+      Zonificar
+    );
+
+    /** Establece el tipo de sector relacionado con la sustracción de la Reserva Forestal Protectora Nacional
+     */
+    !!@ ili2db.dispName="Tipo Sector"
+    RFPN_SectorTipo = (
+      /** Infraestructura de transporte (vías, puertos y aeropuertos)
+       */
+      !!@ ili2db.dispName="Infraestructura de transporte"
+      Infraestructura_Transporte,
+      /** Minería
+       */
+      !!@ ili2db.dispName=Minería
+      Mineria,
+      /** Energía
+       */
+      !!@ ili2db.dispName=Energía
+      Energia,
+      /** Hidrocarburos
+       */
+      !!@ ili2db.dispName=Hidrocarburos
+      Hidrocarburos,
+      /** Areas urbanas, expansión urbana y rurales ocupadas
+       */
+      !!@ ili2db.dispName="Áreas urbanas, expansión urbana y rurales ocupadas"
+      Area_Urbana_Expansion_Rural,
+      /** Vivienda VIS Y VIP
+       */
+      !!@ ili2db.dispName="Viviendas VIS y VIP"
+      Vivienda_VIS_VIP,
+      /** Restitución de tierras
+       */
+      !!@ ili2db.dispName="Restitución de tierras"
+      Restitucion_Tierras,
+      /** Reforma agraría (colonización, baldios, ZRC)
+       */
+      !!@ ili2db.dispName="Reforma agraria (colonización, baldíos, ZRC)"
+      Reforma_Agraria,
+      /** Inciso segundo, del artículo 210 del Decreto 2811 de 1974 que establece que, también se podrán sustraer de la reserva forestal los predios cuyos propietarios demuestren que sus suelos pueden ser utilizados en explotación diferente de la forestal, siempre que no se perjudique la función protectora de la reserva.
+       */
+      !!@ ili2db.dispName="Inciso Segundo"
+      Inciso_Segundo,
+      /** Otro
+       */
+      !!@ ili2db.dispName=Otro
+      Otro
+    );
+
+    /** Define los dos tipos de sustracciones: 
+     * - Definitiva 
+     * - Temporal
+     */
+    !!@ ili2db.dispName="Tipo Sustracción de Reserva"
+    RFPN_SustraccionReservaTipo = (
+      /** De acuerdo con el Artículo 4° de la Resolución 110 de 2022 - Implica el levantamiento definitivo de la figura legal a un área debidamente delimitada de la reserva forestal solicitada en sustracción para adelantar un proyecto, obra o actividad de utilidad pública e interés social, asimismo, para adelantar actividades de explotación diferente de la forestal, que tiene permanencia en el tiempo.
+       */
+      !!@ ili2db.dispName=Definitiva
+      Definitiva,
+      /** De acuerdo con el Artículo 4° de la Resolución 110 de 2022 - Implica el levantamiento transitorio de la figura legal a un área debidamente delimitada de la reserva forestal solicitada en sustracción para adelantar un proyecto, obra o actividad de utilidad pública e interés social que no tiene permanencia en el tiempo y que deberá ser reintegrada a la reserva forestal.
+       */
+      !!@ ili2db.dispName=Temporal
+      Temporal
+    );
+
+    /** De acuerdo con el Decreto 2372 de 2010, en su artículo 34, que define que las áreas protegidas del SINAP deberán zonificarse con fines de manejo, a fin de garantizar el cumplimiento de sus objetivos de conservación.
+     */
+    !!@ ili2db.dispName="Tipo de zonificación"
+    RFPN_ZonificacionTipo = (
+      /** Es un espacio donde el manejo está dirigido ante todo a evitar su alteración, degradación o transformación por la actividad humana. Un área protegida puede contener una o varias zonas de preservación, las cuales se mantienen como intangibles para el logro de los objetivos de conservación. Cuando por cualquier motivo la intangibilidad no sea condición suficiente para el logro de los objetivos de conservación, esta zona debe catalogarse como de restauración.
+       */
+      !!@ ili2db.dispName=Preservación
+      Preservacion,
+      /** Es un espacio dirigido al restablecimiento parcial o total a un estado anterior, de la composición, estructura y función de la diversidad biológica. En las zonas de restauración se pueden llevar a cabo procesos inducidos por acciones humanas, encaminados al cumplimiento de los objetivos de conservación del área protegida. Un área protegida puede tener una o más zonas de restauración, las cuales son transitorias hasta que se alcance el estado de conservación deseado y conforme los objetivos de conservación del área, caso en el cual se denominará de acuerdo con la zona que corresponda a la nueva situación. Será el administrador del área protegida quien definirá y pondrá en marcha las acciones necesarias para el mantenimiento de la zona restaurada.
+       */
+      !!@ ili2db.dispName=Restauración
+      Restauracion,
+      /** Incluye los espacios para adelantar actividades productivas y extractivas compatibles con el objetivo de conservación del área protegida. Contiene las siguientes subzonas: 
+       * a) Subzona para el aprovechamiento sostenible
+       * b) Subzona para el desarrollo
+       */
+      !!@ ili2db.dispName="Uso sostenible"
+      Uso_Sostenible(
+        /** Son espacios definidos con el fin de aprovechar en forma sostenible la biodiversidad contribuyendo a su preservación o restauración.
+         */
+        !!@ ili2db.dispName="(Uso sostenible) Aprovechamiento sostenible"
+        Aprovechamiento_Sostenible,
+        /** Son espacios donde se permiten actividades controladas, agrícolas, ganaderas, mineras, forestales, industriales, habitacionales no nucleadas con restricciones en la densidad de ocupación y la construcción y ejecución de proyectos de desarrollo, bajo un esquema compatible con los objetivos de conservación del área protegida.
+         */
+        !!@ ili2db.dispName="(Uso sostenible) Desarrollo"
+        Desarrollo,
+        /** Se agrega la opción de uso sostenible, cuando no se encuentra el detalle de la descripción de la subzona
+         */
+        !!@ ili2db.dispName="Uso sostenible"
+        Uso_Sostenible
+      ),
+      /** Son aquellos espacios definidos en el plan de manejo con el fin de alcanzar objetivos particulares de gestión a través de la educación, la recreación, el ecoturismo y el desarrollo de infraestructura de apoyo a la investigación. Contiene las siguientes subzonas:
+       * a) Subzona para la recreación
+       * b) Subzona de alta densidad de uso
+       */
+      !!@ ili2db.dispName="Uso público"
+      Uso_Publico(
+        /** Es aquella porción, en la que se permite el desarrollo controlado de infraestructura mínima para el acojo de los visitantes y el desarrollo de facilidades de interpretación.
+         */
+        !!@ ili2db.dispName="(Uso público) Alta demanda de uso"
+        Alta_Densidad_De_Uso,
+        /** Es aquella porción, en la que se permite el acceso a los visitantes a través del desarrollo de una infraestructura mínima tal como senderos o miradores.
+         */
+        !!@ ili2db.dispName="(Uso público) Recreación"
+        Recreacion,
+        /** Se agrega la opción de uso público, cuando no se encuentra el detalle de la descripción de la subzona
+         */
+        !!@ ili2db.dispName="Uso público"
+        Uso_Publico
+      ),
+      /** Otro
+       */
+      !!@ ili2db.dispName=Otro
+      Otro
+    );
+
+  /** Según el Código Nacional de Recursos Naturales y Protección del Medio Ambiente, se entiende por área forestal protectora la zona que debe ser conservada permanentemente con bosques naturales o artificiales, para proteger estos mismos recursos u otros naturales renovables. En el área forestal protectora debe prevalecer el efecto protector y solo se permitirá la obtención de frutos secundarios del bosque (artículo 204, Decreto 2811 de 1974).
+   * 
+   * El artículo 12 del Decreto 2372 de 2010 define, que las Reservas Forestales Protectoras son un espacio geográfico en el que los ecosistemas de bosque mantienen su función, aunque su estructura y composición haya sido modificada y los valores naturales asociados se ponen al alcance de la población humana para destinarlos a su preservación, uso sostenible, restauración, conocimiento y disfrute. Esta zona de propiedad pública o privada se reserva para destinarla al establecimiento o mantenimiento y utilización sostenible de los bosques y demás coberturas vegetales naturales.
+   * 
+   * Adicionalmente, el mismo decreto establece a las Reservas Forestales Protectoras como una categoría de manejo de las áreas protegidas que conforman el SINAP, así como indica que cada una de las áreas protegidas que integran el SINAP contará con un Plan de Manejo Ambiental que será el principal instrumento de planificación que orienta su gestión de conservación para un periodo de 5 años (Artículos 10 y 12, decreto 2372 de 2010).
+   */
+  TOPIC RFPN
+  EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo;
+
+    !!@ ili2db.dispName="Agrupación de interesados"
+    CLASS RFPN_AgrupacionInteresados
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionInteresados =
+    END RFPN_AgrupacionInteresados;
+
+    /** Establece el tipo de Derecho asociado con la Reserva Forestal Protectora Nacional
+     */
+    !!@ Nombre=Valor
+    CLASS RFPN_Derecho
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      !!@ ili2db.dispName=Tipo
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_RFPN.RFPN_DerechoTipo;
+    END RFPN_Derecho;
+
+    /** Identifica el acto administrativo con el cual se sustenta la declaratoria, zonificación, sustracción temporal o sustraccción defnitiva de la Reserva Forestal Protectora Nacional.
+     */
+    !!@ ili2db.dispName="Fuente Administrativa"
+    CLASS RFPN_FuenteAdministrativa
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY LADM_COL_v_1_0_0_Ext_RFPN.RFPN_FuenteAdministrativaTipo;
+    END RFPN_FuenteAdministrativa;
+
+    !!@ ili2db.dispName="Fuente espacial"
+    CLASS RFPN_FuenteEspacial
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteEspacial =
+    END RFPN_FuenteEspacial;
+
+    /** Interesado asociado con los DRR de la Reserva Forestal Protectora Nacional
+     */
+    CLASS RFPN_Interesado
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Interesado =
+      Observacion : TEXT*255;
+    END RFPN_Interesado;
+
+    CLASS RFPN_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END RFPN_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS RFPN_NU_CadenaCarasLimite
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_CadenaCarasLimite =
+    END RFPN_NU_CadenaCarasLimite;
+
+    CLASS RFPN_NU_Punto
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Punto =
+    END RFPN_NU_Punto;
+
+    /** Teniendo en cuenta la sección 4 del Decreto 1076 de 2015 y el capítulo IV del Decreto 2372 de 2010, se define la zonificación y usos pemitidos que deben tener en cuenta los planes de manejo ambiental.
+     */
+    !!@ ili2db.dispName="Regimen de uso y actividades"
+    CLASS RFPN_RegimenUsosActividades =
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, es el uso deseable que coincide con la función específica de la zona y que ofrece las mayores ventajas desde los puntos de vista del desarrollo sostenible.
+       */
+      Principal : MANDATORY MTEXT;
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, son aquellos que no se oponen al principal y concuerdan con la potencialidad, productividad y protección del suelo y demás recursos naturales conexos.
+       */
+      Compatible : MTEXT;
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, son aquellos que presentan algún grado de incompatibilidad con el uso principal y ciertos riesgos ambientales controlables por la autoridad ambiental o por el municipio.
+       * 
+       * Por otra parte, son las actividades que podrían afectar el logro de los objetivos de conservación de la reserva, por lo cual requieren de medidas de manejo para su desarrollo o implementación y son sujetas de evaluación, aprobación y seguimiento permanente por parte de la CAR.
+       */
+      Condicionado : MTEXT;
+      /** Teniendo en cuenta el Acuerdo No. 16 de 1998, son aquellos incompatibles con el uso principal de una zona, con los propósitos de preservación ambiental o de planificación y, por consiguiente, entrañan graves riesgos de tipo ecológico y/o social.
+       * 
+       * Aasi como aquellas actividades que no están contempladas como permitidas o condicionadas.
+       */
+      Prohibido : MTEXT;
+    END RFPN_RegimenUsosActividades;
+
+    /** Establece el tipo de Responsabilidad asociado con la Reserva Forestal Protectora Nacional
+     */
+    CLASS RFPN_Responsabilidad
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
+      Tipo : MANDATORY LADM_COL_v_1_0_0_Ext_RFPN.RFPN_ResponsabilidadTipo;
+    END RFPN_Responsabilidad;
+
+    /** Contiene los Límites de las Reservas Forestales Protectoras Nacionales:
+     * 
+     * La reserva, delimitación, alinderación, declaración y sustracción de las Reservas Forestales Protectoras Nacionales, corresponde al Ministerio de Ambiente y Desarrollo Sostenible. La administración corresponde a las Corporaciones Autónomas Regionales de acuerdo con los lineamientos establecidos por el Ministerio.
+     * 
+     * El uso sostenible en esta categoría, hace referencia a la obtención de los frutos secundarios del bosque en lo relacionado con las actividades de aprovechamiento forestal. No obstante, el régimen de usos deberá estar en consonancia con la finalidad del área protegida, donde deben prevalecer los valores naturales asociados al área y en tal sentido, el desarrollo de actividades públicas y privadas deberá realizarse conforme a dicha finalidad y según la regulación que para el efecto expida el Ministerio de Ambiente y Desarrollo Sostenible.
+     * 
+     * La reserva, alinderación declaración, administración y sustracción de las áreas de Reserva Forestal, son determinantes ambientales y por lo tanto normas de superior jerarquía que no pueden ser desconocidas, contrariadas o modificadas en la elaboración, revisión y ajuste y/o modificación de los Planes de Ordenamiento Territorial de los municipios y distritos, de acuerdo con la Constitución y la ley.
+     * 
+     * En las áreas de reserva forestal protectoras no se podrán desarrollar actividades mineras, ni se podrán sustraer para ese fin. Las actividades que se pretendan desarrollar en estas áreas, deben estar en consonancia con el régimen de usos previsto para el efecto, conforme a la regulación que expida el Ministerio de Ambiente y Desarrollo Sostenible.
+     * 
+     * -No podrán ser adjudicados los baldíos de las áreas de reserva forestal.
+     * 
+     * La Resolución 1527 de 2012, señala las actividades de bajo impacto ambiental y que además, generan beneficio social, de manera que se puedan desarrollar en las áreas de reserva forestal, sin necesidad de efectuar la sustracción del área.
+     * 
+     * La Resolución 264 de 2018, adopta el procedimiento que las autoridades ambientales deben seguir para la realización de los estudios que deberán sustentar los procesos de recategorización, integración y realinderación de las Reservas Forestales Protectoras de orden nacional y regional, a las Reservas Forestales Protectoras-Productoras de orden nacional y regional y a las Reservas Forestales Productoras de orden regional.
+     */
+    !!@ ili2db.dispName="Area de la reserva"
+    CLASS RFPN_UAB_AreaReserva_RUNAP
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Identificador del área protegida en el RUNAP
+       */
+      Id_Ap : MANDATORY 1 .. 1000000000000;
+      /** Nombre con el cual se identifica la Reserva Forestal Protectora Nacional
+       */
+      !!@ ili2db.dispName="Nombre reserva"
+      Nombre_Reserva : MANDATORY TEXT*255;
+      UNIQUE Id_Ap;
+    END RFPN_UAB_AreaReserva_RUNAP;
+
+    /** Contiene las áreas que se han aprobado para llevar a cabo el Plan de Restauración como medida de compensación por sustracción definitiva de áreas de reserva forestal de orden nacional.
+     */
+    CLASS RFPN_UAB_Compensacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Número del expediente relacionado con la sustracción
+       */
+      Expediente : MANDATORY TEXT*100;
+      /** Nombre del proyecto objeto de la sustracción
+       */
+      Observaciones : TEXT*250;
+    END RFPN_UAB_Compensacion;
+
+    /** Si en área de reserva forestal, por razones de utilidad pública o interés social, es necesario realizar actividades económicas que impliquen remoción de bosques o cambio en el uso de los suelos o cualquiera otra actividad distinta del aprovechamiento racional de los bosques, la zona afectada deberá, debidamente delimitada, ser previamente sustraída de la reserva.
+     * 
+     * Normativa vigente en el tema de sustracción de áreas de reserva forestal:
+     * 
+     * -RESOLUCION No. 1526 DE 2012. Por la cual se establecen los requisitos y el procedimiento para la sustracción de áreas en las reservas forestales nacionales y regionales, para el desarrollo de actividades consideradas de utilidad pública o interés social, se establecen las actividades sometidas a sustracción temporal y se adoptan otras determinaciones.
+     * 
+     * -RESOLUCION No. 168 DE 2013. Por la cual se establece el procedimiento para la sustracción definitiva de áreas de reservas forestales nacionales o regionales para la adjudicación de terrenos baldíos por parte del Instituto Colombiano de Desarrollo Rural (Incoder), a Entidades Territoriales destinados a ciertas actividades.
+     */
+    CLASS RFPN_UAB_Sustraccion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Número del expediente interno relacionado con la sustracción
+       */
+      Expediente : MANDATORY TEXT*100;
+      /** Dominio que define los dos tipos de sustracciones:  
+       * - Definitiva  
+       * - Temporal
+       */
+      Tipo_Sustraccion : MANDATORY LADM_COL_v_1_0_0_Ext_RFPN.RFPN_SustraccionReservaTipo;
+      /** Corresponde a la fecha en la que finaliza la sustracción (aplica para las sustracciones temporales)
+       */
+      Fin_Sustraccion : INTERLIS.XMLDate;
+      /** Identifica el sector que realizó la solicitud de sustracción
+       */
+      Tipo_Sector : MANDATORY LADM_COL_v_1_0_0_Ext_RFPN.RFPN_SectorTipo;
+      /** Cuando el tipo de sector corresponda a Otro diligenciar el detalle a cual corresponda
+       */
+      Detalle_Sector : TEXT*255;
+      /** Identifica el nombre de la empresa o solicitante de la sustracción
+       */
+      Solicitante : TEXT*256;
+      /** Observaciones generales de la sustracción
+       */
+      Observaciones : TEXT*250;
+    END RFPN_UAB_Sustraccion;
+
+    /** Las áreas protegidas del SINAP deberán zonificarse con fines de manejo, a fin de garantizar el cumplimiento de sus objetivos de conservación. Las zonas y sus consecuentes subzonas dependerán de la destinación que se prevea para el área según la categoría de manejo definida..
+     */
+    CLASS RFPN_UAB_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Corresponde al tipo de zonificación definido en el artículo 34 del decreto 2372 de 2010.
+       */
+      Tipo_Zona : MANDATORY LADM_COL_v_1_0_0_Ext_RFPN.RFPN_ZonificacionTipo;
+      /** Cuando el tipo de zona corresponda a Otro diligenciar el detalle a cuál corresponda
+       */
+      Detalle_Zona : TEXT*1000;
+    END RFPN_UAB_Zonificacion;
+
+    /** Unidad Espacial de la Reserva Forestal Protectora Nacional
+     */
+    CLASS RFPN_UE_AreaReserva
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas
+       */
+      !!@ ili2db.dispName="Area en hectáreas"
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RFPN_UE_AreaReserva;
+
+    /** Unidad Espacial de la Compensación de la Reserva Forestal Protectora Nacional
+     */
+    CLASS RFPN_UE_Compensacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas
+       */
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RFPN_UE_Compensacion;
+
+    /** Unidad Espacial de la Sustracción de la Reserva Forestal Protectora Nacional
+     */
+    CLASS RFPN_UE_Sustraccion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      /** Área calculada en hectáreas
+       */
+      Area_Ha : MANDATORY 0.0000 .. 200000000.0000;
+    END RFPN_UE_Sustraccion;
+
+    /** Unidad Espacial de la zonificación de la Reserva Forestal Protectora Nacional
+     */
+    CLASS RFPN_UE_Zonificacion
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+      Area_Ha : 0.0000 .. 10000000000000000000000000000000000000000000000000000000000000.0000;
+    END RFPN_UE_Zonificacion;
+
+    ASSOCIATION RFPN_AreaReserva_Compensacion =
+      UAB_Compensacion -- {0..*} RFPN_UAB_Compensacion;
+      UAB_AreaReserva -- {1} RFPN_UAB_AreaReserva_RUNAP;
+    END RFPN_AreaReserva_Compensacion;
+
+    ASSOCIATION RFPN_AreaReserva_Sustraccion =
+      UAB_Sustraccion -- {0..*} RFPN_UAB_Sustraccion;
+      UAB_AreaReserva -- {1} RFPN_UAB_AreaReserva_RUNAP;
+    END RFPN_AreaReserva_Sustraccion;
+
+    ASSOCIATION RFPN_AreaReserva_Zonificacion =
+      UAB_Zonificacion -- {0..*} RFPN_UAB_Zonificacion;
+      UAB_AreaReserva -- {1} RFPN_UAB_AreaReserva_RUNAP;
+    END RFPN_AreaReserva_Zonificacion;
+
+    ASSOCIATION RFPN_Sustraccion_Compensacion =
+      UAB_Compensacion -- {0..1} RFPN_UAB_Compensacion;
+      UAB_Sustraccion -- {1} RFPN_UAB_Sustraccion;
+    END RFPN_Sustraccion_Compensacion;
+
+    ASSOCIATION RFPN_Zonificacion_RegimenUsosActividades =
+      UAB_Zonficacion -- {0..*} RFPN_UAB_Zonificacion;
+      Regimen_Usos -- {1} RFPN_RegimenUsosActividades;
+    END RFPN_Zonificacion_RegimenUsosActividades;
+
+  END RFPN;
+
+END LADM_COL_v_1_0_0_Ext_RFPN.

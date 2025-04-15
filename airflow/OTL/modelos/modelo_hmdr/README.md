@@ -17,4 +17,4 @@ Colombia tiene actualmente 12 sitios designados como Humedales de Importancia In
 - Complejo de Humedales de la Cuenca del Río Bita
 - Complejo de Humedales Urbanos del Distrito Capital de Bogotá
 
-<img src="MODELO\Diagrama.jpeg">
+<img src="diagrama.jpeg">

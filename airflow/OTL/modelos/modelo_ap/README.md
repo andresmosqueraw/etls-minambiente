@@ -9,4 +9,4 @@ Posteriormente, la Unión Internacional para la Conservación de la Naturaleza �
 
 El Sistema Nacional de Áreas Protegidas – SINAP es el conjunto de las áreas protegidas privadas, comunitarias y públicas, del ámbito de gestión local, regional y nacional, los actores sociales e institucionales, los arreglos de gobernanza e instrumentos de gestión que, articulados entre sí, son necesarios para su conservación, (Ministerio de Ambiente y Desarrollo Sostenible & Parques Nacionales Naturales de Colombia, 2020). 
 
-<img src="MODELO\Diagrama.jpeg">
+<img src="diagrama.jpeg">
