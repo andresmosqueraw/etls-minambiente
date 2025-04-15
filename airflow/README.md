@@ -97,63 +97,15 @@ coverage html
 #######################################
 TASKS
 #######################################
+Hacer que sirvan los dags
 
-
-
-
-########################
-# Rebranding
-########################
-
-Renombrar  libs por libs. yaaaaa
-
-Renombrar directorio del dag:
-dag_rl2 --> dag_rl2
-dag_ap --> dag_ap
-dag_prm --> dag_prm
-dag_rfpp --> dag_rfpp
-dag_rfpn --> dag_rfpn
-dag_hmdr --> dag_hmdr
-
-Estructura de directorios OTL/
-
-ETL: 
-OTL/etl/etl_ap   etl/etl_ap
-OTL/etl/etl_hmdr  etl/etl_hmdr
-OTL/etl/etl_prm  etl/etl_prm
-OTL/etl/etl_rfpn  etl/etl_rfpn
-OTL/etl/etl_rfpp  etl/etl_rfpp
-OTL/etl/etl_rl2  etl/etl_rl2
-
-
-Modelos:
-
-OTL/MODELOS/Modelo_Reservas_Forestales_Protectoras_Productoras
-
-OTL/modelos/modelo_rfpp
-OTL/modelos/modelo_rl2
-OTL/modelos/modelo_prm
-
-Salida de XTF
-output:
-├── xtf_prm
-└── xtf_rl2
-
-##########################################
-# No cargar carpeta temporal de insumos
-#########################################
-
-Ignorar carpeta etl/etl_prm/temp. yaaaaa
+###########################
+# TESTS
+###########################
+Validar tests y coverages
 
 ##########################################
 # Archivo de configuración
 #########################################
 dejar en el submodule el archivo de configuración de cada OTL
 y no usar la función de get_dynamic_config
-
-
-###########################
-# TESTS
-###########################
-
-Validar tests y coverages
