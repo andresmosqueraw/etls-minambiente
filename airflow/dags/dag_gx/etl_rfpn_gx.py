@@ -11,7 +11,7 @@ from airflow.operators.python import PythonOperator
 
 # ------------------- CONFIGURACIÓN -------------------
 
-CONFIG_PATH = "/opt/airflow/OTL/etl/etl_rfpn/Config.json"
+CONFIG_PATH = "/opt/airflow/OTL/etl/etl_rfpn/config.json"
 OUTPUT_YML_FOLDER = "/opt/airflow/OTL/etl/etl_rfpn/dags_rfpn/gx/"
 SCHEMAS = ["insumos", "estructura_intermedia", "ladm"]
 
@@ -39,7 +39,7 @@ def map_postgres_type_to_ge(data_type: str) -> str:
 # ------------------------- FUNCIONES UTILITARIAS -------------------------
 # hola
 def leer_configuracion():
-    """Lee la configuración desde Config.json."""
+    """Lee la configuración desde config.json."""
     try:
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
             config = json.load(f)

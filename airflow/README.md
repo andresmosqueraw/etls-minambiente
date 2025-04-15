@@ -97,7 +97,7 @@ coverage html
 #######################################
 TASKS
 #######################################
-Hacer que sirvan los dags
+dejar todo en minuscula
 
 ###########################
 # TESTS

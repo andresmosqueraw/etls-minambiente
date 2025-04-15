@@ -23,7 +23,7 @@ class TestDataUtils(unittest.TestCase):
         self.cfg = {
             "ETL_DIR": self.temp_dir,
             "TEMP_FOLDER": os.path.join(self.temp_dir, "temp"),
-            "CONFIG_PATH": os.path.join(self.temp_dir, "Config.json")
+            "CONFIG_PATH": os.path.join(self.temp_dir, "config.json")
         }
         os.makedirs(self.cfg["TEMP_FOLDER"], exist_ok=True)
         # Creamos un archivo JSON dummy para CONFIG_PATH con contenido mínimo

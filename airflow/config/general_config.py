@@ -36,7 +36,7 @@ def get_dynamic_config(dag_id: str):
     return {
         "MODEL_DIR": model_dir,
         "ETL_DIR": etl_dir,
-        "CONFIG_PATH": os.path.join(etl_dir, 'Config.json'),
+        "CONFIG_PATH": os.path.join(etl_dir, 'config.json'),
         "TEMP_FOLDER": os.path.join(etl_dir, 'temp'),
         "XTF_DIR": os.path.join(BASE_PATH, 'output/xtf'),
         "GX_DIR": os.path.join(BASE_PATH, etl_dir, "gx"),
