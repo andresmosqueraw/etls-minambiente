@@ -20,7 +20,7 @@
 		"información_runap":"https://runapadmin.parquesnacionales.gov.co/default/reportes/reportedane"
 	},
 	"insumos_local":{
-		"area_protegida":"/Insumos/area_protegida/latest.zip",
-		"información_runap":"/Insumos/información_runap/reporte_dane_2025-03-30.xlsx"
+		"area_protegida":"/insumos/area_protegida/latest.zip",
+		"información_runap":"/insumos/información_runap/reporte_dane_2025-03-30.xlsx"
 	}		
 }  

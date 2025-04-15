@@ -22,9 +22,9 @@
 		"corporaciones":""
 	},
 	"insumos_local":{
-		"area_humedal":"/Insumos/Area Reserva/HUMEDALES_RAMSAR.zip",
-		"zonificacion":"/Insumos/Zonificacion/Zonificacion_sitio_RAMSAR.geojson",
-		"zonificacion_uso":"/Insumos/Zonificacion_Uso/zonificacion_uso.xlsx",
-		"corporaciones":"/Insumos/Corporaciones/corporaciones.xlsx"
+		"area_humedal":"/insumos/Area Reserva/HUMEDALES_RAMSAR.zip",
+		"zonificacion":"/insumos/Zonificacion/Zonificacion_sitio_RAMSAR.geojson",
+		"zonificacion_uso":"/insumos/Zonificacion_Uso/zonificacion_uso.xlsx",
+		"corporaciones":"/insumos/Corporaciones/corporaciones.xlsx"
 	}		
 }

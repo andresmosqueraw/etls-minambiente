@@ -23,9 +23,9 @@
 
 	},
 	"insumos_local":{
-		"area_paramo":"/Insumos/Área Páramo/area_paramo.zip",
-		"zonificacion":"/Insumos/Zonificación/zonificacion.zip",
-	    "zonificacion_uso":"/Insumos/Zonificacion_Uso/zonificacion_uso.xlsx",
-		"corporaciones":"/Insumos/Corporaciones/corporaciones.xlsx"
+		"area_paramo":"/insumos/Área Páramo/area_paramo.zip",
+		"zonificacion":"/insumos/Zonificación/zonificacion.zip",
+	    "zonificacion_uso":"/insumos/Zonificacion_Uso/zonificacion_uso.xlsx",
+		"corporaciones":"/insumos/Corporaciones/corporaciones.xlsx"
 	}		
 }

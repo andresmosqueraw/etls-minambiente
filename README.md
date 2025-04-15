@@ -3,11 +3,11 @@ ETL para transformar los datos de reserva ley 2 al modelo extendido LADM_COL de 
 
 # Documentación de Shapes de Reservas Forestales Ley 2 de 1959
 
-Este repositorio proporciona enlaces para descargar y almacenar localmente los datos geográficos de las Reservas Forestales según la Ley 2 de 1959 en Colombia. Los shapes descargados se encuentran en la carpeta `Insumos` en formato comprimido (ZIP).
+Este repositorio proporciona enlaces para descargar y almacenar localmente los datos geográficos de las Reservas Forestales según la Ley 2 de 1959 en Colombia. Los shapes descargados se encuentran en la carpeta `insumos` en formato comprimido (ZIP).
 
-## Estructura de la Carpeta `Insumos`
+## Estructura de la Carpeta `insumos`
 
-Dentro de la carpeta `Insumos`, encontrarás los archivos ZIP correspondientes a cada capa:
+Dentro de la carpeta `insumos`, encontrarás los archivos ZIP correspondientes a cada capa:
 
 1. **COMP_SUSTR_RESERVAS_20240815.zip** - 848 KB  
    Contiene la capa de **Compensación Reservas**.

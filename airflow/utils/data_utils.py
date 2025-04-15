@@ -233,7 +233,7 @@ def procesar_insumos_descargados(cfg, **context):
             logging.warning(f"⚠ Formato '{ext}' no soportado para '{file_path}', se omite.")
 
     ti.xcom_push(key="insumos_procesados", value=resultados)
-    logging.info(f"✔ Insumos procesados correctamente: {resultados}")
+    logging.info(f"✔ insumos procesados correctamente: {resultados}")
     return resultados
 
 
