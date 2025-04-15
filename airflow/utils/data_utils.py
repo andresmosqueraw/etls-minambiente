@@ -400,7 +400,7 @@ def _buscar_archivos_en_carpeta(folder, extensiones):
 
 def _importar_shp_a_postgres(db_config, shp_file, table_name):
     """
-    Importa el archivo SHP a PostgreSQL utilizando ogr2ogr.
+    Importa el archivo SHP a PostgreSQL utilizando ogr2ogr sin crear índices espaciales.
     """
     logging.info(f"Importando '{shp_file}' en la tabla '{table_name}'...")
     command = [
@@ -413,6 +413,7 @@ def _importar_shp_a_postgres(db_config, shp_file, table_name):
         "-progress",
         "-lco", "GEOMETRY_NAME=geom",
         "-lco", "FID=gid",
+        "-lco", "SPATIAL_INDEX=NO",  # Esta línea evita la creación de índices espaciales
         "-nlt", "PROMOTE_TO_MULTI",
         "-t_srs", "EPSG:9377"
     ]
@@ -421,7 +422,7 @@ def _importar_shp_a_postgres(db_config, shp_file, table_name):
         logging.info(f"Archivo '{shp_file}' importado correctamente en '{table_name}'.")
         logging.info("\033[92m✔ _importar_shp_a_postgres finalizó sin errores.\033[0m")
     except subprocess.CalledProcessError as e:
-        msg = f"Error importando '{table_name}': {e.stderr}"
+        msg = f"Error importando '{table_name}' in database '{db_config['db_name']}' : {e.stderr}"
         logging.error(msg)
         logging.error("\033[91m❌ _importar_shp_a_postgres falló.\033[0m")
         raise Exception(msg)
