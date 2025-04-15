@@ -53,6 +53,7 @@ from utils.data_utils import (
     ejecutar_copia_insumo_local,
     procesar_insumos_descargados,
     ejecutar_importacion_general_a_postgres,
+    crear_cruce_area_reserva_directo,
 )
 
 from utils.interlis_utils import (
@@ -137,6 +138,10 @@ with DAG(
         retries=0
     )
  
+    cruce_insumos_task = PythonOperator(
+        task_id="cruce_insumos",
+        python_callable=lambda: crear_cruce_area_reserva_directo(cfg),
+    )
     
     reporte_expectativas_insumos_task = PythonOperator(
         task_id="Reporte_Expectativas_Insumos",
@@ -225,7 +230,7 @@ with DAG(
         restablecer_esquema_ladm_task
     ]
     restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> copia_insumo_local_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >> reporte_expectativas_insumos_task
-    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >>  reporte_expectativas_insumos_task
+    restablecer_esquema_insumos_task >> obtener_insumos_desde_web_task >> descomprimir_insumos_task >> importar_archivos_postgres_task >> cruce_insumos_task >> reporte_expectativas_insumos_task
     restablecer_estructura_intermedia_task >> importar_estructura_intermedia_task >> reporte_expectativas_estructura_task
     restablecer_esquema_ladm_task >> importar_esquema_ladm_task >> reporte_expectativas_ladm_task
     [reporte_expectativas_insumos_task, reporte_expectativas_estructura_task, reporte_expectativas_ladm_task] >> migracion_datos_estructura_intermedia_task

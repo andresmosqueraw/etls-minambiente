@@ -10,6 +10,9 @@ import sqlalchemy
 
 from utils.utils import leer_configuracion, limpiar_carpeta_temporal
 from utils.gx_utils import _obtener_engine_sqlalchemy
+from utils.db_utils import (
+    ejecutar_sql,
+)
 
 # ============================================================================
 # Funciones de descarga y validación de insumos desde la web y respaldo local
@@ -461,10 +464,16 @@ def _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name, schema="insum
     Si el directorio ETL contiene 'ETL_AP', se utiliza la función import_excel_to_db;
     en caso contrario se utiliza pandas para leer y enviar los datos.
     """
-    if "etl/etl_ap" in cfg["ETL_DIR"]:
-        config = leer_configuracion(cfg)
-        db_config = config["db"]
+    config = leer_configuracion(cfg)
+    db_config = config["db"]
+    
+    if "etl/etl_ap" in cfg["ETL_DIR"]:    
         return import_excel_to_db(db_config, xlsx_file, table_name)
+    
+    if "etl/etl_rfpn" in cfg["ETL_DIR"]:
+        sheet = "Actos" if table_name == "informacion_area_reserva" else None
+        table_name = shorten_identifier(table_name)
+        return import_excel_to_db2(db_config, xlsx_file, table_name, sheet)
     
     logging.info(f"Iniciando importación de Excel '{xlsx_file}' en {schema}.{table_name}...")
     try:
@@ -475,6 +484,37 @@ def _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name, schema="insum
         msg = f"Error importando Excel '{xlsx_file}': {e}"
         logging.error(msg)
         raise Exception(msg)
+    
+def import_excel_to_db2(db_config, excel_path, table_name, sheet_name=None):
+    """Importa Excel a 'insumos.table_name' usando pandas (logs estilo RL2)."""
+    logging.info(f"Iniciando import_excel_to_db para {excel_path} en tabla insumos.{table_name}...")
+    try:
+        df = pd.read_excel(excel_path, sheet_name=sheet_name) if sheet_name else pd.read_excel(excel_path)
+        logging.info(f"Excel cargado: {len(df)} filas.")
+    except Exception as e:
+        logging.error(f"Error leyendo Excel {excel_path}: {e}")
+        logging.error("\033[91m❌ import_excel_to_db falló.\033[0m")
+        raise e
+
+    # Filtrado particular si es "informacion_area_reserva" con "Actos"
+    if table_name == "informacion_area_reserva" and sheet_name == "Actos":
+        cond1 = (df["Categoría de manejo"] == "Reservas Forestales Protectoras Nacionales")
+        cond2 = df["Tipo de acto administrativo"].isin(["Acuerdos", "Resolución"])
+        cond3 = (df["Objeto del acto"] == "Declaratoria")
+        df = df[cond1 & cond2 & cond3]
+        logging.info(f"Filtrado para 'informacion_area_reserva' (Actos): {len(df)} filas restantes.")
+
+    engine = sqlalchemy.create_engine(
+        f"postgresql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['db_name']}"
+    )
+    try:
+        df.to_sql(table_name, engine, schema='insumos', if_exists='replace', index=False)
+        logging.info(f"Datos insertados en insumos.{table_name}")
+        logging.info("\033[92m✔ import_excel_to_db finalizó sin errores.\033[0m")
+    except Exception as e:
+        logging.error(f"Error insertando datos en insumos.{table_name}: {e}")
+        logging.error("\033[91m❌ import_excel_to_db falló.\033[0m")
+        raise e
 
 
 def import_excel_to_db(db_config, excel_file, key):
@@ -544,3 +584,85 @@ def shorten_identifier(identifier):
     Convierte una cadena eliminando caracteres no válidos y pasándola a minúsculas.
     """
     return re.sub(r'\W+', '_', identifier).lower()
+
+
+def crear_cruce_area_reserva_directo(cfg):
+    """
+    Crea la tabla insumos.cruce_area_reserva uniendo area_reserva_* con insumos.informacion_area_reserva.
+    (Logs estilo RL2)
+    """
+    logging.info("Iniciando crear_cruce_area_reserva_directo...")
+    drop_sql = "DROP TABLE IF EXISTS insumos.cruce_area_reserva CASCADE;"
+    ejecutar_sql(cfg, drop_sql)
+
+    sql_script = r"""
+    DO $$
+    DECLARE
+    rec record;
+    col_name text;
+    sql_text text := '';
+    first_table boolean := true;
+    BEGIN
+    FOR rec IN
+        SELECT table_name
+        FROM information_schema.tables
+        WHERE table_schema = 'insumos'
+        AND table_name LIKE 'area_reserva_%'
+        ORDER BY table_name
+    LOOP
+        SELECT CASE 
+                WHEN EXISTS (
+                SELECT 1 FROM information_schema.columns 
+                WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='ap_id'
+                ) THEN 'ap_id'
+                WHEN EXISTS (
+                SELECT 1 FROM information_schema.columns 
+                WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='apid'
+                ) THEN 'apid'
+                WHEN EXISTS (
+                SELECT 1 FROM information_schema.columns 
+                WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='idpnn'
+                ) THEN 'idpnn'
+                ELSE NULL
+            END INTO col_name;
+
+        IF col_name IS NULL THEN
+        RAISE NOTICE 'La tabla % no tiene columna de identificación; se omite.', rec.table_name;
+        ELSE
+        IF first_table THEN
+            sql_text := sql_text || format($f$
+            CREATE TABLE insumos.cruce_area_reserva AS
+            SELECT
+                t.gid,
+                ST_Force2D(t.geom) AS geom,
+                COALESCE((t.%I)::text, '') AS ap_id_norm,
+                i.*
+            FROM insumos.%I t
+            LEFT JOIN insumos.informacion_area_reserva i
+                ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
+            $f$, col_name, rec.table_name, col_name);
+
+            first_table := false;
+        ELSE
+            sql_text := sql_text || format($f$
+            INSERT INTO insumos.cruce_area_reserva
+            SELECT
+                t.gid,
+                ST_Force2D(t.geom) AS geom,
+                COALESCE((t.%I)::text, '') AS ap_id_norm,
+                i.*
+            FROM insumos.%I t
+            LEFT JOIN insumos.informacion_area_reserva i
+                ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
+            $f$, col_name, rec.table_name, col_name);
+        END IF;
+        END IF;|
+    END LOOP;
+
+    EXECUTE sql_text;
+    END $$;
+
+    """
+    ejecutar_sql(cfg, sql_script)
+    logging.info("Tabla insumos.cruce_area_reserva creada exitosamente (directo).")
+    logging.info("\033[92m✔ crear_cruce_area_reserva_directo finalizó sin errores.\033[0m")

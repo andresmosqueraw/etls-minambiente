@@ -194,108 +194,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_valenzuela
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - shape__are
     - shape__len
     - objectid
@@ -416,84 +314,6 @@ expectations:
     - gid
     - apid
     - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: apid
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_quebradas_el_penon_y_san_juan
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - apid
-    - nombre
     - escala
     - categoria
     - url
@@ -696,84 +516,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_amaime
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_amaime
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - idpnn
     - nombre
     - escala
@@ -871,84 +613,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cerro_quinini
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rios_zabaletas_y_cerrito
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -1056,108 +720,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_algodonal
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_algodonal
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - ap_id
     - nombre
     - categoria
@@ -1246,84 +808,6 @@ expectations:
     - geom
     exact_match: true
   meta:
-    table: area_reserva_rio_anchicaya
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_anchicaya
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
     table: area_reserva_cuchilla_del_minero
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
@@ -1387,108 +871,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cuchilla_del_minero
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_bobo_y_buesaquillo
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -1567,84 +949,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cuenca_alta_del_cano_alonso
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_cali
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_cali
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_cali
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -1747,108 +1051,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cuenca_alta_del_cano_vanguardia
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_dagua
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_dagua
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -1932,108 +1134,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_guabas
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_guabas
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - ap_id
     - nombre
     - categoria
@@ -2107,108 +1207,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cuenca_alta_del_rio_mocoa
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_guadalajara
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_guadalajara
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -2326,84 +1324,6 @@ expectations:
     - geom
     exact_match: true
   meta:
-    table: area_reserva_rio_melendez
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_melendez
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
     table: area_reserva_cuenca_alta_del_rio_satoca
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
@@ -2467,108 +1387,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cuenca_alta_del_rio_satoca
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_nare
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_nare
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -2652,108 +1470,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_rucio
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_rucio
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - ap_id
     - nombre
     - categoria
@@ -2832,108 +1548,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_san_francisco
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_san_francisco
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - ap_id
     - nombre
     - categoria
@@ -3007,84 +1621,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_cuenca_del_rio_tame
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rio_tejo
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rio_tejo
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rio_tejo
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -3192,84 +1728,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rios_blanco_y_negro
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - idpnn
     - nombre
     - escala
@@ -3372,108 +1830,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rios_chorrera_y_concepcion
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - ap_id
     - nombre
     - categoria
@@ -3547,84 +1903,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_de_venus_rio_morales
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_rios_tumaradocito_y_leon
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -3643,168 +1921,90 @@ expectations:
     - geom
     exact_match: true
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: gid
     type_: int
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: integer
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: idpnn
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: nombre
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: escala
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: categoria
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: url
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: org
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: fechaact
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: resolucion
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: hares
     type_: float
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: numeric
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: fechacap
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: character varying
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: geom
     type_: str
   meta:
-    table: area_reserva_cuenca_hidro__de_los_rios_escalerete_y_san_ciprian
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    table: area_reserva_cuenca_hidro_de_los_rios_escalerete_y_san_cipriano
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -3907,84 +2107,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_el_cerro_dapa_carisucio
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_serrania_la_lindosa_angosturas_ii
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -4165,84 +2287,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_el_malmo
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_serrania_de_coraza_y_montes_de_maria
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -4530,6 +2574,2658 @@ expectations:
   kwargs:
     column_set:
     - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_laguna_la_cocha_cerro_patascoy
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_mistela
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_mistela
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_mistela
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_mistela
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_paramo_el_atravesado
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_paramo_el_atravesado
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_paramo_grande
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_paramo_grande
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_parque_el_higueron
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_parque_el_higueron
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_quebrada_la_nona
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_nona
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_quebrada_la_valenzuela
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - apid
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: apid
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_quebradas_el_penon_y_san_juan
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_amaime
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_amaime
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rios_zabaletas_y_cerrito
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_algodonal
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_algodonal
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_anchicaya
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_anchicaya
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_bobo_y_buesaquillo
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_cali
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_cali
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_dagua
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_dagua
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_guabas
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_guabas
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_guadalajara
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_guadalajara
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_melendez
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_melendez
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_nare
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_nare
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_rucio
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_rucio
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_san_francisco
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_san_francisco
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rio_tejo
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rio_tejo
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rios_blanco_y_negro
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - idpnn
+    - nombre
+    - escala
+    - categoria
+    - url
+    - org
+    - fechaact
+    - resolucion
+    - hares
+    - fechacap
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: idpnn
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: escala
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: resolucion
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechacap
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rios_chorrera_y_concepcion
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_rios_tumaradocito_y_leon
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_serrania_el_capricho_mirolindo_y_cerrito
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_serrania_la_lindosa_angosturas_ii
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
+    - ap_id
+    - nombre
+    - categoria
+    - url
+    - org
+    - fechaact
+    - hares
+    - geom
+    exact_match: true
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: gid
+    type_: int
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: integer
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: ap_id
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: nombre
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: categoria
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: url
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: org
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: fechaact
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: character varying
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: hares
+    type_: float
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: numeric
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: geom
+    type_: str
+  meta:
+    table: area_reserva_serrania_de_coraza_y_montes_de_maria
+    postgres_type: USER-DEFINED
+- expectation_type: expect_table_columns_to_match_set
+  kwargs:
+    column_set:
+    - gid
     - idpnn
     - nombre
     - escala
@@ -4642,162 +5338,6 @@ expectations:
     - geom
     exact_match: true
   meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_laguna_la_cocha_cerro_patascoy
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_cuencas_hidro_del_rio_blanco_y_quebrada_olivares
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
     table: area_reserva_yotoco
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
@@ -4861,108 +5401,6 @@ expectations:
     type_: str
   meta:
     table: area_reserva_yotoco
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_mistela
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_mistela
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_mistela
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_mistela
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_mistela
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -5065,84 +5503,6 @@ expectations:
     type_: str
   meta:
     table: zonificacion_rio_nare
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_paramo_el_atravesado
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_paramo_el_atravesado
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_paramo_el_atravesado
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -5258,108 +5618,6 @@ expectations:
   kwargs:
     column_set:
     - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_paramo_grande
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: idpnn
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: escala
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechacap
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_paramo_grande
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
     - gridcode
     - area
     - zona
@@ -5401,84 +5659,6 @@ expectations:
     type_: str
   meta:
     table: zonificacion_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_parque_el_higueron
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: gid
-    type_: int
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_parque_el_higueron
-    postgres_type: numeric
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_parque_el_higueron
     postgres_type: USER-DEFINED
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
@@ -5546,22 +5726,15 @@ expectations:
   kwargs:
     column_set:
     - "Id del \xE1rea protegida"
-    - "\xC1mbito de gesti\xF3n"
     - Nombre de la autoridad ambiental
-    - NIT de la autoridad ambiental
     - "Nombre del \xE1rea protegida"
     - "Categor\xEDa de manejo"
-    - "Categor\xEDa UICN"
-    - "Extensi\xF3n total acto administrativo en hect\xE1reas"
+    - Tipo de acto administrativo
+    - Objeto del acto
+    - "N\xFAmero del acto"
+    - Fecha del acto
     - "Extensi\xF3n terrestre acto administrativo en hect\xE1reas"
     - "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas"
-    - "Extensi\xF3n terrestre geogr\xE1fica en hect\xE1reas"
-    - "Extensi\xF3n mar\xEDtima geogr\xE1fica en hect\xE1reas"
-    - "Extensi\xF3n total geogr\xE1fica en hect\xE1reas"
-    - "Fecha de inscripci\xF3n"
-    - "\xDAltima fecha de solicitud de validaci\xF3n"
-    - "\xDAltima fecha de validaci\xF3n tem\xE1tica exitosa"
-    - "\xDAltima fecha de validaci\xF3n geogr\xE1fica exitosa"
     exact_match: true
   meta:
     table: informacion_area_reserva
@@ -5574,25 +5747,11 @@ expectations:
     postgres_type: bigint
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: "\xC1mbito de gesti\xF3n"
-    type_: str
-  meta:
-    table: informacion_area_reserva
-    postgres_type: text
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
     column: Nombre de la autoridad ambiental
     type_: str
   meta:
     table: informacion_area_reserva
     postgres_type: text
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: NIT de la autoridad ambiental
-    type_: int
-  meta:
-    table: informacion_area_reserva
-    postgres_type: bigint
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Nombre del \xE1rea protegida"
@@ -5609,18 +5768,32 @@ expectations:
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: "Categor\xEDa UICN"
+    column: Tipo de acto administrativo
     type_: str
   meta:
     table: informacion_area_reserva
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: "Extensi\xF3n total acto administrativo en hect\xE1reas"
-    type_: float
+    column: Objeto del acto
+    type_: str
   meta:
     table: informacion_area_reserva
-    postgres_type: double precision
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "N\xFAmero del acto"
+    type_: int
+  meta:
+    table: informacion_area_reserva
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Fecha del acto
+    type_: str
+  meta:
+    table: informacion_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n terrestre acto administrativo en hect\xE1reas"
@@ -5635,235 +5808,116 @@ expectations:
   meta:
     table: informacion_area_reserva
     postgres_type: double precision
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "Extensi\xF3n terrestre geogr\xE1fica en hect\xE1reas"
-    type_: float
-  meta:
-    table: informacion_area_reserva
-    postgres_type: double precision
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "Extensi\xF3n mar\xEDtima geogr\xE1fica en hect\xE1reas"
-    type_: float
-  meta:
-    table: informacion_area_reserva
-    postgres_type: double precision
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "Extensi\xF3n total geogr\xE1fica en hect\xE1reas"
-    type_: float
-  meta:
-    table: informacion_area_reserva
-    postgres_type: double precision
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "Fecha de inscripci\xF3n"
-    type_: str
-  meta:
-    table: informacion_area_reserva
-    postgres_type: text
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "\xDAltima fecha de solicitud de validaci\xF3n"
-    type_: str
-  meta:
-    table: informacion_area_reserva
-    postgres_type: text
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "\xDAltima fecha de validaci\xF3n tem\xE1tica exitosa"
-    type_: str
-  meta:
-    table: informacion_area_reserva
-    postgres_type: text
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: "\xDAltima fecha de validaci\xF3n geogr\xE1fica exitosa"
-    type_: str
-  meta:
-    table: informacion_area_reserva
-    postgres_type: text
 - expectation_type: expect_table_columns_to_match_set
   kwargs:
     column_set:
     - gid
-    - ap_id
-    - nombre
-    - categoria
-    - url
-    - org
-    - fechaact
-    - hares
     - geom
+    - ap_id_norm
+    - "Id del \xE1rea protegida"
+    - Nombre de la autoridad ambiental
+    - "Nombre del \xE1rea protegida"
+    - "Categor\xEDa de manejo"
+    - Tipo de acto administrativo
+    - Objeto del acto
+    - "N\xFAmero del acto"
+    - Fecha del acto
+    - "Extensi\xF3n terrestre acto administrativo en hect\xE1reas"
+    - "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas"
     exact_match: true
   meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    table: cruce_area_reserva
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: gid
     type_: int
   meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    table: cruce_area_reserva
     postgres_type: integer
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: ap_id
-    type_: str
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: nombre
-    type_: str
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: categoria
-    type_: str
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: url
-    type_: str
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: org
-    type_: str
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
-    type_: float
-  meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
-    postgres_type: numeric
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: geom
     type_: str
   meta:
-    table: area_reserva_quebrada_honda_y_canos_parrado_y_buque
+    table: cruce_area_reserva
     postgres_type: USER-DEFINED
-- expectation_type: expect_table_columns_to_match_set
-  kwargs:
-    column_set:
-    - gid
-    - idpnn
-    - nombre
-    - escala
-    - categoria
-    - url
-    - org
-    - fechaact
-    - resolucion
-    - hares
-    - fechacap
-    - geom
-    exact_match: true
-  meta:
-    table: area_reserva_quebrada_la_nona
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: gid
+    column: ap_id_norm
+    type_: str
+  meta:
+    table: cruce_area_reserva
+    postgres_type: text
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: "Id del \xE1rea protegida"
     type_: int
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: integer
+    table: cruce_area_reserva
+    postgres_type: bigint
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: idpnn
+    column: Nombre de la autoridad ambiental
     type_: str
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
+    table: cruce_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: nombre
+    column: "Nombre del \xE1rea protegida"
     type_: str
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
+    table: cruce_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: escala
+    column: "Categor\xEDa de manejo"
     type_: str
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
+    table: cruce_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: categoria
+    column: Tipo de acto administrativo
     type_: str
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
+    table: cruce_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: url
+    column: Objeto del acto
     type_: str
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
+    table: cruce_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: org
+    column: "N\xFAmero del acto"
+    type_: int
+  meta:
+    table: cruce_area_reserva
+    postgres_type: bigint
+- expectation_type: expect_column_values_to_be_of_type
+  kwargs:
+    column: Fecha del acto
     type_: str
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
+    table: cruce_area_reserva
+    postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: fechaact
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: resolucion
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: hares
+    column: "Extensi\xF3n terrestre acto administrativo en hect\xE1reas"
     type_: float
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: numeric
+    table: cruce_area_reserva
+    postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
-    column: fechacap
-    type_: str
+    column: "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas"
+    type_: float
   meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: character varying
-- expectation_type: expect_column_values_to_be_of_type
-  kwargs:
-    column: geom
-    type_: str
-  meta:
-    table: area_reserva_quebrada_la_nona
-    postgres_type: USER-DEFINED
+    table: cruce_area_reserva
+    postgres_type: double precision
 meta:
   great_expectations_version: 0.15.50
   notes:
