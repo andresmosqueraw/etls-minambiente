@@ -656,7 +656,7 @@ def crear_cruce_area_reserva_directo(cfg):
                 ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
             $f$, col_name, rec.table_name, col_name);
         END IF;
-        END IF;|
+        END IF;
     END LOOP;
 
     EXECUTE sql_text;

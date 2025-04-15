@@ -38,7 +38,7 @@ def get_dynamic_config(dag_id: str):
         "ETL_DIR": etl_dir,
         "CONFIG_PATH": os.path.join(etl_dir, 'Config.json'),
         "TEMP_FOLDER": os.path.join(etl_dir, 'temp'),
-        "XTF_DIR": os.path.join(etl_dir, 'XTF'),
+        "XTF_DIR": os.path.join(BASE_PATH, 'output/xtf'),
         "GX_DIR": os.path.join(BASE_PATH, etl_dir, "gx"),
         "ILI2DB_JAR_PATH": ILI2DB_JAR_PATH,
         "EPSG_SCRIPT": EPSG_SCRIPT,
