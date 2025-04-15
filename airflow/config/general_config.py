@@ -1,14 +1,13 @@
 import os
 
-# Rutas base fijas (iguales para ambos DAGs)
-BASE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'OTL')
+# Detecta si se está ejecutando en el contenedor
+IS_IN_CONTAINER = os.path.exists("/opt/airflow/otl")
+BASE_PATH = "/opt/airflow/otl" if IS_IN_CONTAINER else os.path.join(os.path.dirname(os.path.dirname(__file__)), 'otl')
+
 ILI2DB_JAR_PATH = os.path.join(BASE_PATH, "libs/ili2pg-5.1.0.jar")
 EPSG_SCRIPT = os.path.join(BASE_PATH, "scripts/insert_ctm12_pg.sql")
 
 def get_dynamic_config(dag_id: str):
-    """
-    Retorna un diccionario con las rutas dinámicas según el DAG.
-    """
     if dag_id == "etl_rfpp_xtf":
         model_dir_name = "modelos/modelo_rfpp"
         etl_dir_name = "etl/etl_rfpp"

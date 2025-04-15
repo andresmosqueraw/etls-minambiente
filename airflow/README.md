@@ -107,5 +107,5 @@ Validar tests y coverages
 ##########################################
 # Archivo de configuración
 #########################################
-dejar en el submodule el archivo de configuración de cada OTL
+dejar en el submodule el archivo de configuración de cada otl
 y no usar la función de get_dynamic_config

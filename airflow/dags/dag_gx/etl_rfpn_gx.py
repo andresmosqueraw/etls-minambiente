@@ -11,8 +11,8 @@ from airflow.operators.python import PythonOperator
 
 # ------------------- CONFIGURACIÓN -------------------
 
-CONFIG_PATH = "/opt/airflow/OTL/etl/etl_rfpn/config.json"
-OUTPUT_YML_FOLDER = "/opt/airflow/OTL/etl/etl_rfpn/dags_rfpn/gx/"
+CONFIG_PATH = "/opt/airflow/otl/etl/etl_rfpn/config.json"
+OUTPUT_YML_FOLDER = "/opt/airflow/otl/etl/etl_rfpn/dags_rfpn/gx/"
 SCHEMAS = ["insumos", "estructura_intermedia", "ladm"]
 
 # Mapeo simple de Postgres -> GE
