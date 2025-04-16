@@ -13,7 +13,7 @@ import json
 # Agregamos al path la ubicación del módulo a probar
 # sys.path.append('/opt/cpi/test/etl/etl_rl2/airflow/utils')
 
-import data_utils
+import utils.data_utils
 
 class TestDataUtils(unittest.TestCase):
     def setUp(self):
@@ -38,8 +38,8 @@ class TestDataUtils(unittest.TestCase):
     # -------------------------------------------------------------------------
     # Pruebas para obtener_insumos_desde_web
     # -------------------------------------------------------------------------
-    @patch("data_utils.limpiar_carpeta_temporal")
-    @patch("data_utils.leer_configuracion")
+    @patch("utils.data_utils.limpiar_carpeta_temporal")
+    @patch("utils.data_utils.leer_configuracion")
     def test_obtener_insumos_desde_web_no_insumos(self, mock_leer_config, mock_limpiar):
         # Simulamos que la configuración no tiene la clave "insumos_web"
         mock_leer_config.return_value = {}
@@ -47,11 +47,11 @@ class TestDataUtils(unittest.TestCase):
         context = {"ti": fake_ti}
 
         with self.assertRaises(ValueError):
-            data_utils.obtener_insumos_desde_web(self.cfg, **context)
+            utils.data_utils.obtener_insumos_desde_web(self.cfg, **context)
 
-    @patch("data_utils.requests.get")
-    @patch("data_utils.limpiar_carpeta_temporal")
-    @patch("data_utils.leer_configuracion")
+    @patch("utils.data_utils.requests.get")
+    @patch("utils.data_utils.limpiar_carpeta_temporal")
+    @patch("utils.data_utils.leer_configuracion")
     def test_obtener_insumos_desde_web_success(self, mock_leer_config, mock_limpiar, mock_requests_get):
         # Configuración con insumos_web y respaldo insumos_local
         insumos_web = {"test": "http://example.com/test.zip"}
@@ -72,7 +72,7 @@ class TestDataUtils(unittest.TestCase):
         context = {"ti": fake_ti}
         # Parcheamos os.path.getsize para forzar que el archivo tenga tamaño > 0
         with patch("os.path.getsize", return_value=10):
-            resultado = data_utils.obtener_insumos_desde_web(self.cfg, **context)
+            resultado = utils.data_utils.obtener_insumos_desde_web(self.cfg, **context)
         self.assertIn("test", resultado)
         self.assertIsNotNone(resultado["test"])
         # Verificamos que se hayan empujado (xcom_push) los valores correctos
@@ -93,7 +93,7 @@ class TestDataUtils(unittest.TestCase):
         full_path = os.path.join(local_dir, "test.zip")
         with open(full_path, "w") as f:
             f.write("contenido")
-        resultado = data_utils._validar_archivo_local(key, insumos_local, base_local)
+        resultado = utils.data_utils._validar_archivo_local(key, insumos_local, base_local)
         self.assertEqual(resultado, full_path)
 
     def test_validar_archivo_local_no_entry(self):
@@ -101,16 +101,16 @@ class TestDataUtils(unittest.TestCase):
         insumos_local = {"test": "/dummy/test.zip"}
         base_local = self.temp_dir
         with self.assertRaises(FileNotFoundError):
-            data_utils._validar_archivo_local(key, insumos_local, base_local)
+            utils.data_utils._validar_archivo_local(key, insumos_local, base_local)
 
     def test_validar_archivo_local_file_missing(self):
         key = "test"
         insumos_local = {"test": "/dummy/missing.zip"}
         base_local = self.temp_dir
         with self.assertRaises(FileNotFoundError):
-            data_utils._validar_archivo_local(key, insumos_local, base_local)
+            utils.data_utils._validar_archivo_local(key, insumos_local, base_local)
 
-    @patch("data_utils.copia_insumo_local")
+    @patch("utils.data_utils.copia_insumo_local")
     def test_ejecutar_copia_insumo_local(self, mock_copia):
         fake_ti = MagicMock()
         context = {"ti": fake_ti}
@@ -126,7 +126,7 @@ class TestDataUtils(unittest.TestCase):
         fake_ti.xcom_pull.return_value = [error_entry]
         # Forzamos que copia_insumo_local (ya parcheada) retorne una ruta simulada
         mock_copia.return_value = "/dummy/test.zip"
-        data_utils.ejecutar_copia_insumo_local(**context)
+        utils.data_utils.ejecutar_copia_insumo_local(**context)
         fake_ti.xcom_push.assert_called_with(key="insumos_local", value={"test": "/dummy/test.zip"})
 
     # -------------------------------------------------------------------------
@@ -145,7 +145,7 @@ class TestDataUtils(unittest.TestCase):
             {}                         # Para insumos_local
         ]
         context = {"ti": fake_ti}
-        resultado = data_utils.procesar_insumos_descargados(self.cfg, **context)
+        resultado = utils.data_utils.procesar_insumos_descargados(self.cfg, **context)
         self.assertTrue(isinstance(resultado, list))
         self.assertEqual(resultado[0]["key"], "test")
         extract_folder = resultado[0]["folder"]
@@ -164,14 +164,14 @@ class TestDataUtils(unittest.TestCase):
                 f.write("contenido")
             with open(file2, "w") as f:
                 f.write("contenido")
-            encontrados = data_utils._buscar_archivos_en_carpeta(tmp_dir, [".shp"])
+            encontrados = utils.data_utils._buscar_archivos_en_carpeta(tmp_dir, [".shp"])
             self.assertIn(file1, encontrados)
             self.assertNotIn(file2, encontrados)
 
     # -------------------------------------------------------------------------
     # Pruebas para _importar_shp_a_postgres y _importar_geojson_a_postgres
     # -------------------------------------------------------------------------
-    @patch("data_utils.subprocess.run")
+    @patch("utils.data_utils.subprocess.run")
     def test_importar_shp_a_postgres_success(self, mock_run):
         db_config = {
             "host": "localhost",
@@ -180,10 +180,10 @@ class TestDataUtils(unittest.TestCase):
             "user": "user",
             "password": "pass",
         }
-        data_utils._importar_shp_a_postgres(db_config, "dummy.shp", "insumos.test")
+        utils.data_utils._importar_shp_a_postgres(db_config, "dummy.shp", "insumos.test")
         mock_run.assert_called()
 
-    @patch("data_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "cmd", stderr="error"))
+    @patch("utils.data_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "cmd", stderr="error"))
     def test_importar_shp_a_postgres_failure(self, mock_run):
         db_config = {
             "host": "localhost",
@@ -193,10 +193,10 @@ class TestDataUtils(unittest.TestCase):
             "password": "pass",
         }
         with self.assertRaises(Exception) as context_exc:
-            data_utils._importar_shp_a_postgres(db_config, "dummy.shp", "insumos.test")
+            utils.data_utils._importar_shp_a_postgres(db_config, "dummy.shp", "insumos.test")
         self.assertIn("error", str(context_exc.exception))
 
-    @patch("data_utils.subprocess.run")
+    @patch("utils.data_utils.subprocess.run")
     def test_importar_geojson_a_postgres_success(self, mock_run):
         db_config = {
             "host": "localhost",
@@ -205,10 +205,10 @@ class TestDataUtils(unittest.TestCase):
             "user": "user",
             "password": "pass",
         }
-        data_utils._importar_geojson_a_postgres(db_config, "dummy.geojson", "insumos.test")
+        utils.data_utils._importar_geojson_a_postgres(db_config, "dummy.geojson", "insumos.test")
         mock_run.assert_called()
 
-    @patch("data_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "cmd", stderr="geo error"))
+    @patch("utils.data_utils.subprocess.run", side_effect=subprocess.CalledProcessError(1, "cmd", stderr="geo error"))
     def test_importar_geojson_a_postgres_failure(self, mock_run):
         db_config = {
             "host": "localhost",
@@ -218,19 +218,19 @@ class TestDataUtils(unittest.TestCase):
             "password": "pass",
         }
         with self.assertRaises(Exception) as context_exc:
-            data_utils._importar_geojson_a_postgres(db_config, "dummy.geojson", "insumos.test")
+            utils.data_utils._importar_geojson_a_postgres(db_config, "dummy.geojson", "insumos.test")
         self.assertIn("geo error", str(context_exc.exception))
 
     # -------------------------------------------------------------------------
     # Pruebas para _importar_excel_a_postgres
     # -------------------------------------------------------------------------
-    @patch("data_utils.pd.read_excel")
-    @patch("data_utils.pd.DataFrame.to_sql")
+    @patch("utils.data_utils.pd.read_excel")
+    @patch("utils.data_utils.pd.DataFrame.to_sql")
     def test_importar_excel_a_postgres_success(self, mock_to_sql, mock_read_excel):
         df_dummy = pd.DataFrame({"col": [1, 2, 3]})
         mock_read_excel.return_value = df_dummy
         dummy_engine = MagicMock()
-        data_utils._importar_excel_a_postgres(dummy_engine, "dummy.xlsx", "test_table")
+        utils.data_utils._importar_excel_a_postgres(dummy_engine, "dummy.xlsx", "test_table")
         mock_read_excel.assert_called_with("dummy.xlsx")
         mock_to_sql.assert_called_with(
             name="test_table",
@@ -240,11 +240,11 @@ class TestDataUtils(unittest.TestCase):
             index=False,
         )
 
-    @patch("data_utils.pd.read_excel", side_effect=Exception("read error"))
+    @patch("utils.data_utils.pd.read_excel", side_effect=Exception("read error"))
     def test_importar_excel_a_postgres_failure(self, mock_read_excel):
         dummy_engine = MagicMock()
         with self.assertRaises(Exception) as context_exc:
-            data_utils._importar_excel_a_postgres(dummy_engine, "dummy.xlsx", "test_table")
+            utils.data_utils._importar_excel_a_postgres(dummy_engine, "dummy.xlsx", "test_table")
         self.assertIn("read error", str(context_exc.exception))
 
     # -------------------------------------------------------------------------
@@ -254,7 +254,7 @@ class TestDataUtils(unittest.TestCase):
         fake_ti = MagicMock()
         fake_ti.xcom_pull.return_value = None  # Simulamos que no se recuperó información
         with self.assertRaises(Exception) as context_exc:
-            data_utils.ejecutar_importacion_general_a_postgres(self.cfg, ti=fake_ti)
+            utils.data_utils.ejecutar_importacion_general_a_postgres(self.cfg, ti=fake_ti)
         self.assertIn("No se encontró información válida de insumos", str(context_exc.exception))
 
 

@@ -10,13 +10,42 @@ import sqlalchemy
 
 from utils.utils import leer_configuracion, limpiar_carpeta_temporal
 from utils.gx_utils import _obtener_engine_sqlalchemy
-from utils.db_utils import (
-    ejecutar_sql,
-)
+from utils.db_utils import ejecutar_sql
 
-# ============================================================================
+# ---------------------------------------------------------------------------
+# Funciones auxiliares comunes
+# ---------------------------------------------------------------------------
+
+def descargar_archivo(url, destino, chunk_size=8192, timeout=10):
+    """Descarga el archivo desde URL y lo guarda en destino."""
+    response = requests.get(url, stream=True, timeout=timeout)
+    response.raise_for_status()
+    with open(destino, "wb") as f:
+        for chunk in response.iter_content(chunk_size=chunk_size):
+            f.write(chunk)
+    return destino
+
+def obtener_ruta_local(base_local, ruta_config):
+    """Construye la ruta completa y la valida."""
+    local_path = os.path.join(base_local, ruta_config.lstrip("/"))
+    if os.path.exists(local_path):
+        return local_path
+    raise FileNotFoundError(f"Archivo no encontrado en {local_path}.")
+
+def ejecutar_ogr2ogr(command, error_context):
+    """Ejecuta un comando ogr2ogr y maneja errores de forma centralizada."""
+    try:
+        subprocess.run(command, capture_output=True, text=True, check=True)
+        logging.info(f"Comando ejecutado correctamente: {' '.join(command)}")
+    except subprocess.CalledProcessError as e:
+        msg = f"Error en {error_context}: {e.stderr}"
+        logging.error(msg)
+        raise Exception(msg)
+
+# ---------------------------------------------------------------------------
 # Funciones de descarga y validación de insumos desde la web y respaldo local
-# ============================================================================
+# ---------------------------------------------------------------------------
+
 def obtener_insumos_desde_web(cfg, **context):
     """
     Descarga los insumos definidos en la configuración.
@@ -45,41 +74,29 @@ def obtener_insumos_desde_web(cfg, **context):
         zip_path = os.path.join(temp_folder, f"{key}.zip")
         try:
             logging.info(f"Descargando insumo '{key}' desde {url}...")
-            response = requests.get(url, stream=True, timeout=10)
-            response.raise_for_status()
-            with open(zip_path, "wb") as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    f.write(chunk)
+            descargar_archivo(url, zip_path)
             # Verifica si el archivo descargado está vacío
             if os.path.getsize(zip_path) == 0:
-                logging.warning(f"Insumo '{key}' descargado está vacío. Se usará respaldo local.")
-                os.remove(zip_path)
-                # Intenta recuperar el respaldo local de forma inmediata
-                zip_path = copia_insumo_local(url, key, insumos_local, base_local, "Archivo descargado está vacío.")
-            else:
-                logging.info(f"Insumo '{key}' descargado exitosamente.")
+                raise ValueError("Archivo descargado está vacío.")
+            logging.info(f"Insumo '{key}' descargado exitosamente.")
         except Exception as e:
             logging.warning(f"Error al descargar '{key}': {e}. Se intentará usar respaldo local.")
-            # Intenta recuperar el respaldo local en caso de error
             try:
                 zip_path = copia_insumo_local(url, key, insumos_local, base_local, str(e))
             except Exception as ex:
                 logging.error(f"Fallo al recuperar respaldo local para '{key}': {ex}")
-                zip_path = None
                 errores.append(_crear_error(url, key, insumos_local, base_local, str(ex)))
+                zip_path = None
         resultado[key] = zip_path
 
-    # Opcional: subir información de errores a XCom si se usa en otras tareas
+    # Subir información de errores e insumos a XCom
     context["ti"].xcom_push(key="errores", value=errores)
     context["ti"].xcom_push(key="insumos_web", value=resultado)
     logging.info("Descarga de insumos finalizada.")
     return resultado
 
-
 def _crear_error(url, key, insumos_local, base_local, error_msg):
-    """
-    Crea un diccionario de error para el insumo.
-    """
+    """Crea un diccionario de error para el insumo."""
     return {
         "url": url,
         "key": key,
@@ -87,7 +104,6 @@ def _crear_error(url, key, insumos_local, base_local, error_msg):
         "base_local": base_local,
         "error": error_msg
     }
-
 
 def ejecutar_copia_insumo_local(**context):
     """
@@ -113,7 +129,6 @@ def ejecutar_copia_insumo_local(**context):
 
     context["ti"].xcom_push(key="insumos_local", value=recuperados)
 
-
 def copia_insumo_local(url, key, insumos_local, base_local, error_msg):
     """
     Ante un error en la descarga, intenta buscar el respaldo local.
@@ -128,76 +143,40 @@ def copia_insumo_local(url, key, insumos_local, base_local, error_msg):
         raise FileNotFoundError(msg)
     return zip_path
 
-
 def _validar_archivo_local(key, insumos_local, base_local):
     """
     Verifica que exista un respaldo local para la clave dada y retorna la ruta.
-    
-    Se maneja el caso en el cual el valor en la configuración puede ser:
-      - Directamente una cadena (ruta), o
-      - Un diccionario con subclaves, por lo que se espera que 'key' tenga formato compuesto (e.g. "padre_hijo")
+    Se maneja tanto para clave directa como para claves compuestas (e.g. "padre_hijo").
     """
     logging.info("Iniciando validación de archivo local...")
 
-    # Caso 1: La clave existe directamente y su valor es un string.
+    # Caso 1: Clave directa
     if key in insumos_local and isinstance(insumos_local[key], str):
-        local_zip_path = os.path.join(base_local, insumos_local[key].lstrip("/"))
-        if os.path.exists(local_zip_path):
-            logging.info(f"Usando archivo local para '{key}': {local_zip_path}")
-            logging.info("\033[92m✔ Archivo local validado correctamente.\033[0m")
-            return local_zip_path
-        else:
-            msg = f"Archivo local para '{key}' no encontrado en {local_zip_path}."
-            logging.error(msg)
-            raise FileNotFoundError(msg)
+        logging.info(f"Validando archivo local para '{key}'...")
+        return obtener_ruta_local(base_local, insumos_local[key])
 
-    # Caso 2: La clave es compuesta (contiene un '_') y se busca en estructura anidada.
-    if "_" in key:
-        parent, child = key.split("_", 1)
-        if parent in insumos_local and isinstance(insumos_local[parent], dict):
-            if child in insumos_local[parent]:
-                local_zip_path = os.path.join(base_local, insumos_local[parent][child].lstrip("/"))
-                if os.path.exists(local_zip_path):
-                    logging.info(f"Usando archivo local para '{key}': {local_zip_path}")
-                    logging.info("\033[92m✔ Archivo local validado correctamente.\033[0m")
-                    return local_zip_path
-                else:
-                    msg = f"Archivo local para '{key}' no encontrado en {local_zip_path}."
-                    logging.error(msg)
-                    raise FileNotFoundError(msg)
-            else:
-                msg = f"No se encontró la subclave '{child}' en la configuración para '{parent}'."
-                logging.error(msg)
-                raise FileNotFoundError(msg)
-        else:
-            msg = f"No se encontró entrada local para '{parent}' o su valor no es un diccionario."
-            logging.error(msg)
-            raise FileNotFoundError(msg)
-
-    # Si no se cumple ninguno de los casos anteriores:
     msg = f"No se encontró entrada local para '{key}' en la configuración."
     logging.error(msg)
     raise FileNotFoundError(msg)
 
-# ============================================================================
+# ---------------------------------------------------------------------------
 # Funciones para procesar insumos descargados
-# ============================================================================
+# ---------------------------------------------------------------------------
 
 def procesar_insumos_descargados(cfg, **context):
     """
     Procesa los insumos descargados o copiados localmente:
-      - Para archivos ZIP: si contiene estructura de Excel empaquetado, se copia sin descomprimir y se renombra a .xlsx;
-        en caso contrario se extrae.
-      - Si ocurre un error de BadZipFile se trata el archivo como GeoJSON.
-      - Para archivos Excel (.xls, .xlsx) o GeoJSON (.geojson) se copia a la carpeta temporal.
-      - Archivos de otros formatos se ignoran.
+      - Archivos ZIP: si tienen estructura de Excel empaquetado se copian y renombran a .xlsx; de lo contrario se extraen.
+      - En caso de error de BadZipFile se tratan como GeoJSON.
+      - Archivos Excel (.xls, .xlsx) o GeoJSON (.geojson) se copian a la carpeta temporal.
+      - Otros formatos se omiten.
     Se reportan los resultados mediante XCom.
     """
     logging.info("Iniciando 'procesar_insumos_descargados'...")
     ti = context["ti"]
     temp_folder = cfg["TEMP_FOLDER"]
 
-    # Se recuperan insumos (descargados y/o copiados localmente) desde XCom.
+    # Recupera insumos desde XCom
     insumos_web = ti.xcom_pull(task_ids="Obtener_Insumos_Web", key="insumos_web") or {}
     insumos_local = ti.xcom_pull(task_ids="copia_insumo_local_task", key="insumos_local") or {}
     insumos_totales = {**insumos_web, **insumos_local}
@@ -237,9 +216,8 @@ def procesar_insumos_descargados(cfg, **context):
             logging.warning(f"⚠ Formato '{ext}' no soportado para '{file_path}', se omite.")
 
     ti.xcom_push(key="insumos_procesados", value=resultados)
-    logging.info(f"✔ insumos procesados correctamente: {resultados}")
+    logging.info(f"✔ Insumos procesados correctamente: {resultados}")
     return resultados
-
 
 def _procesar_zip(key, file_path, extract_folder):
     """
@@ -247,12 +225,13 @@ def _procesar_zip(key, file_path, extract_folder):
       - Si contiene estructura de Excel empaquetado se copia y renombra a .xlsx.
       - Si es un ZIP tradicional se extrae el contenido.
       - Si el ZIP es inválido se intenta tratar como GeoJSON.
-    Retorna un diccionario con los detalles del procesamiento.
+    Retorna un diccionario con detalles del procesamiento.
     """
     try:
         logging.info(f"Procesando ZIP '{file_path}'...")
         with zipfile.ZipFile(file_path, 'r') as zip_ref:
             namelist = zip_ref.namelist()
+            # Se detecta Excel empaquetado por la presencia de "[Content_Types].xml" o carpeta "xl/"
             if "[Content_Types].xml" in namelist or any(n.startswith("xl/") for n in namelist):
                 destino = os.path.join(extract_folder, key + ".xlsx")
                 shutil.copy(file_path, destino)
@@ -279,9 +258,9 @@ def _procesar_zip(key, file_path, extract_folder):
         logging.error(msg)
         raise Exception(msg)
 
-# ============================================================================
+# ---------------------------------------------------------------------------
 # Funciones de importación a PostgreSQL
-# ============================================================================
+# ---------------------------------------------------------------------------
 
 def ejecutar_importar_shp_a_postgres(cfg, **kwargs):
     """
@@ -318,11 +297,11 @@ def ejecutar_importar_shp_a_postgres(cfg, **kwargs):
     
     logging.info("\033[92m✔ 'ejecutar_importar_shp_a_postgres' finalizó sin errores.\033[0m")
 
-
 def ejecutar_importacion_general_a_postgres(cfg, **kwargs):
     """
-    Importa archivos SHP, GeoJSON y Excel a PostgreSQL. Se buscan los archivos en la carpeta
-    temporal para cada insumo, o se usa la ruta directa en el caso de Excel en modo especial.
+    Importa archivos SHP, GeoJSON y Excel a PostgreSQL.
+    Se buscan los archivos en la carpeta temporal para cada insumo, o se usa la ruta directa
+    en el caso de Excel en modo especial.
     """
     logging.info("Iniciando 'ejecutar_importacion_general_a_postgres'...")
     ti = kwargs['ti']
@@ -350,7 +329,6 @@ def ejecutar_importacion_general_a_postgres(cfg, **kwargs):
             logging.info(f"[DEBUG] Contenido de '{folder}': {os.listdir(folder)}")
         else:
             logging.warning(f"[DEBUG] La carpeta '{folder}' no existe.")
-            # Si el archivo ya es un Excel directo, se procesa de otra forma.
             archivo_directo = insumo.get("zip_path")
             if archivo_directo and archivo_directo.lower().endswith(".xlsx") and os.path.exists(archivo_directo):
                 logging.info(f"Procesando Excel directo para '{key}': {archivo_directo}")
@@ -386,11 +364,10 @@ def ejecutar_importacion_general_a_postgres(cfg, **kwargs):
 
     logging.info("✔ Importación a PostgreSQL completada correctamente.")
 
-
 def _buscar_archivos_en_carpeta(folder, extensiones):
     """
     Busca recursivamente en 'folder' archivos que terminen con alguna de las extensiones dadas.
-    Solo se retornan archivos existentes con tamaño mayor a 0.
+    Solo retorna archivos existentes con tamaño mayor a 0.
     """
     encontrados = []
     for root, _, files in os.walk(folder):
@@ -401,10 +378,6 @@ def _buscar_archivos_en_carpeta(folder, extensiones):
                     encontrados.append(full_path)
     return encontrados
 
-# ============================================================================
-# Funciones para importar archivos a PostgreSQL utilizando ogr2ogr y Pandas
-# ============================================================================
-
 def _importar_shp_a_postgres(db_config, shp_file, table_name):
     """
     Importa el archivo SHP a PostgreSQL utilizando ogr2ogr sin crear índices espaciales.
@@ -412,28 +385,16 @@ def _importar_shp_a_postgres(db_config, shp_file, table_name):
     logging.info(f"Importando '{shp_file}' en la tabla '{table_name}'...")
     command = [
         "ogr2ogr", "-f", "PostgreSQL",
-        f"PG:host={db_config['host']} port={db_config['port']} "
-        f"dbname={db_config['db_name']} user={db_config['user']} password={db_config['password']}",
+        f"PG:host={db_config['host']} port={db_config['port']} dbname={db_config['db_name']} user={db_config['user']} password={db_config['password']}",
         shp_file,
         "-nln", table_name,
-        "-overwrite",
-        "-progress",
-        "-lco", "GEOMETRY_NAME=geom",
-        "-lco", "FID=gid",
-        "-lco", "SPATIAL_INDEX=NO",  # Esta línea evita la creación de índices espaciales
-        "-nlt", "PROMOTE_TO_MULTI",
-        "-t_srs", "EPSG:9377"
+        "-overwrite", "-progress",
+        "-lco", "GEOMETRY_NAME=geom", "-lco", "FID=gid", "-lco", "SPATIAL_INDEX=NO",
+        "-nlt", "PROMOTE_TO_MULTI", "-t_srs", "EPSG:9377"
     ]
-    try:
-        subprocess.run(command, capture_output=True, text=True, check=True)
-        logging.info(f"Archivo '{shp_file}' importado correctamente en '{table_name}'.")
-        logging.info("\033[92m✔ _importar_shp_a_postgres finalizó sin errores.\033[0m")
-    except subprocess.CalledProcessError as e:
-        msg = f"Error importando '{table_name}' in database '{db_config['db_name']}' : {e.stderr}"
-        logging.error(msg)
-        logging.error("\033[91m❌ _importar_shp_a_postgres falló.\033[0m")
-        raise Exception(msg)
-
+    ejecutar_ogr2ogr(command, f"importar SHP en '{table_name}'")
+    logging.info(f"Archivo '{shp_file}' importado correctamente en '{table_name}'.")
+    logging.info("\033[92m✔ _importar_shp_a_postgres finalizó sin errores.\033[0m")
 
 def _importar_geojson_a_postgres(db_config, geojson_file, table_name):
     """
@@ -442,31 +403,20 @@ def _importar_geojson_a_postgres(db_config, geojson_file, table_name):
     logging.info(f"Importando GeoJSON '{geojson_file}' en '{table_name}'...")
     command = [
         "ogr2ogr", "-f", "PostgreSQL",
-        f"PG:host={db_config['host']} port={db_config['port']} "
-        f"dbname={db_config['db_name']} user={db_config['user']} password={db_config['password']}",
+        f"PG:host={db_config['host']} port={db_config['port']} dbname={db_config['db_name']} user={db_config['user']} password={db_config['password']}",
         geojson_file,
         "-nln", table_name,
-        "-overwrite",
-        "-progress",
-        "-lco", "GEOMETRY_NAME=geom",
-        "-lco", "FID=gid",
-        "-nlt", "PROMOTE_TO_MULTI",
-        "-t_srs", "EPSG:9377"
+        "-overwrite", "-progress",
+        "-lco", "GEOMETRY_NAME=geom", "-lco", "FID=gid",
+        "-nlt", "PROMOTE_TO_MULTI", "-t_srs", "EPSG:9377"
     ]
-    try:
-        subprocess.run(command, capture_output=True, text=True, check=True)
-        logging.info(f"\033[92m✔ GeoJSON '{geojson_file}' importado correctamente en '{table_name}'.\033[0m")
-    except subprocess.CalledProcessError as e:
-        msg = f"Error importando GeoJSON en '{table_name}': {e.stderr}"
-        logging.error(f"\033[91m❌ _importar_geojson_a_postgres falló: {e.stderr}\033[0m")
-        raise Exception(msg)
+    ejecutar_ogr2ogr(command, f"importar GeoJSON en '{table_name}'")
+    logging.info(f"\033[92m✔ GeoJSON '{geojson_file}' importado correctamente en '{table_name}'.\033[0m")
 
-    
 def _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name, schema="insumos"):
     """
     Importa un archivo Excel a PostgreSQL.
-    Si el directorio ETL contiene 'ETL_AP', se utiliza la función import_excel_to_db;
-    en caso contrario se utiliza pandas para leer y enviar los datos.
+    Dependiendo del directorio ETL se utiliza una función específica o se usa pandas.
     """
     config = leer_configuracion(cfg)
     db_config = config["db"]
@@ -488,7 +438,7 @@ def _importar_excel_a_postgres(cfg, engine, xlsx_file, table_name, schema="insum
         msg = f"Error importando Excel '{xlsx_file}': {e}"
         logging.error(msg)
         raise Exception(msg)
-    
+
 def import_excel_to_db2(db_config, excel_path, table_name, sheet_name=None):
     """Importa Excel a 'insumos.table_name' usando pandas (logs estilo RL2)."""
     logging.info(f"Iniciando import_excel_to_db para {excel_path} en tabla insumos.{table_name}...")
@@ -500,7 +450,6 @@ def import_excel_to_db2(db_config, excel_path, table_name, sheet_name=None):
         logging.error("\033[91m❌ import_excel_to_db falló.\033[0m")
         raise e
 
-    # Filtrado particular si es "informacion_area_reserva" con "Actos"
     if table_name == "informacion_area_reserva" and sheet_name == "Actos":
         cond1 = (df["Categoría de manejo"] == "Reservas Forestales Protectoras Nacionales")
         cond2 = df["Tipo de acto administrativo"].isin(["Acuerdos", "Resolución"])
@@ -520,7 +469,6 @@ def import_excel_to_db2(db_config, excel_path, table_name, sheet_name=None):
         logging.error("\033[91m❌ import_excel_to_db falló.\033[0m")
         raise e
 
-
 def import_excel_to_db(db_config, excel_file, key):
     """
     Lee las hojas "General" y "Actos" de un archivo Excel, realiza un merge LEFT basado en 
@@ -528,7 +476,6 @@ def import_excel_to_db(db_config, excel_file, key):
     """
     logging.info(f"Iniciando import_excel_to_db para {excel_file} en insumo '{key}'...")
 
-    # Leer la hoja "General"
     try:
         df_general = pd.read_excel(excel_file, sheet_name="General", index_col=None).reset_index(drop=True)
         logging.info(f"Hoja 'General' leída con {len(df_general)} filas.")
@@ -537,7 +484,6 @@ def import_excel_to_db(db_config, excel_file, key):
         logging.error(msg)
         raise Exception(msg)
 
-    # Leer la hoja "Actos"
     try:
         df_actos = pd.read_excel(excel_file, sheet_name="Actos", index_col=None).reset_index(drop=True)
         logging.info(f"Hoja 'Actos' leída con {len(df_actos)} filas.")
@@ -546,7 +492,6 @@ def import_excel_to_db(db_config, excel_file, key):
         logging.error(msg)
         raise Exception(msg)
 
-    # Valores válidos para "Objeto del acto"
     valid_objetos = ["Declaratoria", "Registro RNSC", "Declaratoria y adopcion de plan de manejo"]
 
     def choose_row(group):
@@ -571,8 +516,7 @@ def import_excel_to_db(db_config, excel_file, key):
 
     table_name = f"insumos.{shorten_identifier(key)}_excel"
     engine = sqlalchemy.create_engine(
-        f"postgresql://{db_config['user']}:{db_config['password']}@"
-        f"{db_config['host']}:{db_config['port']}/{db_config['db_name']}"
+        f"postgresql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['db_name']}"
     )
     try:
         df_merged.to_sql(table_name.split('.')[-1], engine, schema="insumos", if_exists="replace", index=False)
@@ -582,18 +526,15 @@ def import_excel_to_db(db_config, excel_file, key):
         logging.error(msg)
         raise Exception(msg)
 
-
 def shorten_identifier(identifier):
     """
     Convierte una cadena eliminando caracteres no válidos y pasándola a minúsculas.
     """
     return re.sub(r'\W+', '_', identifier).lower()
 
-
 def crear_cruce_area_reserva_directo(cfg):
     """
     Crea la tabla insumos.cruce_area_reserva uniendo area_reserva_* con insumos.informacion_area_reserva.
-    (Logs estilo RL2)
     """
     logging.info("Iniciando crear_cruce_area_reserva_directo...")
     drop_sql = "DROP TABLE IF EXISTS insumos.cruce_area_reserva CASCADE;"
@@ -602,70 +543,67 @@ def crear_cruce_area_reserva_directo(cfg):
     sql_script = r"""
     DO $$
     DECLARE
-    rec record;
-    col_name text;
-    sql_text text := '';
-    first_table boolean := true;
+        rec record;
+        col_name text;
+        sql_text text := '';
+        first_table boolean := true;
     BEGIN
-    FOR rec IN
-        SELECT table_name
-        FROM information_schema.tables
-        WHERE table_schema = 'insumos'
-        AND table_name LIKE 'area_reserva_%'
-        ORDER BY table_name
-    LOOP
-        SELECT CASE 
-                WHEN EXISTS (
-                SELECT 1 FROM information_schema.columns 
-                WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='ap_id'
-                ) THEN 'ap_id'
-                WHEN EXISTS (
-                SELECT 1 FROM information_schema.columns 
-                WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='apid'
-                ) THEN 'apid'
-                WHEN EXISTS (
-                SELECT 1 FROM information_schema.columns 
-                WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='idpnn'
-                ) THEN 'idpnn'
-                ELSE NULL
-            END INTO col_name;
+        FOR rec IN
+            SELECT table_name
+            FROM information_schema.tables
+            WHERE table_schema = 'insumos'
+              AND table_name LIKE 'area_reserva_%'
+            ORDER BY table_name
+        LOOP
+            SELECT CASE 
+                    WHEN EXISTS (
+                        SELECT 1 FROM information_schema.columns 
+                        WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='ap_id'
+                    ) THEN 'ap_id'
+                    WHEN EXISTS (
+                        SELECT 1 FROM information_schema.columns 
+                        WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='apid'
+                    ) THEN 'apid'
+                    WHEN EXISTS (
+                        SELECT 1 FROM information_schema.columns 
+                        WHERE table_schema='insumos' AND table_name=rec.table_name AND column_name='idpnn'
+                    ) THEN 'idpnn'
+                    ELSE NULL
+                END INTO col_name;
 
-        IF col_name IS NULL THEN
-        RAISE NOTICE 'La tabla % no tiene columna de identificación; se omite.', rec.table_name;
-        ELSE
-        IF first_table THEN
-            sql_text := sql_text || format($f$
-            CREATE TABLE insumos.cruce_area_reserva AS
-            SELECT
-                t.gid,
-                ST_Force2D(t.geom) AS geom,
-                COALESCE((t.%I)::text, '') AS ap_id_norm,
-                i.*
-            FROM insumos.%I t
-            LEFT JOIN insumos.informacion_area_reserva i
-                ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
-            $f$, col_name, rec.table_name, col_name);
-
-            first_table := false;
-        ELSE
-            sql_text := sql_text || format($f$
-            INSERT INTO insumos.cruce_area_reserva
-            SELECT
-                t.gid,
-                ST_Force2D(t.geom) AS geom,
-                COALESCE((t.%I)::text, '') AS ap_id_norm,
-                i.*
-            FROM insumos.%I t
-            LEFT JOIN insumos.informacion_area_reserva i
-                ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
-            $f$, col_name, rec.table_name, col_name);
-        END IF;
-        END IF;
-    END LOOP;
-
-    EXECUTE sql_text;
+            IF col_name IS NULL THEN
+                RAISE NOTICE 'La tabla % no tiene columna de identificación; se omite.', rec.table_name;
+            ELSE
+                IF first_table THEN
+                    sql_text := sql_text || format($f$
+                        CREATE TABLE insumos.cruce_area_reserva AS
+                        SELECT
+                            t.gid,
+                            ST_Force2D(t.geom) AS geom,
+                            COALESCE((t.%I)::text, '') AS ap_id_norm,
+                            i.*
+                        FROM insumos.%I t
+                        LEFT JOIN insumos.informacion_area_reserva i
+                            ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
+                    $f$, col_name, rec.table_name, col_name);
+                    first_table := false;
+                ELSE
+                    sql_text := sql_text || format($f$
+                        INSERT INTO insumos.cruce_area_reserva
+                        SELECT
+                            t.gid,
+                            ST_Force2D(t.geom) AS geom,
+                            COALESCE((t.%I)::text, '') AS ap_id_norm,
+                            i.*
+                        FROM insumos.%I t
+                        LEFT JOIN insumos.informacion_area_reserva i
+                            ON COALESCE((t.%I)::text, '')::bigint = i."Id del área protegida";
+                    $f$, col_name, rec.table_name, col_name);
+                END IF;
+            END IF;
+        END LOOP;
+        EXECUTE sql_text;
     END $$;
-
     """
     ejecutar_sql(cfg, sql_script)
     logging.info("Tabla insumos.cruce_area_reserva creada exitosamente (directo).")

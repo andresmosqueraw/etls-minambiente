@@ -237,188 +237,188 @@ expectations:
     - "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_y"
     exact_match: true
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Id del \xE1rea protegida"
     type_: int
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: bigint
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "\xC1mbito de gesti\xF3n"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: Nombre de la autoridad ambiental_x
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: NIT de la autoridad ambiental
     type_: int
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: bigint
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Nombre del \xE1rea protegida_x"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Categor\xEDa de manejo_x"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Categor\xEDa UICN"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n total acto administrativo en hect\xE1reas"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n terrestre acto administrativo en hect\xE1reas_x"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_x"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n terrestre geogr\xE1fica en hect\xE1reas"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n mar\xEDtima geogr\xE1fica en hect\xE1reas"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n total geogr\xE1fica en hect\xE1reas"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Fecha de inscripci\xF3n"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "\xDAltima fecha de solicitud de validaci\xF3n"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "\xDAltima fecha de validaci\xF3n tem\xE1tica exitosa"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "\xDAltima fecha de validaci\xF3n geogr\xE1fica exitosa"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: Nombre de la autoridad ambiental_y
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Nombre del \xE1rea protegida_y"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Categor\xEDa de manejo_y"
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: Tipo de acto administrativo
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: Objeto del acto
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "N\xFAmero del acto"
     type_: int
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: bigint
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: Fecha del acto
     type_: str
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: text
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n terrestre acto administrativo en hect\xE1reas_y"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 - expectation_type: expect_column_values_to_be_of_type
   kwargs:
     column: "Extensi\xF3n mar\xEDtima acto administrativo en hect\xE1reas_y"
     type_: float
   meta:
-    table: "informaci\xF3n_runap_excel"
+    table: informacion_runap_excel
     postgres_type: double precision
 meta:
   great_expectations_version: 0.15.50

@@ -272,7 +272,7 @@ END AS uab_estado,
 FROM 
     insumos.area_protegida ap
 INNER JOIN 
-    insumos.información_runap_excel info
+    insumos.informacion_runap_excel info
     ON ap.ap_id = info."Id del área protegida";
 
 /*========================================
@@ -292,7 +292,7 @@ SELECT
 	COALESCE(ap.area_ha__3::varchar, '0') AS ue_area_terrestre_ha,
 	COALESCE(ap.area_ha__2::varchar, '0') AS ue_area_maritima_ha
 FROM insumos.area_protegida ap
-INNER JOIN insumos.información_runap_excel info
+INNER JOIN insumos.informacion_runap_excel info
 	ON ap.ap_id = info."Id del área protegida";
 
 /*========================================
