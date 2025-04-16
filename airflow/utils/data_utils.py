@@ -17,13 +17,11 @@ from utils.db_utils import (
 # ============================================================================
 # Funciones de descarga y validación de insumos desde la web y respaldo local
 # ============================================================================
-
 def obtener_insumos_desde_web(cfg, **context):
     """
     Descarga los insumos definidos en la configuración.
-    Si falla la descarga, se valida la existencia de un respaldo local.
-    Retorna un diccionario con { clave: ruta_zip } y utiliza XCom para comunicar
-    errores y resultados.
+    Si falla la descarga o el archivo descargado está vacío, se intenta recuperar el respaldo local.
+    Retorna un diccionario con { clave: ruta_zip } y utiliza XCom para comunicar errores y resultados.
     """
     logging.info("Iniciando 'obtener_insumos_desde_web'...")
     limpiar_carpeta_temporal(cfg)
@@ -52,23 +50,29 @@ def obtener_insumos_desde_web(cfg, **context):
             with open(zip_path, "wb") as f:
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)
+            # Verifica si el archivo descargado está vacío
             if os.path.getsize(zip_path) == 0:
                 logging.warning(f"Insumo '{key}' descargado está vacío. Se usará respaldo local.")
                 os.remove(zip_path)
-                errores.append(_crear_error(url, key, insumos_local, base_local, "Archivo descargado está vacío."))
-                zip_path = None
+                # Intenta recuperar el respaldo local de forma inmediata
+                zip_path = copia_insumo_local(url, key, insumos_local, base_local, "Archivo descargado está vacío.")
             else:
                 logging.info(f"Insumo '{key}' descargado exitosamente.")
         except Exception as e:
-            logging.warning(f"Error al descargar '{key}'. Se intentará usar respaldo local: {e}")
-            errores.append(_crear_error(url, key, insumos_local, base_local, str(e)))
-            zip_path = None
-
+            logging.warning(f"Error al descargar '{key}': {e}. Se intentará usar respaldo local.")
+            # Intenta recuperar el respaldo local en caso de error
+            try:
+                zip_path = copia_insumo_local(url, key, insumos_local, base_local, str(e))
+            except Exception as ex:
+                logging.error(f"Fallo al recuperar respaldo local para '{key}': {ex}")
+                zip_path = None
+                errores.append(_crear_error(url, key, insumos_local, base_local, str(ex)))
         resultado[key] = zip_path
 
+    # Opcional: subir información de errores a XCom si se usa en otras tareas
     context["ti"].xcom_push(key="errores", value=errores)
     context["ti"].xcom_push(key="insumos_web", value=resultado)
-    logging.info("Descarga de insumos finalizada (se manejarán los insumos con error en otra tarea).")
+    logging.info("Descarga de insumos finalizada.")
     return resultado
 
 
