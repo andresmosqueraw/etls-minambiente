@@ -22,8 +22,8 @@
 		"sustracciones": "https://hub.arcgis.com/api/v3/datasets/97c9a768736a468dab87ea38dda7f210_3/downloads/data?format=shp&spatialRefId=3857&where=1%3D1"
 	},
 	"insumos_local": {
-		"area_reserva": "/insumos/Area Reserva/_Reserva_Forestal_Protectora_Productora_Cuenca_Alta_del_Rio_Bogot%C3%A1_Escala_1%3A100.000.zip",
-		"compensaciones": "/insumos/Compensación/COMP_SUSTR_RESERVAS_20240815.zip",
-		"sustracciones": "/insumos/Sustracción/Sustracciones_de_Reserva_Forestal_Protectora_Productora_Cuenca_Alta_del_Rio_Bogot%C3%A1_Escala_1%3A100.000.zip"
+		"area_reserva": "/insumos/area_reserva/_reserva_forestal_protectora_productora_cuenca_alta_del_rio_bogot%c3%a1_escala_1%3a100.000.zip",
+		"compensaciones": "/insumos/compensacion/comp_sustr_reservas_20240815.zip",
+		"sustracciones": "/insumos/sustraccion/sustracciones_de_reserva_forestal_protectora_productora_cuenca_alta_del_rio_bogot%c3%a1_escala_1%3a100.000.zip"
 	}		
 }

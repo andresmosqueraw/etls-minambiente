@@ -11,8 +11,8 @@ from airflow.operators.python import PythonOperator
 
 # ------------------- CONFIGURACIÓN -------------------
 
-CONFIG_PATH = "/opt/airflow/otl/etl/etl_ap/config.json"
-OUTPUT_YML_FOLDER = "/opt/airflow/otl/etl/etl_ap/dags_ap/gx/"
+CONFIG_PATH = "/opt/airflow/otl/etl/etl_rfpn/config.json"
+OUTPUT_YML_FOLDER = "/opt/airflow/otl/etl/etl_rfpn/dags_rfpn/gx/"
 SCHEMAS = ["insumos", "estructura_intermedia", "ladm"]
 
 # Mapeo simple de Postgres -> GE
@@ -64,7 +64,7 @@ def generar_suite_ge_por_esquema(schema):
     db_password = db_config["password"]
     db_host = db_config["host"]
     db_port = db_config["port"]
-    db_name="arfw_etl_ap"
+    db_name="arfw_etl_rfpn"
 
     DB_CONNECTION_STRING_GE = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
 
@@ -160,7 +160,7 @@ default_args = {
 }
 
 with DAG(
-    "ge_validate_schema_ap",
+    "ge_validate_schema_rfpn",
     default_args=default_args,
     schedule_interval=None,
     catchup=False

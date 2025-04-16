@@ -85,7 +85,7 @@
 	"insumos_local": {
 		"compensaciones": "insumos/compensacion/comp_sustr_reservas_20240815.zip",
 		"sustracciones": "insumos/sustraccion/sustracciones_de_reservas_forestales_protectoras_nacionales_escala_1%3a100.000.zip",
-		"zonificacion_rio_nare": "insumos/zonificacion/Rio Nare/Resolucion1510_2010_RFPN Rio Nare.zip",
+		"zonificacion_rio_nare": "insumos/zonificacion/rio_nare/resolucion1510_2010_rfpn_rio_nare.zip",
 		"zonificacion_bosque_oriental_de_bogota": "insumos/zonificacion/bosque_oriental_de_bogota/res1766_2016_rfpn_bob.zip",
 		"zonificacion_quebrada_honda_y_canos_parrado_y_buque": "insumos/zonificacion/quebrada_honda_y_canos_parrado_y_buque/resolucion_1762_de_2014–rfpn_qhycpyb.zip",
 		"area_reserva_bosque_oriental_de_bogota": "/insumos/area_reserva/bosque_oriental_de_bogota_2411.zip",

@@ -24,10 +24,10 @@
 		"zonificacion_ley2": "https://www.arcgis.com/sharing/rest/content/items/3d2b7c951c494feab3549410f592512b/data"
 	},
 	"insumos_local": {
-		"area_reserva_ley2": "/insumos/Area Reserva/Reservas_ley2_Noviembre_2023.zip",
-		"compensacion_ley2": "/insumos/Compensación/COMP_SUSTR_RESERVAS_20240815.zip",
-		"sustracciones_temporales_ley2": "/insumos/Sustracción/Sustracciones_Temporales_Ley2_septiembre_2021.zip",
-		"sustracciones_definitivas_ley2": "/insumos/Sustracción/Sustracciones_definitivas_Ley2_Septiembre_2023.zip",
-		"zonificacion_ley2": "/insumos/Zonificación/Zonificacion_Ley2_Septiembre_2023.zip"
+		"area_reserva_ley2": "/insumos/area_reserva/reservas_ley2_noviembre_2023.zip",
+		"compensacion_ley2": "/insumos/compensacion/comp_sustr_reservas_20240815.zip",
+		"sustracciones_temporales_ley2": "/insumos/sustraccion/sustracciones_temporales_ley2_septiembre_2021.zip",
+		"sustracciones_definitivas_ley2": "/insumos/sustraccion/sustracciones_definitivas_ley2_septiembre_2023.zip",
+		"zonificacion_ley2": "/insumos/zonificacion/zonificacion_ley2_septiembre_2023.zip"
 	}
 }
