@@ -97,12 +97,6 @@ coverage html
 #######################################
 TASKS
 #######################################
-dejar todo en minuscula
-
-###########################
-# TESTS
-###########################
-Validar tests y coverages. voy hacer esto mientrass
 
 ##########################################
 # Archivo de configuración
